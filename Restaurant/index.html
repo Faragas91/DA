@@ -2,6 +2,9 @@
     <head>
         <title>Mein Restaurant</title>
         <style>
+        html {
+                scroll-behavior: smooth;
+            }
             .myBody {
                 margin: 0px;
                 font-family: 'Open Sans', sans-serif;
@@ -19,7 +22,7 @@
             .maincontainer {
                 background-color: rgba(0, 0, 0,);
                 position: absolute;
-                top: 0px;
+                top: 100px;
                 left: 0px;
                 right: 0px;
                 height: 500px;
@@ -57,6 +60,35 @@
                 text-decoration: underline;
                 color: orange;
             }
+            .headline {
+                color: #EDBB0A;
+                font-size: 54px;
+                filter: drop-shadow(2px 6px 8px rgba(0,0,0,0.5));
+            }
+            .menu {
+                position: absolute;
+                top: 32px;
+                right: 100px;
+                font-size: 24px;
+            }
+            .menu a {
+                color: white;
+                text-decoration: none;
+                font-weight: bold;
+                margin-left: 32px;
+                filter: drop-shadow(2px 6px 8px rgba(0,0,0,0.5));
+            }
+            .menu a:hover {
+                color: #EDBB0A;
+            }
+            .order-button {
+                color: black !important;
+                background-color: #EDBB0A;
+                padding: 16px;
+            }
+            .order-button:hover {
+                background-color: #e8c755
+            }
 
         </style>
 
@@ -69,9 +101,15 @@
         <body class="myBody">
             <img class="atf-image" src="./img/aot.jpg">
             <div class="maincontainer">
-                <h1>Herzlich Willkommen</h1>
+                <h1 class="headline">Herzlich Willkommen</h1>
                 Hier findest du einen Überblick über unsere Speisen
             </div>
+            <div class="menu">
+                <a href="#contact" >RESERVIEREN</a>
+                <a class="order-button" href="#">BESTELL ONLINE</a>
+                <a href="#contact">KONTAKT</a>
+                <a href="#adress">ANFAHRT</a>
+            </div>    
             <div class="subcontainer">
                 <h2 class="pacifico">Unsere Öffnungszeiten</h2>
 
@@ -90,7 +128,7 @@
                     </tr>
                 </table> 
             </div>
-            <div class="subcontainer">
+            <div class="subcontainer" id="adress">
                 <h2 class="pacifico">Anfahrt</h2>
                 Unsere Adresse lautet: Rosenheimer Str. 139, 81379 München
                 <iframe class="googlemaps" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5326.547169220674!2d11.599414076766951!3d48.12424715208866!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479ddf8378e729b3%3A0x597089178dfbfc81!2sRosenheimer%20Str.%20139%2C%2081671%20M%C3%BCnchen%2C%20Deutschland!5e0!3m2!1sde!2sat!4v1721321080234!5m2!1sde!2sat" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> <br/>              
@@ -121,7 +159,7 @@
                 </table>
                 Jetzt die Speisekarte <a href="./downloads/Speisekarte.pdf" target="_blank">herunterladen</a>
             </div>
-            <div class="subcontainer">
+            <div class="subcontainer" id="contact">
                 <h2 class="pacifico">Kontakt</h2>
                 So kannst du uns kontaktieren: <br/>
                 Telefonnummer: <a href="tel:273810927">273810927</a> <br/>
