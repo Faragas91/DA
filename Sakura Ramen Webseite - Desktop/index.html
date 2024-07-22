@@ -5,18 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sakura Ramen</title>
     <style>
+
+        body { 
+            font-family: "Raleway", sans-serif;
+        }
         .maincontainer {
-            background-color: rgba(0, 0, 0,);
             position: absolute;
             top: 100px;
             left: 0px;
             right: 0px;
-            height: 500px;
+            height: 300px;
             color: white;
             display: flex;
-            justify-self: center;
+            justify-content: center;
             align-items: center;
             flex-direction: column;
+        }
+        .economica-bold {
+            font-family: "Economica", sans-serif;
+            font-weight: 700;
+            font-style: normal;
         }
         .atf-image {
             width: 100%;
@@ -27,11 +35,16 @@
             font-size: 96px;
             font-weight: bold;
             text-align: center;
-            color: rgb(194, 28, 28);
+            margin-bottom: 10px;
+        }
+        .subheadline {
+            font-size: 24px;
+            margin-bottom: 0;
+            margin-top: 0;
         }
         .header {
             position: absolute;
-            top: 32px;
+            top: 0;
             left: 0;
             right: 0;
             height: 100px;
@@ -39,40 +52,75 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 16px;
-
+            padding: 0 20px; 
         }
         .order-button {
-            background-image: url("./Sakura Ramen Webseite - Desktop/assets/img/1_hero/PNG/phone.png");
+            display: flex;
+            align-items: center;
             background-repeat: no-repeat;
-            padding-left: 30px;
-            display: block;
-            color: black !important;
-            background-color: #ed0a0a;
-            padding: 16px;
+            text-decoration: none;
+            color: white;
+            background-color: brown;
+            margin-right: 112px; 
+        }
+        .order-button::before {
+            content: "";
+            display: inline-block;
+            width: 24px; 
+            height: 24px; 
+            background-image: url("./Sakura Ramen Webseite - Desktop/assets/img/1_hero/PNG/phone.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            margin-right: 8px; 
+        }
+        .Sakura_logo img {
+            width: 64px;
+            height: 64px;
+            margin-left: 112px;
+            align-items: center;
+        }
+        nav {
+            display: flex;
+            align-items: center;
+        }
+        nav a {
+            margin-right: 20px;
+            text-decoration: none;
+            color: white;
+        }
+        .how-to-order {
+
         }
     </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Economica:ital,wght@0,400;0,700;1,400;1,700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <img class="atf-image" src="./Sakura Ramen Webseite - Desktop/assets/img/1_hero/JPG/hero_bg.jpg">
-        <div class="maincontainer">
-    <h1 class="headline">Sakura Ramen</h1>  
-    THE BEST RAMEN IN TOWN
+    <div class="maincontainer">
+        <h1 class="headline">Sakura Ramen</h1>
+        <span class="subheadline">THE BEST RAMEN IN TOWN</span>
     </div>
     <div class="header">
-        <img class="atf-image" src="./Sakura Ramen Webseite - Desktop\assets\img\1_hero\PNG\sakura_logo.png">
-        <a href="#contact" >MENU</a>
-        <a href="#">LOCATION</a>
-        <a href="#contact">ABOUT</a>
-        <a class="order-button" href="#adress" >0176 54564534</a>
-       
-    </div>    
-    
-    <h2>How to order</h2>
+        <div class="Sakura_logo">
+            <img src="./Sakura Ramen Webseite - Desktop/assets/img/1_hero/PNG/sakura_logo.png" alt="Sakura Logo">
+        </div>
+        <nav>
+            <a href="#contact">MENU</a>
+            <a href="#">LOCATION</a>
+            <a href="#contact">ABOUT</a>
+            <a class="order-button" href="#adress">0176 54564534</a>
+        </nav>
+    </div>
+    <div class="how_to_order">
+        <h2>How to order</h2>
+    </div>
     
     <h2>Our Menu</h2>
     <h2>Find us at</h2>
-
 </body>
 </html>
-
