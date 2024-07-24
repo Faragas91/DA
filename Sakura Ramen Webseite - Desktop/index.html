@@ -88,11 +88,13 @@
             text-decoration: none;
             color: white;
         }
-        .how-to-order {
+        .how-to-order-and-menu-title {
             display: flex;
+            flex-direction: column;
             font-size: 80px;
             font-weight: bold;
             justify-content: center;
+            align-items: center;
             color: brown;
             margin-bottom: 64px;
         }
@@ -107,11 +109,34 @@
             align-items: center;
             justify-content: space-around;
             margin: 16px;
+            width: 128px;
         }
         .food-description {
             font-size: 56px; 
             margin-top: 10px;
+            width: 128px;
+            margin-bottom: 120px;
         }
+        .menu {
+            display: flex;
+            background-image: url("./Sakura Ramen Webseite - Desktop/assets/img/3_section_our_menu/JPG/section_our_menu_bg.jpg");
+            font-size: 80px;
+            margin-top: 120px;
+            justify-content: center;
+        }
+        .menu-picture-one {
+            display: flex;
+            justify-content: flex-start;
+            width: 300px;
+            height: 200px;
+        }
+        .menu-picture-two {
+            
+        }
+        .menu-picture-three {
+            
+        }
+
     </style>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -138,7 +163,7 @@
         </nav>
     </div>
     <div>
-    <div class="how-to-order">
+    <div class="how-to-order-and-menu-title">
         <h2>How to order</h2>
     </div>
     <div class="food-container">
@@ -161,8 +186,29 @@
             </div>
         </div>
     </div>
-    
-    <h2>Our Menu</h2>
-    <h2>Find us at</h2>
+
+    <div class="menu">
+        <div class="how-to-order-and-menu-title">
+            <h2>Our Menu</h2>
+            <div class="menu-picture-one">
+                <img src="./Sakura Ramen Webseite - Desktop/assets/img/3_section_our_menu/Png/R1.png">
+                <div>
+                    <table id="table1">
+                        <tbody>
+                            <tr class="row-1">
+                                <td class="column-1">"something"</td><td class="column-2">something</td>
+
+                    
+                                
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
 </body>
 </html>
