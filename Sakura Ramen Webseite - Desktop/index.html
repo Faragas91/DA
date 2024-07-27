@@ -5,16 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sakura Ramen</title>
     <style>
-
         body { 
             font-family: "Raleway", sans-serif;
+            height: 100%;
+            margin: 0;
+        }
+        h3 {
+            font-size: 24px;
+            margin-bottom: 64px;
+            margin-top: 0;
+            float: right;
+        }
+        h2 {
+            margin-bottom: 0;
         }
         .maincontainer {
             position: absolute;
             top: 100px;
             left: 0px;
             right: 0px;
-            height: 300px;
+            height: 65%;
             color: white;
             display: flex;
             justify-content: center;
@@ -30,7 +40,7 @@
         }
         .atf-image {
             width: 100%;
-            height: auto;
+            height: 100vh;
             object-fit: cover;
         }
         .headline {
@@ -64,6 +74,8 @@
             color: white;
             background-color: #9F0908;
             margin-right: 112px; 
+            border-radius: 12px;
+            border-style: solid;
         }
         .order-button::before {
             content: "";
@@ -92,9 +104,7 @@
         }
         .how-to-order-and-menu-title {
             display: flex;
-            flex-direction: column;
             font-size: 80px;
-            font-weight: bold;
             justify-content: center;
             align-items: center;
             color: #9F0908;
@@ -102,41 +112,42 @@
         }
         .food-container {
             display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
+            justify-content: space-evenly;
+            margin-bottom: 120px;
+            margin-left: 80px;
         }
         .food-icon {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: space-around;
+            justify-content: space-evenly;
             margin: 16px;
-            width: 128px;
+        }
+        .food-icon img.food-img {
+            width: 128px; 
+            height: auto; 
+            display: block;
         }
         .food-description {
             font-size: 56px; 
             margin-top: 10px;
-            width: 128px;
-            margin-bottom: 120px;
         }
         .menu {
             background-image: url("./Sakura Ramen Webseite - Desktop/assets/img/3_section_our_menu/JPG/section_our_menu_bg.jpg"); 
         }
-        .menu-frame {
-            
-        }
         .menu-item {
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-around;
             margin-bottom: 56px;
         }
         .menu-item img {
             width: 352px;
             height: 352px;
-            margin-right: 80px;
-            margin-left: 80px;
             margin-bottom: 56px;
+        }
+        table {
+            width: 35%;
         }
         .price {
             font-size: 32px;
@@ -144,7 +155,26 @@
             color: #675E54;
             padding-top: 16px;
             padding-bottom: 8px;
-        }   
+        }
+        .find-us-at {
+            display: flex;
+            font-size: 80px;
+            justify-content: center;
+            align-items: center;
+            color: #9F0908;
+            margin-bottom: 8px;
+        }
+        .googlemaps {
+                height: 350px;
+                width: 100%;
+        }
+        .map-marker {
+            float: left;
+            background-image: url("./Sakura Ramen Webseite - Desktop/Sakura Ramen Webseite - Desktop/assets/img/4_section_find_us_at/PNG/map_marker.png");
+
+        }
+
+
     </style>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -172,31 +202,31 @@
     </div>
     <div>
         <div class="how-to-order-and-menu-title">
-            <h2>How to order</h2>
+            <h2>HOW TO ORDER</h2>
         </div>
         <div class="food-container">
             <div class="food-icon">
-                <img src="./Sakura Ramen Webseite - Desktop/assets/img/2_section_how_to_order/PNG/noodle.png">
+                <img class="food-img" src="./Sakura Ramen Webseite - Desktop/assets/img/2_section_how_to_order/PNG/noodle.png">
                 <div>
-                    <span class="food-description economica-bold">Pick your brath</span>
+                    <span class="food-description economica-bold">Pick your<br> brath</span>
                 </div>
             </div>
             <div class="food-icon">
-                <img src="./Sakura Ramen Webseite - Desktop/assets/img/2_section_how_to_order/PNG/broth.png">
+                <img class="food-img" src="./Sakura Ramen Webseite - Desktop/assets/img/2_section_how_to_order/PNG/broth.png">
                 <div>
-                    <span class="food-description economica-bold">Pick your broth</span>
+                    <span class="food-description economica-bold">Pick your<br> broth</span>
                 </div>
             </div>
             <div class="food-icon">
-                <img src="./Sakura Ramen Webseite - Desktop/assets/img/2_section_how_to_order/PNG/egg.png">
+                <img class="food-img" src="./Sakura Ramen Webseite - Desktop/assets/img/2_section_how_to_order/PNG/egg.png">
                 <div>
-                    <span class="food-description economica-bold">Add your toppings</span>
+                    <span class="food-description economica-bold">Add your<br> toppings</span>
                 </div>
             </div>
         </div>
         <div class="menu">
             <div class="how-to-order-and-menu-title">
-                <h2>Our Menu</h2>
+                <h2>OUR MENU</h2>
             </div>
             <div class="menu-item">
                 <img src="./Sakura Ramen Webseite - Desktop/assets/img/3_section_our_menu/Png/R1.png" alt="Tonkotsu Ramen">
@@ -266,5 +296,15 @@
             </div>
         </div>
     </div>
+    </div>
+    <div class="find-us-at">
+        <h2>FIND US AT</h2>
+    </div>
+    <div>
+        <img src="./Sakura Ramen Webseite - Desktop/assets/img/4_section_find_us_at/PNG/map_marker.png" alt="Map Marker">
+        <h3>Kapuzinerstraße 31, München, 80337</h3>
+    </div> 
+        
+
 </body>
 </html>

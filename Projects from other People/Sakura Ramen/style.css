@@ -1,0 +1,274 @@
+* {
+    margin: 0;
+    --default-text: #000000;
+    --h2-text: #9F0908;
+    --dish-price-text: #675E54;
+    --footer: #0A141E;
+    --h2o-bg-color: antiquewhite;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+}
+
+h1, h2 {
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 96px;
+    color: white;
+}
+
+h2 {
+    font-size: 80px;
+    color: var(--h2-text);
+}
+
+h3 {
+    font-family: "Economica", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 56px;
+}
+
+.dish-info {
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 32px;
+    color: var(--dish-price-text);
+    margin-top: 16px;
+}
+
+.title-center {
+    display: flex;
+    justify-content: center;
+}
+
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 112px;
+    display: flex;
+    flex-direction: row;
+    z-index: 1;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sakura-logo {
+    height: 64px;
+    width: 64px;
+    padding-left: 160px;
+}
+
+.navbar-btns {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    padding-right: 160px;
+}
+
+.navbar-items {
+    text-decoration: none;
+    color: white;
+    padding-left: 3vw;
+    transition: color 0.5s;
+}
+
+.navbar-items:hover {
+    color: var(--h2-text);
+}
+
+.navbar-tel {
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: #9F0908;
+    border-style: solid;
+    border-radius: 12px;
+    padding: 5px;
+    border-color: white;
+    text-decoration: none;
+    color: white;
+    margin-left: 3vw;
+    transition: background-color 0.5s ease 0s;
+}
+
+.navbar-tel:hover {
+    background-color: #f54a4a;
+}
+
+#hero {
+    height: 100vh;
+    background-image: url(img/1_hero/JPG/hero_bg.jpg);
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.hero-text {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#h2o {
+    background-color: var(--h2o-bg-color);
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+
+.h2o-flexbox {
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 64px;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    color: var(--default-text);
+}
+
+.h2o-food-flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.h2o-icons {
+    width: 128px;
+    height: 128px;
+    padding-bottom: 16px;
+}
+
+#menu {
+    background-image: url(img/3_section_our_menu/JPG/section_our_menu_bg.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: 120px 160px;
+}
+
+.menu-flex {
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    padding-top: 64px;
+}
+
+.menu-items-left {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 56px;
+    padding-left: 160px;
+}
+
+.menu-items-right {
+    display: flex;
+    flex-direction: row-reverse;
+    padding-bottom: 56px;
+    padding-right: 160px;
+}
+
+.menu-pics {
+    width: 352px;
+    height: 352px;
+}
+
+.menu-text-left {
+    padding-left: 80px;
+    align-content: center;
+}
+
+.menu-text-right {
+    padding-right: 80px;
+    align-content: center;
+}
+
+th {
+    text-align: left;
+}
+
+td {
+    padding-left: 8vw;
+}
+
+.tr-gap {
+    margin-bottom: 8px;
+}
+
+.locations-title {
+    padding-top: 120px;
+}
+
+.locations-street {
+    display: flex;
+    justify-content: center;
+    padding-top: 8px;
+    padding-bottom: 64px;
+}
+
+.locations-map {
+    width: 100%;
+    height: 50vh;
+}
+
+#about {
+    background-color: var(--footer);
+    padding-left: 160px;
+    padding-right: 160px;
+}
+
+.footer-div {
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 144px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-sakura {
+    display: flex;
+    height: 44px;
+}
+
+.footer-sm-box {
+    display: flex;
+    justify-content: space-around;
+    width: 10vw;
+    padding-right: 160px;
+}
+
+.sm-logo {
+    width: 40px;
+    height: 40px;
+    filter: grayscale(0.7);
+    transition: grayscale 3s ease 0s;
+}
+
+.sm-logo:hover {
+    filter: grayscale(0);
+}
