@@ -1,0 +1,24 @@
+.menu {
+    background-image: url("./Sakura Ramen Webseite - Desktop/assets/img/3_section_our_menu/JPG/section_our_menu_bg.jpg"); 
+}
+.menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 56px;
+}
+.menu-item img {
+    width: 352px;
+    height: 352px;
+    margin-bottom: 56px;
+}
+table {
+    width: 35%;
+}
+.price {
+    font-size: 32px;
+    font-weight: bold;
+    color: #675E54;
+    padding-top: 16px;
+    padding-bottom: 8px;
+}

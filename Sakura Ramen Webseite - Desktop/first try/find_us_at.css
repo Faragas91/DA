@@ -1,0 +1,17 @@
+.find-us-at {
+    display: flex;
+    font-size: 80px;
+    justify-content: center;
+    align-items: center;
+    color: #9F0908;
+    margin-bottom: 8px;
+}
+.googlemaps {
+        height: 350px;
+        width: 100%;
+}
+.map-marker {
+    float: left;
+    background-image: url("./Sakura Ramen Webseite - Desktop/Sakura Ramen Webseite - Desktop/assets/img/4_section_find_us_at/PNG/map_marker.png");
+
+}

@@ -1,0 +1,30 @@
+.how-to-order-and-menu-title {
+    display: flex;
+    font-size: 80px;
+    justify-content: center;
+    align-items: center;
+    color: #9F0908;
+    margin-bottom: 64px;
+}
+.food-container {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 120px;
+    margin-left: 80px;
+}
+.food-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 16px;
+}
+.food-icon img.food-img {
+    width: 128px; 
+    height: auto; 
+    display: block;
+}
+.food-description {
+    font-size: 56px; 
+    margin-top: 10px;
+}

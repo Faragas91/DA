@@ -1,0 +1,30 @@
+.background-image {
+    width: 100%;
+    height: 100vh;
+    background-image: url("./Sakura Ramen Webseite - Desktop/assets/img/1_hero/JPG/hero_bg.jpg");
+    background-size: cover;
+    background-position: center;
+    object-fit: contain;
+}
+.navbar{
+    position: absolute;
+    height: 112px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.navbar-symbol {
+    padding: 120px;
+}
+
+.navbar-text a {
+    color: white; 
+    text-decoration: none; 
+    margin-right: 20px;
+}
+
+.navbar-text a:hover {
+    color: #FF0000;
+}

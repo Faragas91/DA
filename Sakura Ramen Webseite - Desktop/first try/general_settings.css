@@ -1,0 +1,21 @@
+body { 
+    font-family: "Raleway", sans-serif;
+    height: 100%;
+    margin: 0;
+}
+h3 {
+    font-size: 24px;
+    margin-bottom: 64px;
+    margin-top: 0;
+    float: right;
+}
+h2 {
+    margin-bottom: 0;
+}
+.economica-bold {
+    font-family: "Economica", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 56px;
+    color: black;
+}
