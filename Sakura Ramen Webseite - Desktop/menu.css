@@ -1,4 +1,5 @@
 .background-menu-image {
+    max-width: 1440px;
     width: 100%;
     height: 100vh;
     background-image: url("./Sakura Ramen Webseite - Desktop/assets/img/3_section_our_menu/JPG/section_our_menu_bg.jpg");
@@ -6,10 +7,8 @@
     background-position: center;
     object-fit: contain;
 }
-
 .our-menu-title {
     display: flex;
     align-items: center;
     justify-content: center;
-    
 }
