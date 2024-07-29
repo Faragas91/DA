@@ -14,11 +14,9 @@
     align-items: center;
     justify-content: space-around;
 }
-
 .navbar-symbol {
     padding: 120px;
 }
-
 .navbar-text a {
     font-family: "Raleway", sans-serif;
     font-size: 24px;
@@ -26,7 +24,24 @@
     text-decoration: none; 
     margin-right: 20px;
 }
-
 .navbar-text a:hover {
     color: #FF0000;
+}
+.navbar-tel {
+    display: inline-block;
+    background-color: #9F0908;
+    border-style: solid;
+    border-radius: 12px;
+    padding: 6px;
+    color: white; 
+}
+.title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20%;
+    color: white; 
+    line-height: 20px;
+    font-size: 24px;
 }
