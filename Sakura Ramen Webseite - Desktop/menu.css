@@ -1,3 +1,9 @@
+.menu-frame {
+    margin-top: 64px;
+    margin-left: 120px;
+    margin-bottom: 120px;
+    margin-right: 120px;
+}
 .background-menu-image {
     max-width: 1440px;
     width: 100%;
@@ -11,4 +17,40 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-top: 120px;
+}
+.menu-container-left {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 56px;
+}
+.menu-container-right {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 56px;
+}
+.menu-img {
+    width: 352px;
+    height: 352px;
+    padding-right: 80px;
+}
+.menu-text-left {
+    display: flex;
+    flex-direction: column;
+    font-family: "Raleway", sans-serif;
+    font-size: 32px;
+    color: #675E54;
+    font-weight: bold;
+    margin-top: 16px;
+
+}
+.menu-text-right {
+    font-family: "Raleway", sans-serif;
+    font-size: 32px;
+    color: #675E54;
+    font-weight: bold;
+}
+td {
+    padding-bottom: 8px;
+    padding-right: 160px;
 }
