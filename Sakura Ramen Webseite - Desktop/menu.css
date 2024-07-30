@@ -22,11 +22,14 @@
 .menu-container-left {
     display: flex;
     justify-content: flex-start;
+    align-items: center;
     margin-bottom: 56px;
 }
 .menu-container-right {
     display: flex;
+    flex-direction: column-reverse;
     justify-content: flex-start;
+    align-items: center;
     margin-bottom: 56px;
 }
 .menu-img {
@@ -34,7 +37,7 @@
     height: 352px;
     padding-right: 80px;
 }
-.menu-text-left {
+.menu-text {
     display: flex;
     flex-direction: column;
     font-family: "Raleway", sans-serif;
@@ -42,15 +45,8 @@
     color: #675E54;
     font-weight: bold;
     margin-top: 16px;
-
-}
-.menu-text-right {
-    font-family: "Raleway", sans-serif;
-    font-size: 32px;
-    color: #675E54;
-    font-weight: bold;
 }
 td {
     padding-bottom: 8px;
-    padding-right: 160px;
+    padding-right: 200px;
 }
