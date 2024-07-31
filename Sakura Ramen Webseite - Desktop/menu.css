@@ -1,12 +1,13 @@
 .menu-frame {
     margin-top: 64px;
     margin-left: 120px;
-    margin-bottom: 120px;
+    padding-bottom: 64px;
     margin-right: 120px;
 }
 .background-menu-image {
     max-width: 1440px;
     width: 100%;
+    height: auto;
     background-image: url("./Sakura Ramen Webseite - Desktop/assets/img/3_section_our_menu/JPG/section_our_menu_bg.jpg");
     background-size: cover;
     background-position: center;
