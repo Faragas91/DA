@@ -8,8 +8,19 @@
     display: flex;
     justify-content: center;
     padding-bottom: 8px;
+    margin-bottom: 0;
 }
-.find-us-at-subtitle {
+.adress {
     display: flex;
     justify-content: center;
+    margin-bottom: 64px;
+}
+.googlemaps {
+    width: 100%;
+    height: 50vh;
+    margin-bottom: 16px;
+}
+.adress-symbol {
+    height: 24px;
+    width: 24px;
 }

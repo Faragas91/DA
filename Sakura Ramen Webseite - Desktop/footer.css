@@ -1,0 +1,23 @@
+.footer-frame {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 144px;
+    background-color: #0A141E;
+}
+.socialmedia-icons{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.socialmedia-icons-size{
+    width: 40px;
+    height: 40px;
+    padding-right: 10px;
+    transition: grayscale 3s ease 0s;
+}
+.socialmedia-icons-size:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    filter: grayscale(0);
+}

@@ -1,5 +1,4 @@
 .background-header-image {
-    max-width: 1440px;
     height: 100vh;
     background-image: url("./Sakura Ramen Webseite - Desktop/assets/img/1_hero/JPG/hero_bg.jpg");
     background-size: cover;
@@ -18,10 +17,16 @@
     justify-content: space-around;
     margin-left: 0;
     margin-right: 0;
-    max-width: 1440px;
 }
 .navbar-symbol {
+    width: 64px; 
+    height: 64px;
     padding: 120px;
+}
+
+.navbar-text {
+    display: flex;
+    align-items: center;
 }
 .navbar-text a {
     font-family: "Raleway", sans-serif;
@@ -31,16 +36,24 @@
     margin-right: 20px;
 }
 .navbar-text a:hover {
-    color: #FF0000;
+    text-decoration: underline;
+    color: #9F0908;
 }
-.navbar-tel {
+.navbar-tel a {
     display: inline-block;
+    flex-direction: row-reverse;
     background-color: #9F0908;
     border-style: solid;
     border-radius: 12px;
     padding: 6px;
     color: white; 
 }
+.navbar-tel a:hover {
+    background-color: #a12e2e;
+    text-decoration: none;
+    color: white;
+}
+
 .title {
     display: flex;
     flex-direction: column;

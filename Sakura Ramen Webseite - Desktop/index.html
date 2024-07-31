@@ -20,66 +20,66 @@
 <body>
     <div class="background-header-image">
         <div class="navbar">
-            <div class="navbar-symbol">
-                <img src="./Sakura Ramen Webseite - Desktop/assets/img/1_hero/PNG/sakura_logo.png" width="64px" height="64px">
+            <div>
+                <img class="navbar-symbol" src="./Sakura Ramen Webseite - Desktop/assets/img/1_hero/PNG/sakura_logo.png">
             </div>
             <div class="navbar-text">
-                <a href="#contact">MENU</a>
-                <a href="#">LOCATION</a>
-                <a href="#contact">ABOUT</a>
+                <a href="#menu">MENU</a>
+                <a href="#location">LOCATION</a>
+                <a href="#hto">ABOUT</a>
                 <div class="navbar-tel"> 
-                    <img src="./Sakura Ramen Webseite - Desktop/assets/img/1_hero/PNG/phone.png" width="24px" height="24px"><a href="#adress">0176 54564534 </a>
+                    <a href="tel:017654564534"> <img src="./Sakura Ramen Webseite - Desktop/assets/img/1_hero/SVG/phone.svg">0176 54564534</a>
                 </div>
             </div>
         </div>
         <div class="title">
             <h1 >SAKURA RAMEN</h1>
-            <span>THE BEST RAMEN IN TOWN</span>
+            <h4>THE BEST RAMEN IN TOWN</h4>
         </div>
     </div> 
     <div class="how-to-order-frame">
         <div>
-            <h2 class="how-to-order-title">HOW TO ORDER</h2>
+            <h2 class="how-to-order-title" id="hto">HOW TO ORDER</h2>
         </div>
         <div class="container">
             <div class="">
                 <div class="inner-container">
-                    <img src="./Sakura Ramen Webseite - Desktop/assets/img/2_section_how_to_order/PNG/noodle.png" width="128px" height="auto">
+                    <img class="how-to-order-symbol" src="./Sakura Ramen Webseite - Desktop/assets/img/2_section_how_to_order/PNG/noodle.png">
                 </div>
                 <div>
-                    <h3>Pick your</h3>
-                    <h3>noodle</h3>
+                    <h3 class="how-to-order-text-center">Pick your</h3>
+                    <h3 class="how-to-order-text-center">noodle</h3>
                 </div>
             </div>
             <div>
                 <div class="inner-container">
-                    <img src="./Sakura Ramen Webseite - Desktop/assets/img/2_section_how_to_order/PNG/broth.png" width="128px" height="auto">
+                    <img class="how-to-order-symbol" src="./Sakura Ramen Webseite - Desktop/assets/img/2_section_how_to_order/PNG/broth.png">
                 </div>
                 <div>
-                    <h3>Pick your</h3>
-                    <h3>broth</h3>
+                    <h3 class="how-to-order-text-center">Pick your</h3>
+                    <h3 class="how-to-order-text-center">broth</h3>
                 </div>
             </div>
             <div>
                 <div class="inner-container">
-                    <img src="./Sakura Ramen Webseite - Desktop/assets/img/2_section_how_to_order/PNG/egg.png" width="128px" height="auto">
+                    <img  class="how-to-order-symbol"src="./Sakura Ramen Webseite - Desktop/assets/img/2_section_how_to_order/PNG/egg.png">
                 </div>
                 <div>
-                    <h3>Add your</h3>
-                    <h3>toppings</h3>
+                    <h3 class="how-to-order-text-center">Add your</h3>
+                    <h3 class="how-to-order-text-center">toppings</h3>
                 </div>
             </div>
         </div>
     </div>
-    <div class="background-menu-image">
+    <div class="background-menu-image" >
         <div>
-            <h2 class="our-menu-title">OUR MENU</h2>
+            <h2 class="our-menu-title" id="menu">OUR MENU</h2>
         </div>
         <div class="menu-frame">
             <div class="menu-container-left">
                 <img class="menu-img-left" src="./Sakura Ramen Webseite - Desktop/assets/img/3_section_our_menu/Png/R1.png">
                 <div>
-                    <h3>Tonkotsu Ramen</h3>
+                    <h3 class="our-menu-text-flex-start">Tonkotsu Ramen</h3>
                     <div class="menu-text-left">
                         <table>
                             <tbody>
@@ -103,7 +103,7 @@
             <div class="menu-container-right">
                 <img class="menu-img-right" src="./Sakura Ramen Webseite - Desktop/assets/img/3_section_our_menu/Png/R2.png">
                 <div>
-                    <h3>Spicy Miso Ramen</h3>
+                    <h3 class="our-menu-text-flex-start">Spicy Miso Ramen</h3>
                     <div class="menu-text-right">
                         <table>
                             <tbody>
@@ -127,7 +127,7 @@
             <div class="menu-container-left">
                 <img class="menu-img-left" src="./Sakura Ramen Webseite - Desktop/assets/img/3_section_our_menu/Png/R3.png">
                 <div>
-                    <h3>Shio Ramen</h3>
+                    <h3 class="our-menu-text-flex-start">Shio Ramen</h3>
                     <div class="menu-text-left">
                         <table>
                             <tbody>
@@ -152,16 +152,25 @@
     </div>
     <div class="find-us-at-frame">
         <div>
-            <h2 class="find-us-at-title">FIND US AT</h2>
+            <h2 class="find-us-at-title" id="location">FIND US AT</h2>
+            <div class="adress">
+                <img class="adress-symbol" src="./Sakura Ramen Webseite - Desktop/assets/img/4_section_find_us_at/PNG/map_marker.png" >
+                <h4 >Kapuzinerstraße 31, München, 80337</h4>
+            </div>
+            <div>
+                <iframe class="googlemaps" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2663.2079675910823!2d11.558628376767027!3d48.125512652000396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479ddf44d01affc5%3A0xe7a07e0710be63e8!2sKapuzinerstra%C3%9Fe%2031%2C%2080337%20M%C3%BCnchen%2C%20Deutschland!5e0!3m2!1sde!2sat!4v1722449782410!5m2!1sde!2sat" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> <br/>              
+            </div>          
         </div>
     </div>
-
-    
-
-
-
-
-       
-
+    <div class="footer-frame">
+        <div>
+            <img src="./Sakura Ramen Webseite - Desktop/assets/img/5_section_footer/PNG/sakura_ramen_logo_and_text.png" width="auto" height="44px">
+        </div>
+        <div class="socialmedia-icons">
+            <a href="https://www.tripadvisor.com/" target="_blank"> <img class="socialmedia-icons-size" src="./Sakura Ramen Webseite - Desktop/assets/img/5_section_footer/PNG/tripadvisor_logo.png"></a>
+            <a href="https://www.facebook.com/" target="_blank"> <img class="socialmedia-icons-size" src="./Sakura Ramen Webseite - Desktop/assets/img/5_section_footer/PNG/facebook_logo.png"></a>
+            <a href="https://www.instagram.com/" target="_blank"> <img class="socialmedia-icons-size" src="./Sakura Ramen Webseite - Desktop/assets/img/5_section_footer/PNG/instagrram_logo.png"></a>
+        </div>
+    </div>
 </body>
 </html>

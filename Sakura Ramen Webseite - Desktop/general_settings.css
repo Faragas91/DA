@@ -1,11 +1,9 @@
 body, html {
-    max-width: 1440px;
     margin: 0;
     padding: 0;
-    width: 100%;
-    height: 100%;   
     margin-left: auto;
-    margin-right: auto
+    margin-right: auto;
+    scroll-behavior: smooth;
 }
 h1 {
     font-family: "Raleway", sans-serif;
@@ -18,7 +16,18 @@ h2 {
     font-size: 80px;
     color: #9F0908
 }
-h3 {
+.how-to-order-text-center {
+    font-family: "Economica", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 56px;
+    color: black;
+    margin-top: 16px;
+    margin-bottom: 0;
+    display: flex;
+    justify-content: center;
+}
+.our-menu-text-flex-start {
     font-family: "Economica", sans-serif;
     font-weight: 700;
     font-style: normal;
@@ -29,3 +38,12 @@ h3 {
     display: flex;
     justify-content: flex-start;
 }
+h4 {
+    display: flex;
+    justify-content: center;
+    font-family: "Raleway", sans-serif;
+    font-size: 24px;
+    font-weight: 200;
+    margin: 0;
+}
+
