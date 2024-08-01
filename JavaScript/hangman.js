@@ -30,14 +30,14 @@ console.log(underscore_from_chosen_word);
 while (empty_letter.length < chosen_word.length) {
     empty_letter = "";
     empty_letter += alphabet[Math.floor(Math.random() * alphabet.length)];
-    empty_letter = "a"
+    // empty_letter = "a"
     for (let i = 0; i < chosen_word.length; i++) {
         for (let j = 0; j < chosen_word.length; j++) {
-            console.log(empty_letter[j]);
-            console.log(letter_from_chosen_word[i])
+            // console.log(empty_letter[j]);
+            // console.log(letter_from_chosen_word[i])
             if (empty_letter[j] == letter_from_chosen_word[i]){
-                guessed_letter = underscore_from_chosen_word.replace(underscore_from_chosen_word[i], empty_letter[j])
-                console.log(guessed_letter);
+                underscore_from_chosen_word = underscore_from_chosen_word.replace(underscore_from_chosen_word[i], letter_from_chosen_word[i]);
+                
             }
             else {
                 break;
@@ -45,7 +45,8 @@ while (empty_letter.length < chosen_word.length) {
         }
     }
 }
-  
+
+console.log(underscore_from_chosen_word);
 
 
 
