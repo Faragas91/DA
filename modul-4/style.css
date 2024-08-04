@@ -3,6 +3,10 @@ body {
     font-family: "PT Sans", sans-serif;
     color: white;
 }
+
+.mt-16 {
+    margin-top: 16px;
+}
 .aot {
     background-image: url("./img/header.png");
     background-size: cover;
@@ -50,13 +54,15 @@ h1 {
     font-size: 84px;
     margin-block-end: 0;
     scroll-margin-block-start: 0;
+    font-family: "Viga-Regular";
+    font-weight: 100px;
+    text-align: center;
 }
 
 .button {
     background-color: #B48A4E;
     color: white;
     padding: 16px;
-    margin-top: 16px;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
@@ -68,60 +74,190 @@ h1 {
     background-color: black;
     padding: 80px 80px;
     display: flex;
+    gap: 16px;
     justify-content: space-between;
 }
 
 .quickLink {
-    display: flex;
-    flex-direction: column;
     color: #B48A4E;
     text-decoration: none;
-    font-size: 32px;
-    font-weight: bold;
-    gap: 8px;
+    font-size: 24px;
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 .quickLink img {
-    height: 300px;
-    width: 300px;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* .maincontainer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-}
-
-.container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.buy-ticket-section {
     background-color: black;
-    flex-direction: column;
+    display: flex;
+    align-items: center;
 }
 
-.container-name {
+.buy-ticket-img-left {
+    height: 280px;
+}
+.festival-info {
+    padding: 40px;
+    height: 200px;
+    flex: 1;
+}
+
+.festival-info h2 {
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+.seperator {
+    background-color: white;
+    width: 1px;
+    height: 200px;
+    margin-right: 10px;
+}
+
+.buy-ticket-container {
+    width: 300px;
+    padding-left: 24px;
+    padding-right: 24px;
+    display: flex;
+    justify-content: center;
+}
+.slogan-section {
+    background-color: white;
+    text-align: center;
+    padding: 80px 200px;
+    color: #B48A4E;
+    font-size: 24px;
+    font-weight: 700;
+}
+.video-section {
+    background-image: url("./img/bottom.png");
+    height: 600px;
+    background-size: cover;
+    background-position: center;
+}
+footer {
+    display: flex;
+    background-color: black;
+    padding: 80px 80px;
+}
+
+.half-width {
+    width: 50%;
+}
+.footer-social-media-icon {
+    width: 32px;
+}
+
+.footer-left {
+    font-size: 24px;
+    font-weight: 700;
+    display: flex;
+    align-items: flex-end;
+    padding: 16px;
+}
+.footer-center {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-bottom: 16px;
+}
+
+input {
+    height: 46px;
+    flex-grow: 1;
+}
+input::placeholder {
+    color: rgba(0,0,0,0.4);
+    padding-left: 16px;
+}
+
+.footer-button{
+    width: 200px;
+    border-width: 0px;
+}
+.footer-form {
+    display: flex;
 
 }
 
-.container-image {
-    width: auto;
-    height: 24px;
-} */
+@media(max-width: 1000px) {
+    .buy-ticket-section {
+        flex-direction: column;
+    }
+
+    .buy-ticket-img-left {
+        width: 100%;
+        object-fit: cover;
+    }
+    .seperator {
+        display: none;
+    }
+    .buy-ticket-container {
+        margin-bottom: 10px;
+    }
+    .buy-ticket-container button{
+        width: 100%;
+        text-align: center;
+    }
+    .festival-info {
+        text-align: center;
+    }
+    p {
+        margin-block-start: 0;
+        margin-block-end: 0;
+        
+    }
+}
+
+@media(max-width: 700px) {
+    .hide-mobile {
+        display: none;
+    }
+
+    h1 {
+        font-size: 52px;
+    }
+    footer {
+        flex-direction: column;
+        align-items: center;
+    }
+    .full-width-modile {
+        width: 100%;
+    }
+    .footer-left {
+        text-align: center;
+        margin-bottom: 16px;
+        padding-right: 0;
+    }
+    .footer-center {
+        margin-bottom: 32px;
+    }
+}
+
+@media(max-width:600px){
+    .section-quickLinks{
+        flex-direction: column;
+        gap: 100px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
