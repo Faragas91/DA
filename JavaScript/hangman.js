@@ -13,10 +13,12 @@
 // 
 
 // Variable
-let words = ["banana","apple", "orange", "pineapple"];
+ let words = ["banana","apple", "orange", "pineapple"];
+//let words = ["ac"]
 let empty_letter = "";
-let alphabet = "abcdefghijklmnopqrstuvwxyz";
+let alphabet = "abcdefghijklmnopqrstuvwxyz"; 
 let underscore_from_chosen_word = [];
+let count = 0;
 
 // Choose random word from the list and split it into letters
 let chosen_word = (words[(Math.floor(Math.random() * words.length))]);
@@ -33,7 +35,9 @@ for (let u = 0; u < letter_from_chosen_word.length; u++){
 while (empty_letter.length < chosen_word.length) {
     empty_letter = "";
     empty_letter += alphabet[Math.floor(Math.random() * alphabet.length)]; // set random letter
-    if (underscore_from_chosen_word != letter_from_chosen_word){ // check that the variables not equal
+    alphabet = alphabet.replace(empty_letter, "");
+    count += 1;
+    if (JSON.stringify(underscore_from_chosen_word) !== JSON.stringify(letter_from_chosen_word)){ // check that the variables not equal
         for (let i = 0; i < chosen_word.length; i++) { 
             for (let j = 0; j < chosen_word.length; j++) {
                 if (letter_from_chosen_word[i] == empty_letter[j]){ // replace "_" with letter wenn the letters are equal
@@ -47,6 +51,7 @@ while (empty_letter.length < chosen_word.length) {
     }
 }
 console.log(underscore_from_chosen_word);
+console.log(count)
 
 
 
