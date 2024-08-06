@@ -14,16 +14,14 @@ header{
     position: absolute;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     top: 0;
     left: 0;
     right: 0;
-    padding-left: 120px;
-    padding-right: 120px;
     height: 120px;
 }
 .navbar-symbol {
-    width: 64px; 
+    width: auto; 
     height: 64px;
 }
 

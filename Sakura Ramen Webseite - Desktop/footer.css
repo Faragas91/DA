@@ -1,11 +1,9 @@
-.footer-frame {
+footer {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     height: 144px;
     background-color: #0A141E;
-    padding-left: 120px;
-    padding-right: 120px;
 }
 .socialmedia-icons{
     display: flex;
