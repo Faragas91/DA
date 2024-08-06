@@ -1,9 +1,11 @@
 .footer-frame {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     height: 144px;
     background-color: #0A141E;
+    padding-left: 120px;
+    padding-right: 120px;
 }
 .socialmedia-icons{
     display: flex;
@@ -13,7 +15,7 @@
 .socialmedia-icons-size{
     width: 40px;
     height: 40px;
-    padding-right: 10px;
+    padding-left: 10px;
     transition: grayscale 3s ease 0s;
 }
 .socialmedia-icons-size:hover {
