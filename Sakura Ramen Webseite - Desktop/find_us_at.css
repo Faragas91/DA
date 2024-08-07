@@ -17,7 +17,7 @@
     color: black;
 }
 .googlemaps {
-    width: 100%;
+    width: 100% !important;
     height: 50vh;
     margin-bottom: 16px;
 }
