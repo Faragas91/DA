@@ -5,6 +5,10 @@ footer {
     height: 144px;
     background-color: #0A141E;
 }
+.footer-sakura-image {
+    width: auto;
+    height: 44px;
+}
 .socialmedia-icons{
     display: flex;
     align-items: center;

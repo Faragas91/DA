@@ -35,14 +35,6 @@ h3 {
     justify-content: center;
 }
 .our-menu-text-flex-start {
-    font-family: "Economica", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-    font-size: 56px;
-    color: black;
-    margin-top: 16px;
-    margin-bottom: 0;
-    display: flex;
     justify-content: flex-start;
 }
 h4 {

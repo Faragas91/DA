@@ -3,10 +3,13 @@
     margin-left: 120px;
     padding-bottom: 64px;
     margin-right: 120px;
+    display: flex;
+    flex-direction: column;
 }
 .background-menu-image {
     background-image: url("./Sakura Ramen Webseite - Desktop/assets/img/3_section_our_menu/JPG/section_our_menu_bg.jpg");
     background-size: cover;
+    background-position: center;
 }
 .our-menu-title {
     display: flex;
