@@ -125,6 +125,7 @@
     footer {
         flex-direction: column;
         align-items: center;
+        justify-content: space-evenly;
     }
     .footer-sakura-image {
         width: auto;
