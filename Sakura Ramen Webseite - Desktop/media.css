@@ -30,6 +30,10 @@
     .hide-mobile {
         display: none;
     }
+    header {
+        justify-content: flex-start;
+        padding-left: 40px;
+    }
 }
 
 @media(max-width:900px) {    
@@ -59,9 +63,11 @@
     }
     .menu-text-left {
         font-size: 22px;
+        margin-top: 12px
     }
     .menu-text-right {
         font-size: 22px;
+        margin-top: 12px
     }
     .table-space {
         padding-left: 50px;
@@ -104,9 +110,11 @@
     }
     .our-menu-text-flex-start {
         font-size: 24px;
+        margin-top: 8px
     }
     .menu-text-left {
         font-size: 16px;
+        margin-top: 8px
     }
     .menu-text-right {
         font-size: 16px;
