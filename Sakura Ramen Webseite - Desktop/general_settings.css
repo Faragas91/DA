@@ -34,6 +34,7 @@ h3 {
     display: flex;
     justify-content: center;
 }
+/* Takes the settings from h3 */
 .our-menu-text-flex-start {
     justify-content: flex-start;
 }
