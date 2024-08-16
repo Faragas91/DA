@@ -26,16 +26,6 @@
     }
 }
 
-@media(max-width:1000px){
-    .hide-mobile {
-        display: none;
-    }
-    header {
-        justify-content: flex-start;
-        padding-left: 40px;
-    }
-}
-
 @media(max-width:900px) {    
     h1 {
         font-size: 72px;
@@ -74,15 +64,38 @@
     }
 }
 
-@media(max-width:800px) {
+@media(max-width:768px) {
+    .hide-mobile {
+        display: none;
+    }
+    nav a {
+        font-size: 20px;
+    }
+    header {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+    .how-to-order-title {
+        margin-top: 96px;
+    }
     h2 {
-        font-size: 56px;
+        font-size: 64px;
     }
-    .container {
-        flex-direction: column;
-        gap: 50px;
+    .how-to-order-frame {
+        margin-left: 24px;
+        margin-bottom: 96px;
+        margin-right: 24px;
     }
-}
+    .how-to-order-symbol {
+        width: 112px;
+    }
+    h3 {
+        margin-top: 8px;
+        font-size: 32px;
+    }
+    .our-menu-title {
+        padding-top: 96px;
+      }
 
 
 @media(max-width:600px) {
