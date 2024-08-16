@@ -1,73 +1,36 @@
 @media(max-width:1200px) {
-    .menu-frame {
-        margin-left: 60px;
-        margin-right: 60px;
+    .hide-mobile {
+        display: none;
     }
-    
-    .menu-img-left {
-        width: 256px;
-        height: 256px;
+    header {
+        padding-left: 80px;
+        padding-right: 80px;
     }
-    .menu-img-right {
-        width: 256px;
-        height: 256px;
-    }
-    .our-menu-text-flex-start {
-        font-size: 36px;
-    }
-    .menu-text-left {
-        font-size: 24px;
-    }
-    .menu-text-right {
-        font-size: 24px;
-    }
-    .table-space {
-        padding-left: 100px;
+    .how-to-order-frame {
+        margin-left: 24px;
+        margin-bottom: 96px;
+        margin-right: 24px;
     }
 }
 
-@media(max-width:900px) {    
+@media(max-width:900px) {   
+
     h1 {
         font-size: 72px;
+    }
+    h2 {
+        font-size: 64px;
     }
 
     h4 {
         font-size: 20px;
     }
-    .menu-frame {
-        margin-left: 40px;
-        margin-right: 40px;
-    }
-    .menu-img-left {
-        width: 156px;
-        height: 156px;
-        padding-right: 40px;
-    }
-    .menu-img-right {
-        width: 156px;
-        height: 156px;
-        padding-left: 40px;
-    }
-    .our-menu-text-flex-start {
-        font-size: 36px;
-    }
-    .menu-text-left {
-        font-size: 22px;
-        margin-top: 12px
-    }
-    .menu-text-right {
-        font-size: 22px;
-        margin-top: 12px
-    }
-    .table-space {
-        padding-left: 50px;
-    }
+
+
 }
 
 @media(max-width:768px) {
-    .hide-mobile {
-        display: none;
-    }
+
     nav a {
         font-size: 20px;
     }
@@ -95,72 +58,134 @@
     }
     .our-menu-title {
         padding-top: 96px;
-      }
-
-
-@media(max-width:600px) {
-
-    h1 {
-        font-size: 56px;
     }
+    .menu-frame {
+        margin-top: 48px;
+        margin-left: 24px;
+        padding-bottom: 32px;
+        margin-right: 24px;
+    }
+    .menu-container-left {
+        margin-bottom: 32px;
+    }
+    .menu-container-right {
+        margin-bottom: 32px;
+    }   
+    .menu-img-left {
+        padding-right: 24px;
+    }
+    .menu-img-right {
+        padding-left: 24px;
+    }
+    .menu-text-left {
+        font-size: 24px;
+    }
+    .menu-text-right {
+        font-size: 24px;
+    }
+    .table-space {
+        padding-left: 152px;
+    }
+    .find-us-at-frame {
+        margin-top: 96px;
+    }
+    .adress {
+        margin-bottom: 48px;
+    }
+    footer {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+}
 
+@media(max-width:375px){
+    h1 {
+        font-size: 44px;
+    }
     h2 {
         font-size: 40px;
     }
-    .menu-frame {
-        margin-left: 10px;
-        margin-right: 10px;
-    }
-    .menu-img-left {
-        width: 120px;
-        height: 120px;
-        padding-right: 20px;
-    }
-    .menu-img-right {
-        width: 120px;
-        height: 120px;
-        padding-left: 20px;
-    }
-    .our-menu-text-flex-start {
-        font-size: 24px;
-        margin-top: 8px
-    }
-    .menu-text-left {
-        font-size: 16px;
-        margin-top: 8px
-    }
-    .menu-text-right {
-        font-size: 16px;
-    }
-    .table-space {
-        padding-left: 20px;
-    }
-    footer {
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-evenly;
-    }
-    .footer-sakura-image {
-        width: auto;
-        height: 34px;
-    }
-
-}
-
-@media(max-width:480px) {
-   
-    h1 {
-        font-size: 36px;
-    }
-
-    h2 {
-        font-size: 28px;
-    }
-    h3 {
-        font-size: 24px;
-    }
-
     h4 {
         font-size: 16px;
+    }
+    nav a {
+        font-size: 16px;
+    }
+    .navbar-symbol {
+        width: 40px;
+        height: auto;
+    }
+    header {
+        padding-left: 16px;
+        padding-right: 16px;
+        height: 64px;
+    }
+    .how-to-order-title {
+        margin-top: 72px;
+    }
+    .how-to-order-frame {
+        margin-left: 16px;
+        margin-bottom: 72px;
+        margin-right: 16px;
+    }
+    .our-menu-title {
+        padding-top: 72px;
+    }
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: column;
+        margin-top: 64px;
+        gap: 32px;
+    }
+    .menu-frame {
+        margin-top: 40px;
+        margin-left: 16px;
+        padding-bottom: 0px;
+        margin-right: 16px;
+    }
+    .menu-container-left {
+        flex-direction: column;
+        margin-bottom: 0px;
+        gap: 24px;
+    }
+    .menu-container-right {
+        flex-direction: column;
+        margin-bottom: 32px;
+        margin-top: 32px;
+        gap: 24px;
+    }   
+    .menu-img-left {
+        padding-right: 0px;
+    }
+    .menu-img-right {
+        padding-left: 0px;
+    }
+    .menu-text-left {
+        font-size: 24px;
+    }
+    .menu-text-right {
+        font-size: 24px;
+    }
+    .table-space {
+        padding-left: 152px;
+    }
+    .margin-bottom-72px {
+        margin-bottom: 72px;
+    }
+    .find-us-at-frame {
+        margin-top: 72px;
+    }
+    .adress {
+        margin-bottom: 40px;
+    }
+    footer {
+        padding-left: 16px;
+        padding-right: 16px;
+        height: 86px;
+    }
+    .footer-sakura-image {
+        content: url('./Sakura Ramen Webseite - Desktop/assets/img/1_hero/PNG/sakura_logo.png');
     }
 }
