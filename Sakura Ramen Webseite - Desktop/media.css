@@ -7,13 +7,46 @@
         padding-right: 80px;
     }
     .how-to-order-frame {
-        margin-left: 24px;
-        margin-bottom: 96px;
-        margin-right: 24px;
+        margin-left: 80px;
+        margin-right: 80px;
+    }
+    .menu-frame {
+        margin-left: 80px;
+        margin-right: 80px;
+    }
+
+    footer {
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+    .table-space {
+        padding-left: 200px;
+    }
+    h3 {
+        font-size: 44px;
+    }
+    .menu-text-left {
+        font-size: 28px;
+    }
+    .menu-text-right {
+        font-size: 28px;
     }
 }
 
-@media(max-width:900px) {   
+@media(max-width: 1000px) {
+    .menu-frame {
+        margin-left: 60px;
+        margin-right: 60px;
+    }
+    .menu-img-left {
+        padding-right: 40px;
+    }
+    .menu-img-right {
+        padding-left: 40px;
+    }
+}
+
+@media(max-width: 900px) {   
 
     h1 {
         font-size: 72px;
@@ -21,15 +54,35 @@
     h2 {
         font-size: 64px;
     }
-
+    h3 {
+        margin-top: 8px;
+        font-size: 32px;
+    }
     h4 {
         font-size: 20px;
     }
-
-
+    .menu-text-left {
+        font-size: 24px;
+    }
+    .menu-text-right {
+        font-size: 24px;
+    }
+    .menu-frame {
+        margin-left: 32px;
+        margin-right: 32px;
+    }
+    .menu-img-left {
+        padding-right: 40px;
+    }
+    .menu-img-right {
+        padding-left: 40px;
+    }
+    .table-space {
+        padding-left: 152px;
+    }
 }
 
-@media(max-width:768px) {
+@media(max-width: 768px) {
 
     nav a {
         font-size: 20px;
@@ -52,17 +105,13 @@
     .how-to-order-symbol {
         width: 112px;
     }
-    h3 {
-        margin-top: 8px;
-        font-size: 32px;
-    }
     .our-menu-title {
         padding-top: 96px;
     }
     .menu-frame {
         margin-top: 48px;
         margin-left: 24px;
-        padding-bottom: 32px;
+        padding-bottom: 0px;
         margin-right: 24px;
     }
     .menu-container-left {
@@ -77,12 +126,6 @@
     .menu-img-right {
         padding-left: 24px;
     }
-    .menu-text-left {
-        font-size: 24px;
-    }
-    .menu-text-right {
-        font-size: 24px;
-    }
     .table-space {
         padding-left: 152px;
     }
@@ -96,9 +139,71 @@
         padding-left: 24px;
         padding-right: 24px;
     }
+    .margin-bottom {
+        margin-bottom: 96px;
+    }
 }
 
-@media(max-width:375px){
+@media(max-width: 750px) {
+
+    .menu-container-left {
+        flex-direction: column;
+        margin-bottom: 0px;
+        gap: 24px;
+    }
+    .menu-container-right {
+        flex-direction: column;
+        margin-bottom: 32px;
+        margin-top: 32px;
+        gap: 24px;
+    }   
+}
+
+@media(max-width: 600px) {
+    h1 {
+        font-size: 56px;
+    }
+    h2 {
+        font-size: 48px;
+    }
+    h4 {
+        font-size: 18px;
+    }
+    nav a {
+        font-size: 20px;
+    }
+    .navbar-symbol {
+        width: 52px;
+        height: auto;
+    }
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: column;
+        margin-top: 64px;
+        gap: 32px;
+    }
+    .footer-sakura-image {
+        content: url('./Sakura Ramen Webseite - Desktop/assets/img/1_hero/PNG/sakura_logo.png');
+        height: 40px;
+    }
+    .socialmedia-icons-size {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+@media(max-width: 480px) {
+    h1 {
+        font-size: 48px;
+    }
+    h2 {
+        font-size: 44px;
+    }
+}
+
+@media(max-width: 400px){
     h1 {
         font-size: 44px;
     }
@@ -131,31 +236,12 @@
     .our-menu-title {
         padding-top: 72px;
     }
-    .container {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-direction: column;
-        margin-top: 64px;
-        gap: 32px;
-    }
     .menu-frame {
         margin-top: 40px;
         margin-left: 16px;
         padding-bottom: 0px;
         margin-right: 16px;
     }
-    .menu-container-left {
-        flex-direction: column;
-        margin-bottom: 0px;
-        gap: 24px;
-    }
-    .menu-container-right {
-        flex-direction: column;
-        margin-bottom: 32px;
-        margin-top: 32px;
-        gap: 24px;
-    }   
     .menu-img-left {
         padding-right: 0px;
     }
@@ -171,7 +257,7 @@
     .table-space {
         padding-left: 152px;
     }
-    .margin-bottom-72px {
+    .margin-bottom {
         margin-bottom: 72px;
     }
     .find-us-at-frame {
@@ -185,7 +271,37 @@
         padding-right: 16px;
         height: 86px;
     }
-    .footer-sakura-image {
-        content: url('./Sakura Ramen Webseite - Desktop/assets/img/1_hero/PNG/sakura_logo.png');
+}
+
+@media(max-width: 370px) {
+    h1 {
+        font-size: 38px;
     }
+    h2 {
+        font-size: 30px;
+    }
+    h3 {
+        font-size: 30px;
+    }
+    h4 {
+        font-size: 16px;
+    }
+    .menu-img-left {
+        width: auto;
+        height: 300px;
+    }
+    .menu-img-right {
+        width: auto;
+        height: 300px;
+    }
+    .menu-text-left {
+        font-size: 20px;
+    }
+    .menu-text-right {
+        font-size: 20px;
+    }
+    .table-space {
+        padding-left: 120px;
+    }
+
 }
