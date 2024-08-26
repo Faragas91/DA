@@ -1,0 +1,26 @@
+/* footer.css */
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    background-color: var(--kochwelt-darkgray);
+    height: 300px !important;
+    /* margin-top: auto; */
+}
+
+.footer__logo {
+    display: flex;
+    justify-content: start;
+    height: 50px;
+    filter: invert(1);
+}
+
+.footer__social img {
+    margin: 0 2px;
+    cursor: pointer;
+    height: 50px;
+    filter: none;
+}
