@@ -24,23 +24,11 @@ main {
     display: flex;
     flex-direction: column;
     width: 100%;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 h2 {
-    font-size: 22px;
-    font-weight: 550;
-    margin: 0px 0px 32px 0px;
-}
-
-h3 {
-    font-size: 20px;
-    font-weight: 550;
-    margin: 0px 0px 32px 0px;
-}
-
-h4 {
-    font-size: 18px;
+    font-size: 26px;
     font-weight: 550;
     margin: 0px 0px 32px 0px;
 }
@@ -48,6 +36,7 @@ h4 {
 header,
 .section__recommended,
 .section__explore,
-.section__knowledge {
+.section__knowledge,
+footer {
     padding: 32px 160px 64px 160px;
 }

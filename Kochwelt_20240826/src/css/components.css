@@ -19,22 +19,17 @@ button:hover {
     text-decoration: none;
 }
 
-.img__recommended {
-    height: 250px;
-    width: 500px;
-    object-fit: cover;
-    border-radius: 6px;
-}
-
-.img__explore,
-.img__knowledge {
-    height: 200px;
-    width: 200px;
+.img__typ-1 {
+    height: 180px;
+    width: 180px;
     aspect-ratio: 1 / 1;
     object-fit: cover;
     border-radius: 6px;
 }
 
-.img__explore:hover {
-    transform: scale(1.05);
+.img__typ-2 {
+    height: 250px;
+    width: 500px;
+    object-fit: cover;
+    border-radius: 6px;
 }

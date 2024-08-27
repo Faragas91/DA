@@ -1,0 +1,116 @@
+.recipe_timo_main_container {
+    max-width: 1440px;
+    padding-top: 32px;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+}
+.recipe_timo_head {
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.recipe_timo_section_head_img {
+    height: 275px;
+    object-fit: cover;
+    width: 1440px;
+    filter: none;
+}
+.recipe_timo_recipe_characteristics {
+    display: flex;
+    gap: 10px;
+    padding-top: 25px;
+}
+.recipe_timo_recipe_characteristics span {
+    background-color: rgb(221, 221, 221);
+    border-radius: 50px;
+    padding: 5px 8px 5px 8px;
+}
+.recipe_timo_recipe_characteristics_img {
+    width: 16px;
+    height: 16px;
+    filter: none;
+    display: inline;
+}
+.recipe_timo_brake_line {
+    height: 1px;
+    width: 100%;
+    background-color: rgb(221, 221, 221);
+    margin-top: 50px;
+}
+.recipe_timo_portions_calculator {
+    display: flex;
+    padding-top: 32px;
+}
+.recipe_timo_portions_calculator h2 {
+    margin: 0;
+    font-weight: 200;
+    font-size: 25px;
+    margin-right: 8px;
+}
+
+.portions_calculator_input_field {
+    border-radius: 0;
+    text-align: center;
+}
+.button_portions_calculator {
+    border-radius: 0;
+}
+
+.tabel_line_color {
+    background-color: rgb(221, 221, 221);
+}
+.table_ingredient {
+    width: 100%;
+    padding-top: 8px;
+    border-spacing: 0;
+    margin-bottom: 32px;
+}
+.td_left {
+    width: 50px;
+    height: 32px;
+    padding: 8px;
+    text-align: right;
+}
+.unit{
+    width: 32px;
+}
+.recipe_timo_preperation_main_container h2 {
+    margin: 0;
+    text-align: start;
+    font-size: 25px;
+    font-weight: 600;
+}
+.recipe_timo_preparation_time {
+    display: flex;
+    gap: 10px;
+    padding-top: 25px;
+}
+.recipe_timo_preparation_time span {
+    background-color: rgb(221, 221, 221);
+    border-radius: 50px;
+    padding: 5px;
+}
+.recipe_timo_preparation_explanation {
+    margin-top: 32px;
+}
+.creator {
+    margin-bottom: 128px;
+}
+.creator span {
+    font-size: 32px;
+}
+.creator_img {
+    display: flex;
+    align-items: center;
+}
+
+.creator_img img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+

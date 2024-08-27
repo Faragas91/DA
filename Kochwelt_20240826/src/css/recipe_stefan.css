@@ -1,21 +1,7 @@
-.recipe__main__container {
-    display: flex;
-    width: 100%;
-}
-
-.recipe__content {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 0px 160px 0px 160px;
-}
-
 .recipe__img {
-    height: 250px;
+    width: 1440px;
+    height: 200px;
     object-fit: cover;
-    border-radius: 8px;
 }
 
 .recipe__container {
@@ -37,13 +23,7 @@ p {
     display: flex;
     border-bottom: 1px solid var(--kochwelt-lightgray);
     margin-top: 50px;
-    margin-bottom: 20px;    
 }
-
-label {
-    margin-bottom: 20px;
-}
-
 .ingredients__container {
     display: flex;
     flex-direction: column;
@@ -119,8 +99,7 @@ td:nth-child(3) {
 }
 
 h2 {
-    margin-top: 20px;
-    margin-bottom: -10px;
+    margin-bottom: -20px;
 }
 
 .recipe__steps li {
@@ -131,7 +110,6 @@ h2 {
     display: flex;
     align-items: center;
     gap: 50px;
-    margin-bottom: 20px;
 }
 
 .recipe__creator__picture {

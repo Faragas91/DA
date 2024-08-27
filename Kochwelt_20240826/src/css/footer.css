@@ -2,22 +2,18 @@
 
 footer {
     display: flex;
-    background-color: var(--kochwelt-darkgray);
-    width: 100%;
-}
-
-.footer__content {
-    display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-grow: 1;
-    height: 104px;
-    padding: 0px 160px 0px 160px;
-    max-width: 1440px;
-    margin: 0 auto;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    background-color: var(--kochwelt-darkgray);
+    height: 300px !important;
+    /* margin-top: auto; */
 }
 
 .footer__logo {
+    display: flex;
+    justify-content: start;
     height: 50px;
     filter: invert(1);
 }
