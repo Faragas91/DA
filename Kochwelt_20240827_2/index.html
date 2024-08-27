@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <!-- Meta -->
+    <meta content="text/html" charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Meta Description for SEO -->
+    <meta name="description" content="Bei uns finden Sie köstliche Kochrezepte aus aller Welt.">
+
+    <!-- Website Title -->
+    <title>Kochwelt</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="./assets/logos/logo_small.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <!-- Local CSS -->
+    <link rel="stylesheet" href="./src/css/main.css">
+    <link rel="stylesheet" href="./src/css/header.css">
+    <link rel="stylesheet" href="./src/css/footer.css">
+    <link rel="stylesheet" href="./src/css/components.css">
+    <link rel="stylesheet" href="./src/css/start.css">
+    <link rel="stylesheet" href="./src/css/media_queries/start_media_queries.css">
+
+    <!-- Javascript -->
+    <script src="./src/js/contact_formular.js" defer></script>
+    <script src="./src/js/recipe_calculator.js" defer></script>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header__container">
+            <img class="header__logo" src="./assets/logos/logo_1.png" alt="Kochwelt Logo">
+            <nav  class="header__nav">
+                <a class="header__link--active" href="index.html">Start</a>
+                <a class="header__link" href="./views/recipe_recommended.html">Rezept des Tages</a>
+                <a class="header__link" href="./views/contact.html">Kontakt</a>
+                <a class="header__link" href="./views/impressum.html">Impressum</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main -->
+    <main>
+        <!-- Recommended -->
+        <section_1>
+            <div class="section__recommended">
+                <img class="img__recommended" src="./assets/img/lee/cafe_de_paris.webp" alt="Foto Rezept des Tages">
+                <div class="section__recommended-content">
+                    <h2>Café de Paris</h2>
+                    <div class="section__recommended-description">
+                        <span>
+                            Café de Paris ist eine cremige Buttersauce, die ursprünglich in einem Restaurant in Genf, Schweiz, kreiert wurde. Sie besteht aus einer geheimen Mischung von Gewürzen, Kräutern, und weiteren Zutaten, die in Butter vermischt und über gegrilltes Fleisch, meist Entrecôte, serviert wird. Diese reichhaltige und aromatische Sauce ist bekannt für ihre komplexen Aromen und ihre Fähigkeit, einfache Fleischgerichte zu einem kulinarischen Highlight zu machen.
+                        </span>
+                        <button onclick="location.href='./views/recipe_recommended.html'"><a class="button__link">Rezept öffnen</a></button>
+                    </div>
+                </div>
+            </div>
+        </section_1>
+    
+        <!-- Explore -->
+        <section_2>
+            <div class="section__explore">
+                <h2>Lust auf was Neues?</h2>
+                <div class="section__explore-content">
+                    <div class="section__explore-item">
+                        <a href="./views/recipe_timo.html"><img class="img__explore" src="./assets/img/lee/lasagne.webp" alt="Bild x"></a>
+                        <p>Hackfleisch Lasagne</p>
+                    </div>
+                    <div class="section__explore-item">
+                        <a href="./views/recipe_lee.html"><img class="img__explore" src="./assets/img/lee/turkish_sarma.webp" alt="Bild y"></a>
+                        <p>Türkische Sarma</p>
+                    </div>
+                    <div class="section__explore-item">
+                        <a href="./views/recipe_stefan.html"><img class="img__explore" src="./assets/img/stefan/taco_nudles.png" alt="Bild z"></a>
+                        <p>Taco Nudeln</p>
+                    </div>
+                </div>    
+            </div>
+        </section_2>
+
+        <!-- Knowledge -->
+        <section_3>
+            <div  class="section__knowledge">
+                <h2>Warum Ballaststoffe in keiner Ernährung fehlen dürfen</h2>
+                <div class="section__knowledge-content">
+                    <span>
+                        Ballaststoffe sind essenziell für eine gesunde Ernährung. Sie fördern die Verdauung, regulieren den Blutzuckerspiegel, sorgen für Sättigung und senken den Cholesterinspiegel. Eine ballaststoffreiche Ernährung kann das Risiko für Herz-Kreislauf-Erkrankungen, Typ-2-Diabetes und bestimmte Krebsarten verringern. Lösliche Ballaststoffe (z.B. in Hafer und Äpfeln) stabilisieren den Blutzucker, während unlösliche Ballaststoffe (z.B. in Vollkornprodukten und Gemüse) die Darmgesundheit unterstützen. Ausreichend Ballaststoffe zu konsumieren, ist ein einfacher Weg, die Gesundheit zu fördern.
+                    </span>
+                    <img class="img__knowledge" src="./assets/img/lee/ballaststoffe.webp" alt="#">
+                </div>
+            </div>
+            <div  class="section__knowledge">
+                <h2>Hydration: Warum Wasser das beste Getränk ist</h2>
+                <div class="section__knowledge-content">
+                    <img class="img__knowledge" src="./assets/img/lee/hydration.webp" alt="#">
+                    <span>
+                        Wasser ist lebenswichtig und macht etwa 60% unseres Körpergewichts aus. Es unterstützt Nährstofftransport, Temperaturregulierung und die Ausscheidung von Abfallstoffen. Als bestes Getränk zur Hydration enthält es keine Kalorien oder Zucker und hilft, den Körper im Gleichgewicht zu halten. Im Gegensatz zu Softdrinks oder Säften, die oft Zucker enthalten, reduziert Wasser das Risiko für Übergewicht und Stoffwechselerkrankungen. Täglich sollten 1,5 bis 2 Liter Wasser getrunken werden, mehr bei Hitze oder Sport. Eine griffbereite Wasserflasche erleichtert es, regelmäßig zu trinken und optimal hydriert zu bleiben.
+                    </span>
+                </div>
+            </div>
+            <div  class="section__knowledge">
+                <h2>Superfoods: Sind sie wirklich so „super“?</h2>
+                <div class="section__knowledge-content">
+                    <span>
+                        Superfoods wie Chiasamen, Goji-Beeren und Quinoa werden oft als Wundermittel für die Gesundheit beworben. Sie sind tatsächlich nährstoffreich: Chiasamen bieten Omega-3-Fettsäuren und Ballaststoffe, Goji-Beeren sind vitaminreich, und Quinoa liefert alle neun essenziellen Aminosäuren. Trotzdem sollten Superfoods nur Teil einer ausgewogenen Ernährung sein, da kein Lebensmittel allein eine schlechte Ernährungsweise ausgleichen kann. Traditionelle Lebensmittel wie Äpfel, Karotten und Nüsse sind ebenfalls sehr gesund und oft günstiger. Der Hype um Superfoods sollte nicht dazu führen, diese einfachen, aber wertvollen Nahrungsmittel zu übersehen.
+                    </span>
+                    <img class="img__knowledge" src="./assets/img/lee/superfoods.webp" alt="#">
+                </div>
+            </div>
+        </section_3>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer__content">
+            <img class="footer__logo" src="./assets/logos/logo_small.png" alt="#">
+            <div class="footer__social">
+                <a href="https://www.instagram.com"> <img src="./assets/socialmedia/instagram_logo.png" alt="Instagram"></a>
+                <a href="https://www.facebook.com"> <img src="./assets/socialmedia/facebook_logo.png" alt="Facebook"></a>
+            </div>
+            </div>
+    </footer>
+</body>
+
+</html>
