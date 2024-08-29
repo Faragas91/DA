@@ -32,36 +32,47 @@
         <link rel="stylesheet" href="../src/css/footer.css" />
         <link rel="stylesheet" href="../src/css/components.css" />
         <link rel="stylesheet" href="../src/css/start.css" />
+        <link rel="stylesheet" href="../src/css/media_queries.css" />
         <link rel="stylesheet" href="../src/css/recipe_timo.css" />
-        <link rel="stylesheet" href="../src/css/recipe_timo_media_querries.css">
+        <link
+            rel="stylesheet"
+            href="../src/css/media_queries/recipe_media_queries.css"
+        />
+        <link
+            rel="stylesheet"
+            href="../src/css/recipe_timo_media_querries.css"
+        />
 
         <!-- Javascript -->
         <script src="../src/js/contact_formular.js" defer></script>
         <script src="../src/js/recipe_calculator.js" defer></script>
+        <script src="../src/js/recipe_timo_portion_calculator.js"></script>
     </head>
 
     <body>
         <!-- Header -->
         <header>
             <div class="header__container">
-                <img
-                    class="header__logo"
-                    src="../assets/logos/logo_1.png"
-                    alt="Kochwelt Logo"
-                />
+                <a class="header__logo_link" href="../index.html">
+                    <img
+                        class="header__logo"
+                        src="../assets/logos/logo_1.png"
+                        alt="Kochwelt Logo"
+                /></a>
                 <nav class="header__nav">
+                    <a class="header__link" href="../index.html">Start</a>
                     <a
-                        class="header__link header__link--active"
-                        href="index.html"
-                        >Start</a
+                        class="header__link"
+                        href="../views/recipe_recommended.html"
+                        >Rezept des Tages</a
                     >
-                    <a class="header__link" href="#">Rezept des Tages</a>
                     <a class="header__link" href="../views/contact.html"
                         >Kontakt</a
                     >
                     <a class="header__link" href="../views/impressum.html"
                         >Impressum</a
                     >
+                    <a class="header__link" href="../views/privacy_policy.html">Datenschutzerklärung</a>
                 </nav>
             </div>
         </header>
@@ -71,7 +82,7 @@
                 <h1>Béchamel-Hackfleisch-Lasagne</h1>
                 <img
                     class="recipe_timo_section_head_img"
-                    src="../assets/img/timo/lasagne2.jpg"
+                    src="../assets/img/timo/lasagne.webp"
                     alt="img_lasagne"
                 />
                 <div class="recipe_timo_recipe_characteristics">
@@ -112,100 +123,23 @@
                     min="1"
                     max="20"
                     value="1"
-                    required
+                    step="1"
                 />
-                <button id="multiply_button" class="button_portions_calculator">
+
+                <button
+                    onclick="calculatPortions()"
+                    id="multiply_button"
+                    class="button_portions_calculator"
+                >
                     Portionen
                 </button>
             </div>
-            <div class="recipe_timo_ingredient_list"></div>
-            <table id="table" class="table_ingredient">
-                <tr class="table_line tabel_line_color">
-                    <td id="table-value" class="td_left">
-                        <span>100</span>
-                    </td>
-                    <td class="unit">g</td>
-                    <td><span> Hackfleisch </span></td>
-                </tr>
-                <tr class="table_line">
-                    <td id="table-value" class="td_left">
-                        <span> 0,33 </span>
-                    </td>
-                    <td class="unit"></td>
-                    <td><span> Zwiebel(n) </span></td>
-                </tr>
-                <tr class="table_line tabel_line_color">
-                    <td id="table-value" class="td_left"><span> 1 </span></td>
-                    <td class="unit">EL</td>
-                    <td><span> Tomatenmark</span></td>
-                </tr>
-                <tr class="table_line">
-                    <td id="table-value" class="td_left">
-                        <span> 500 </span>
-                    </td>
-                    <td class="unit">ml</td>
-                    <td><span> Tomatenpüree </span></td>
-                </tr>
-                <tr class="table_line tabel_line_color">
-                    <td id="table-value" class="td_left"><span></span></td>
-                    <td class="unit"></td>
-                    <td><span> Oregano </span></td>
-                </tr>
-                <tr class="table_line">
-                    <td id="table-value" class="td_left"><span></span></td>
-                    <td class="unit"></td>
-                    <td><span> Salz und Pfeffer </span></td>
-                </tr>
-                <tr class="table_line tabel_line_color">
-                    <td id="table-value" class="td_left"><span> 1 </span></td>
-                    <td class="unit"></td>
-                    <td><span> Knoblauchzehe(n) </span></td>
-                </tr>
-                <tr class="table_line">
-                    <td id="table-value" class="td_left"><span> </span></td>
-                    <td class="unit"></td>
-                    <td><span> Paprikapulver</span></td>
-                </tr>
-                <tr class="table_line tabel_line_color">
-                    <td id="table-value" class="td_left"><span> 80 </span></td>
-                    <td class="unit">g</td>
-                    <td><span> Butter </span></td>
-                </tr>
-                <tr class="table_line">
-                    <td id="table-value" class="td_left">
-                        <span> 0.5 </span>
-                    </td>
-                    <td class="unit">ml</td>
-                    <td><span> Gemüsebrühe </span></td>
-                </tr>
-                <tr class="table_line tabel_line_color">
-                    <td id="table-value" class="td_left">
-                        <span> 0.5 </span>
+            <div class="error_text_portions">
+                <span id="error_message"></span>
+            </div>
 
-                    </td>
-                    <td class="unit">ml</td>
-                    <td><span> Milch </span></td>
-                </tr>
-                <tr class="table_line">
-                    <td id="table-value" class="td_left">
-                        <span> 1 </span>
-                    </td>
-                    <td class="unit">PAK</td>
-                    <td><span> Pizzakäse </span></td>
-                </tr>
-                <tr class="table_line tabel_line_color">
-                    <td id="table-value" class="td_left"><span> </span></td>
-                    <td class="unit"></td>
-                    <td><span> Muskat </span></td>
-                </tr>
-                <tr class="table_line">
-                    <td id="table-value" class="td_left">
-                        <span> 1 </span>
-                    </td>
-                    <td class="unit">PAK</td>
-                    <td><span> Lasagneplatten </span></td>
-                </tr>
-            </table>
+            <div class="recipe_timo_ingredient_list"></div>
+            <table id="table" class="table_ingredient"></table>
             <div class="recipe_timo_preperation_main_container">
                 <h2>Zubereitung</h2>
                 <div class="recipe_timo_preparation_time">
@@ -233,56 +167,62 @@
             </div>
             <div class="recipe_timo_preparation_explanation">
                 <span
-                    >Hackfleischsoße: Hackfleisch mit 2 El Öl anbraten, 2
-                    Zwiebeln schälen, in Würfel schneiden und dazugeben. 1 EL
-                    Tomatenmark unterrühren und mit 500 ml pürierten Tomaten und
-                    ein wenig Wasser ablöschen. Eine Knoblauchzehe klein
-                    schneiden und dazugeben. Danach würzen mit Salz, Pfeffer,
-                    Paprika und Oregano und 10 Minuten kochen lassen.
-                    <br>
-                    <br />Béchamelsoße: 80 g Butter im Topf erhitzen, 80 g
-                    Mehl dazugeben und anschwitzen lassen. 1/2 Liter Gemüsebrühe
-                    langsam hinzugeben und immer gut umrühren. Dann die Milch
-                    hinzugeben und aufkochen lassen, eine Hand voll von dem Käse
-                    in die Béchamelsoße geben und gut umrühren. Mit Salz,
-                    Pfeffer und Muskat würzen. 
-                    <br>
-                    <br />Erst ein wenig von der
-                    Hackfleischsoße in eine feuerfeste Form geben, darauf
-                    Lasagneblätter, dann wieder Hackfleischsoße, dann die
-                    Béchamelsoße auf die Hackfleischsoße geben, darauf wieder
-                    Lasagneblätter und das so weiter machen. Als letztes muss
-                    die Béchamelsoße darauf sein. Zum Schluss den restlichen
-                    Pizzakäse darauf streuen. 30 – 40 Minuten bei 180° Umluft
-                    backen.</span
+                    ><a class="preparation_highlighter">Hackfleischsoße:</a>
+                    Hackfleisch mit 2 El Öl anbraten, 2 Zwiebeln schälen, in
+                    Würfel schneiden und dazugeben. 1 EL Tomatenmark unterrühren
+                    und mit 500 ml pürierten Tomaten und ein wenig Wasser
+                    ablöschen. Eine Knoblauchzehe klein schneiden und dazugeben.
+                    Danach würzen mit Salz, Pfeffer, Paprika und Oregano und 10
+                    Minuten kochen lassen.
+                    <br />
+                    <br /><a class="preparation_highlighter">Béchamelsoße:</a>
+                    80 g Butter im Topf erhitzen, 80 g Mehl dazugeben und
+                    anschwitzen lassen. 1/2 Liter Gemüsebrühe langsam hinzugeben
+                    und immer gut umrühren. Dann die Milch hinzugeben und
+                    aufkochen lassen, eine Hand voll von dem Käse in die
+                    Béchamelsoße geben und gut umrühren. Mit Salz, Pfeffer und
+                    Muskat würzen.
+                    <br />
+                    <br />Erst ein wenig von der Hackfleischsoße in eine
+                    feuerfeste Form geben, darauf Lasagneblätter, dann wieder
+                    Hackfleischsoße, dann die Béchamelsoße auf die
+                    Hackfleischsoße geben, darauf wieder Lasagneblätter und das
+                    so weiter machen. Als letztes muss die Béchamelsoße darauf
+                    sein. Zum Schluss den restlichen Pizzakäse darauf streuen.
+                    30 – 40 Minuten bei 180° Umluft backen.</span
                 >
             </div>
             <div class="creator">
                 <h3>Rezept erstellt von</h3>
-                <div class="creator_img" >
-                    <img  src="../assets/img/timo/timoSelfie.JPEG" alt="selfie_timo"><span>Timo</span>
+                <div class="creator_img">
+                    <img
+                        src="../assets/img/timo/timoSelfie.JPEG"
+                        alt="selfie_timo"
+                    /><span>Timo</span>
                 </div>
             </div>
         </div>
 
         <!-- Footer -->
         <footer>
-            <img
-                class="footer__logo"
-                src="../assets/logos/logo_small.png"
-                alt="#"
-            />
-            <div class="footer__social">
-                <a href="https://www.instagram.com">
-                    <img
-                        src="../assets/socialmedia/instagram_logo.png"
-                        alt="Instagram"
-                /></a>
-                <a href="https://www.facebook.com">
-                    <img
-                        src="../assets/socialmedia/facebook_logo.png"
-                        alt="Facebook"
-                /></a>
+            <div class="footer__content">
+                <img
+                    class="footer__logo"
+                    src="../assets/logos/logo_small.png"
+                    alt="#"
+                />
+                <div class="footer__social">
+                    <a href="https://www.instagram.com">
+                        <img
+                            src="../assets/socialmedia/instagram_logo.png"
+                            alt="Instagram"
+                    /></a>
+                    <a href="https://www.facebook.com">
+                        <img
+                            src="../assets/socialmedia/facebook_logo.png"
+                            alt="Facebook"
+                    /></a>
+                </div>
             </div>
         </footer>
     </body>
