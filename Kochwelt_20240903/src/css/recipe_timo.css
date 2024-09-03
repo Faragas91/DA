@@ -7,11 +7,13 @@
     padding-top: 32px;
     display: flex;
     flex-direction: column;
-    padding: 0px 160px 0px 160px;
+    margin-left: auto;
+    margin-right: auto;
 }
 .recipe_timo_head {
-    display: flex;
-    flex-direction: column;
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
 }
 .recipe_timo_head h2 {
     font-size: 22px;
@@ -24,7 +26,7 @@
     height: 250px;
     object-fit: cover;
     border-radius: 8px;
-    
+    width: 1440px;
 }
 .recipe_timo_recipe_characteristics {
     display: flex;
@@ -110,9 +112,7 @@ td:nth-child(3) {
 .unit {
     width: 32px;
 }
-.recipe_timo_preperation_main_container{
-    text-align: center;
-}
+
 .recipe_timo_preperation_main_container h2 {
     margin: 0;
     text-align: start;
@@ -131,7 +131,6 @@ td:nth-child(3) {
 }
 .recipe_timo_preparation_explanation {
     margin-top: 32px;
-    text-align: center;
 }
 .preparation_highlighter {
     font-weight: bold;
@@ -140,10 +139,10 @@ td:nth-child(3) {
 
 .creator {
     margin-top: 32px;
-    padding-bottom: 32px;
+    margin-bottom: 128px;
 }
 .creator span {
-    font-size: 18px;
+    font-size: 32px;
 }
 .creator_img {
     display: flex;

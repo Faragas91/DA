@@ -1,0 +1,30 @@
+/* footer.css */
+
+footer {
+    display: flex;
+    background-color: var(--kochwelt-darkgray);
+    width: 100%;
+}
+
+.footer__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1;
+    height: 104px;
+    padding: 0px 160px 0px 160px;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.footer__logo {
+    height: 50px;
+    filter: invert(1);
+}
+
+.footer__social img {
+    margin: 0 2px;
+    cursor: pointer;
+    height: 50px;
+    filter: none;
+}

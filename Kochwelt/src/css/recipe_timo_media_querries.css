@@ -1,13 +1,12 @@
 @media (max-width: 1440px) {
     .recipe_timo_section_head_img {
-        height: 275px;
+        height: 250px;
         object-fit: cover;
         max-width: 100%;
         filter: none;
     }
-    .recipe_timo_main_container{
-        margin-left: 16px;
-        margin-right: 16px;
+    .recipe_timo_main_container {
+        padding: 0px 160px 0px 160px;
     }
 }
 
@@ -21,12 +20,12 @@
     .recipe_timo_preparation_time {
         flex-direction: column;
     }
-    .creator{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    .creator {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
-    .table_ingredient{
+    .table_ingredient {
         text-align: center;
     }
 }
@@ -41,17 +40,40 @@
     }
     .button_portions_calculator {
         width: 125px;
-        
     }
     .recipe_timo_preparation_time span {
         font-size: 14px;
     }
-    .recipe_timo_portions_calculator{
-      justify-content: center;
+    .recipe_timo_portions_calculator {
+        justify-content: center;
     }
 }
-@media(max-width:425px){
-    .portions_calculator_input_field{
+@media (max-width: 425px) {
+    .portions_calculator_input_field {
         width: 64px;
+    }
+}
+@media(max-width: 1000px) {
+    .recipe_timo_main_container {
+        padding: 0px 40px 0px 40px;
+    }
+}
+@media(max-width: 460px) {
+    .recipe_timo_main_container {
+        padding: 0px 0px 0px 0px;
+
+    }
+    .portions_calculator_input_field{
+        width: 32px;
+    }
+}
+@media(max-width:385px){
+    .recipe_timo_portions_calculator span{
+        padding-right: 16px;
+    }
+    .recipe_timo_recipe_characteristics{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
     }
 }
