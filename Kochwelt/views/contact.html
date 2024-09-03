@@ -25,43 +25,66 @@
     <link rel="stylesheet" href="../src/css/start.css">
     <link rel="stylesheet" href="../src/css/contact.css">
     <link rel="stylesheet" href="../src/css/media_queries/recipe_media_queries_stefan.css">
+    <link rel="stylesheet" href="../src/css/header_hamburger_menu.css">
+
+    <!--JavaScript-->
+    <script src="../src/js/header_hamburger_menu.js" defer></script>
 </head>
 
 <body>
     <!-- Header -->
     <header>
+        <div class="header__off__screen__menu">
+            <ul>
+                <li><a class="header__link" href="../index.html">Start</a></li>
+                <li><a class="header__link" href="./recipe_placeholder.html">Rezept des Tages</a></li>
+                <li><a class="header__link" href="../views/contact.html">Kontakt</a></li>
+                <li><a class="header__link" href="../views/impressum.html">Impressum</a></li>
+                <li><a class="header__link" href="../views/privacy_policy.html">Datenschutzerklärung</a></li>
+            </ul>
+        </div>
         <div class="header__container">
-            <img class="header__logo" src="../assets/logos/logo_1.png" alt="Kochwelt Logo">
+            <a class="header__logo__start__link" href="../index.html">
+                <img class="header__logo" src="../assets/logos/logo_1.png" alt="Kochwelt Logo">
+            </a>
             <nav  class="header__nav">
                 <a class="header__link" href="../index.html">Start</a>
-                <a class="header__link" href="../views/recipe_recommended.html">Rezept des Tages</a>
-                <a class="header__link--active" href="../views/contact.html">Kontakt</a>
+                <a class="header__link" href="./recipe_placeholder.html">Rezept des Tages</a>
+                <a class="header__link" href="../views/contact.html">Kontakt</a>
                 <a class="header__link" href="../views/impressum.html">Impressum</a>
                 <a class="header__link" href="../views/privacy_policy.html">Datenschutzerklärung</a>
             </nav>
+            <div id="hamburger_menu" class="header__hamburger__menu">
+                <span class="header__hamburger__bar"></span>
+                <span class="header__hamburger__bar"></span>
+                <span class="header__hamburger__bar"></span>
+            </div>
         </div>
     </header>
-
     <!-- Contact Formular-->
-    <form onsubmit="sendMail(event)">
-        <div class="form__container">
+    
+    <div class="contact__main_container">
+        <section class="contact__form__section">
             <h2>Kontaktiere uns</h2>
-            <!-- Name -->
-            <label for="yourname">Dein Name:</label>
-            <input id="yourname" type="text" name="name" class="form__container__text" required>
+            <form onsubmit="sendMail(event)">
+                <label for="yourname">Dein Name:</label>
+                <input id="yourname" type="text" name="name" required>
 
-            <!-- Email -->
-            <label for="email">Deine E-Mail:</label>
-            <input id="email" type="email" name="email" class="form__container__text" required>
+                <!-- Email -->
+                <label for="email">Deine E-Mail:</label>
+                <input id="email" type="email" name="email"  required>
 
-            <!-- Message -->
-            <label for="message">Deine Nachricht:</label>
-            <textarea id="message" name="message" class="form__container__text"></textarea>
+                <!-- Message -->
+                <label for="message">Deine Nachricht:</label>
+                <textarea id="message" name="message" ></textarea>
 
-            <!-- Submit -->
-            <input type="submit" class="form__container__submit__botton" value="Abschicken">
-        </div>
-    </form>
+                <!-- Submit -->
+                <input type="submit" class="contact__container__submit__botton" value="Abschicken">
+            </form>
+        </section>
+    </div>
+
+    
 
     <!-- Footer -->
     <footer>

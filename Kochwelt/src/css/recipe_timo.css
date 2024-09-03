@@ -15,15 +15,18 @@
     margin-left: auto;
     margin-right: auto;
 }
-.recipe_timo_head h1 {
+.recipe_timo_head h2 {
+    font-size: 22px;
+    font-weight: 550;
     margin: 0;
-    margin-bottom: 32px;
+    padding: 0px 0px 32px 0px;
 }
+
 .recipe_timo_section_head_img {
-    height: 275px;
+    height: 250px;
     object-fit: cover;
+    border-radius: 8px;
     width: 1440px;
-    filter: none;
 }
 .recipe_timo_recipe_characteristics {
     display: flex;
@@ -49,14 +52,15 @@
 }
 .recipe_timo_portions_calculator {
     display: flex;
-    margin-top: 32px;
-    margin-bottom: 8px;
+
     align-items: center;
+    margin-bottom: 8px;
+    margin-top: 32px;
 }
-.recipe_timo_portions_calculator h2 {
-    margin: 0;
-    font-weight: 200;
-    margin-right: 8px;
+
+.recipe_timo_portions_calculator span {
+    padding-right: 32px;
+    font-size: 18px;
 }
 
 .portions_calculator_input_field {
@@ -81,12 +85,12 @@
 .error_text_portions {
     max-width: 1440px;
     height: 19px;
+    margin-bottom: 16px;
 }
 .table_ingredient {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 32px;
-    
 }
 
 td {
@@ -96,14 +100,13 @@ td {
 
 td:nth-child(1) {
     width: 32px;
-    border-radius:8px 0 0 8px ;
+    border-radius: 8px 0 0 8px;
 }
 td:nth-child(2) {
     width: 32px;
 }
 td:nth-child(3) {
-    border-radius: 0  8px 8px 0 ;
-
+    border-radius: 0 8px 8px 0;
 }
 
 .unit {

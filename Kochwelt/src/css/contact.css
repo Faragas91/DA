@@ -1,62 +1,67 @@
 body {
-    height: 0px;
+    overflow-x: hidden;
+    height: auto;
 }
 
-form {
-    display: flex;
+.contact__main_container {
     flex: 1;
-    justify-content: center;
     align-items: center;
+    /* padding: 20px; */
     width: 100%;
-    padding: 80px 60px 0px 60px;
 }
 
-.form__container {
-    width: 500px;
+.contact__form__section {
+    width: 80%; 
+    max-width: 600px;
     background-color: var(--kochwelt-lightgray);
-    border-radius: 15px;
-    padding: 15px;
-    margin: 0 20px 0 20px;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 0 auto;
 }
 
-.form__container h2 {
+.contact__form__section h2 {
     margin-bottom: 20px;
 }
 
-.form__container label {
+.contact__form__section form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact__form__section label {
     margin-bottom: 5px;
 }
 
-.form__container__text {
+.contact__form__section input,
+.contact__form__section textarea {
     width: 100%;
-    padding: 10px;
+    padding: 5px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
 }
 
-.form__container textarea {
-    min-height: 200px;
-    max-height: 350px;
-    max-width: 100%;
-    min-width: 100%;
+.contact__form__section textarea {
+    resize: vertical;
+    min-height: 50px;
+    height: 150px;
+    max-height: 200px;
 }
 
-.form__container__submit__botton {
-    display: block;
-    width: 50%;
-    margin: 0 auto;
+.contact__container__submit__botton {
+    width: 100%;
     padding: 10px 20px;
     background-color: var(--kochwelt-green);
     color: white;
     border: none;
-    border-radius: 10px;
+    border-radius: 5px;
     cursor: pointer;
     text-align: center;
+    padding: 10px 0 10px 0;
 }
 
-.form__container__submit__botton:hover {
+.contact__container__submit__botton:hover {
     background-color: rgb(8, 169, 8);
 }
 
@@ -69,8 +74,5 @@ form {
 
 footer {
     position: fixed;
-    left: 0;
     bottom: 0;
-    width: 100%;
-    text-align: center;
 }

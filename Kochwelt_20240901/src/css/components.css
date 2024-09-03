@@ -1,0 +1,40 @@
+/* components.css */
+
+button {
+    border-radius: 4px;
+    padding: 8px 40px 8px 40px;
+    border: 0px;
+    background-color: var(--kochwelt-green);
+    color: white;
+}
+
+button:hover {
+    background-color: rgb(8, 169, 8);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+.button__link {
+    color: white;
+    text-decoration: none;
+}
+
+.img__recommended {
+    height: 250px;
+    width: 500px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.img__explore,
+.img__knowledge {
+    height: 200px;
+    width: 200px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.img__explore:hover {
+    transform: scale(1.05);
+}
