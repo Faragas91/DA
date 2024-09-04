@@ -18,10 +18,6 @@
     padding-left: 32px;
 }
 
-.recipe__content ol {
-    padding-left: 16px;
-}
-
 .recipe__img {
     height: 250px;
     object-fit: cover;
@@ -113,14 +109,8 @@
     padding-left: 20px;
 }
 
-/* Ungerade Zeilen mit einer hellgrauen Hintergrundfarbe */
-tr:nth-child(odd) {
+.recipe__table-row--colored {
     background-color: var(--kochwelt-lightgray);
-}
-
-/* Gerade Zeilen ohne Hintergrundfarbe */
-tr:nth-child(even) {
-    background-color: transparent; 
 }
 
 .recipe__creator {
@@ -140,14 +130,14 @@ tr:nth-child(even) {
 }
 
 #recipe__h2 {
-    padding-bottom: 0px !important;
+    margin-bottom: 0px !important;
 }
 
 #recipe__h3 {
-    padding-bottom: 16px !important;
-    padding-top: 8px !important;
+    margin-bottom: 0px !important;
+    margin-top: 0px !important;
 }
 
 #recipe__h4 {
-    padding-top: 0px !important;
+    margin-top: 0px !important;
 }

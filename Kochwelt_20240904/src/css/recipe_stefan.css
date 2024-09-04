@@ -1,0 +1,156 @@
+.recipe__main__container {
+    display: flex;
+    width: 100%;
+}
+
+.recipe__content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0px 160px 0px 160px;
+}
+
+.recipe__img {
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.recipe__container {
+    display: flex;
+    gap: 16px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+p {
+    background-color: var(--kochwelt-lightgray);
+    padding: 5px;
+    border-radius: 8px;
+
+}
+
+.recipe__material-icons {
+    width: 15px;
+    height: 15px;
+}
+
+.recipe__divider {
+    display: flex;
+    border-bottom: 1px solid var(--kochwelt-lightgray);
+    margin-bottom: 32px;    
+}
+
+label {
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+}
+
+.ingredients__portions {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-color: var(--kochwelt-lightgray);
+    padding: 0px 10px 0px 10px;
+    border: 2px solid var(--kochwelt-lightgray);
+    width: 90px;
+    height: 37px;
+    font-size: 18px;
+    margin-right: -5px;
+    margin-left: 20px;
+}
+
+button {
+    height: 40px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    padding: 10px 40px 10px 40px;
+}
+
+table {
+    border-spacing: 0;
+    width: 100%;
+    border-collapse: separate;
+    margin-bottom: 20px;
+}
+
+td {
+    padding: 10px 15px 10px 15px;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+}
+
+td::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--kochwelt-lightgray);
+    z-index: -1;
+}
+
+tr:nth-child(odd) td::before {
+    background-color: var(--kochwelt-lightgray);
+}
+
+tr:nth-child(even) td::before {
+    background-color: #ffffff;
+}
+
+td:first-child {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+td:last-child {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+td:nth-child(1) {
+    width: 5%;
+}
+
+td:nth-child(2) {
+    width: 5%;
+}
+
+td:nth-child(3) {
+    width: 90%;
+}
+
+h2 {
+    margin-bottom: 0px;
+    margin-top: 16px;
+    padding: 0px 0px 16px 0px;
+}
+
+.recipe__steps li {
+    margin-bottom: 10px;
+}
+
+.recipe__creator {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.recipe__creator__picture {
+    width: 100px; 
+    height: 100px; 
+    object-fit: cover;
+    border-radius: 50%;
+    background-image: url('/assets/img/stefan/Redl_Stefan.JPG');
+    background-size: cover;
+    background-position: top; 
+}

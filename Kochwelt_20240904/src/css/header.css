@@ -20,21 +20,6 @@ header {
     margin: 0 auto;
 }
 
-.header__container > *:first-child {
-    align-self: center;     /* Nur das erste Element wird zentriert */
-}
-
-.header__logo-link {
-    text-decoration: none;  /* Entfernt die Unterstreichung */
-    border: none;           /* Entfernt eventuelle Rahmen */
-    padding: 0;             /* Setzt eventuelle Innenabstände zurück */
-    margin: 0;              /* Setzt eventuelle Außenabstände zurück */
-    background: none;       /* ... */
-    line-height: 0;         /* Setzt die Höhe der Textzeile */
-    display: inline-block;  /* Verhindert zusätzliche Abstände */
-    vertical-align: middle; /* Korrigiert mögliche vertikale Abstände */
-}
-
 .header__logo {
     margin-top: auto;
     margin-bottom: auto;

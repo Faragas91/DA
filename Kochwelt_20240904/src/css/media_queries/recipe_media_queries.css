@@ -13,7 +13,7 @@
 }
 
 /* Stefan hinzugefügt am 01.09.2024 um 17:00 */
-@media screen and (min-width: 761px) {
+@media screen and (min-width: 751px) {
     .header__nav {
         display: flex;
     }
@@ -23,7 +23,7 @@
     }
 }
 
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 750px) {
 
     .header__nav {
         display: none;
@@ -45,7 +45,6 @@
     header {
         padding: 0px 16px 0px 16px;
     }
-    
     .recipe__content,
     .footer__content {
         padding: 0px 16px 0px 16px;

@@ -54,14 +54,6 @@
         width: 100%;
     }
 
-    .section__explore-item p {
-        order: 0;
-    }
-
-    .section__explore-item a {
-        order: 1;
-    }
-
     .section__knowledge-content {
         flex-direction: column;
         width: 100%;
@@ -79,12 +71,10 @@
 }
 
 @media screen and (max-width: 460px) {
-
-    /* Stefan hinzugefügt am 01.09.2024 um 17:00 */
+        /* Stefan hinzugefügt am 01.09.2024 um 17:00 */
     header {
         padding: 0px 16px 0px 16px;
     }
-
     .footer__content {
         padding: 0px 16px 0px 16px;
     }
@@ -95,7 +85,6 @@
     .header__container {
         justify-content: center;
     }
-
     .header__logo {
         height: 60px;
         width: auto;
