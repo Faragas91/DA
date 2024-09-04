@@ -12,9 +12,7 @@ html {
 
 body {
     padding: 136px 0px 0px; /* 104px Header + 32px damit oben gleicher Abstand */
-    margin: 0px;
     font-family: "Raleway";
-    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;

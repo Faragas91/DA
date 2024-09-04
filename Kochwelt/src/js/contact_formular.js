@@ -9,7 +9,7 @@ function sendMail(event){
             'Accept': 'application/json'
         }
     }).then(() => {
-        window.location.href = "../views/mail_sent.html";
+        // Hier muss noch die Varibale getauscht werden
     }).catch((error) => {
         console.log(error);
     });

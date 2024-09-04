@@ -1,12 +1,17 @@
 body {
-    overflow-x: hidden;
-    height: auto;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow: hidden;
 }
 
-.contact__main_container {
-    flex: 1;
+.contact__main__container {
+    display: flex;
+    justify-content: center;
     align-items: center;
-    /* padding: 20px; */
+    flex: 1;
     width: 100%;
 }
 
@@ -50,15 +55,12 @@ body {
 }
 
 .contact__container__submit__botton {
-    width: 100%;
-    padding: 10px 20px;
     background-color: var(--kochwelt-green);
+    font-size: 18px;
     color: white;
-    border: none;
-    border-radius: 5px;
     cursor: pointer;
     text-align: center;
-    padding: 10px 0 10px 0;
+    padding: 10px 0 10px 0 !important;
 }
 
 .contact__container__submit__botton:hover {
@@ -76,3 +78,5 @@ footer {
     position: fixed;
     bottom: 0;
 }
+
+

@@ -19,16 +19,17 @@
 
     <!-- Local CSS -->
     <link rel="stylesheet" href="../src/css/main.css">
-    <link rel="stylesheet" href="../src/css/header.css">
-    <link rel="stylesheet" href="../src/css/footer.css">
     <link rel="stylesheet" href="../src/css/components.css">
     <link rel="stylesheet" href="../src/css/start.css">
+    <link rel="stylesheet" href="../src/css/header.css">
+    <link rel="stylesheet" href="../src/css/footer.css">
     <link rel="stylesheet" href="../src/css/contact.css">
     <link rel="stylesheet" href="../src/css/media_queries/recipe_media_queries_stefan.css">
     <link rel="stylesheet" href="../src/css/header_hamburger_menu.css">
 
     <!--JavaScript-->
     <script src="../src/js/header_hamburger_menu.js" defer></script>
+    <script src="../src/js/contact_formular.js" defer></script>
 </head>
 
 <body>
@@ -37,7 +38,7 @@
         <div class="header__off__screen__menu">
             <ul>
                 <li><a class="header__hamburger__link" href="../index.html">Start</a></li>
-                <li><a class="header__hamburger__link" href="./recipe_placeholder.html">Rezept des Tages</a></li>
+                <li><a class="header__hamburger__link" href="./recipe_recommended.html">Rezept des Tages</a></li>
                 <li><a class="header__hamburger__link" href="../views/contact.html">Kontakt</a></li>
                 <li><a class="header__hamburger__link" href="../views/impressum.html">Impressum</a></li>
                 <li><a class="header__hamburger__link" href="../views/privacy_policy.html">Datenschutzerklärung</a></li>
@@ -49,10 +50,9 @@
             </a>
             <nav  class="header__nav">
                 <a class="header__link" href="../index.html">Start</a>
-                <a class="header__link" href="./recipe_placeholder.html">Rezept des Tages</a>
+                <a class="header__link" href="./recipe_recommended.html">Rezept des Tages</a>
                 <a class="header__link" href="../views/contact.html">Kontakt</a>
                 <a class="header__link" href="../views/impressum.html">Impressum</a>
-                <a class="header__link" href="../views/privacy_policy.html">Datenschutzerklärung</a>
             </nav>
             <div id="hamburger_menu" class="header__hamburger__menu">
                 <span class="header__hamburger__bar"></span>
@@ -61,9 +61,10 @@
             </div>
         </div>
     </header>
+
     <!-- Contact Formular-->
-    
-    <div class="contact__main_container">
+
+    <div class="contact__main__container">
         <section class="contact__form__section">
             <h2>Kontaktiere uns</h2>
             <form onsubmit="sendMail(event)">
@@ -79,12 +80,11 @@
                 <textarea id="message" name="message" ></textarea>
 
                 <!-- Submit -->
-                <input type="submit" class="contact__container__submit__botton" value="Abschicken">
+                <button id="submitButton" class="contact__container__submit__botton">Abschicken</button>
+ 
             </form>
         </section>
     </div>
-
-    
 
     <!-- Footer -->
     <footer>
