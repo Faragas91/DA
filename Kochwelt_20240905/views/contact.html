@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <!-- Meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Website Title -->
+    <title>Contact</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/logos/logo_small.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <!-- Local CSS -->
+    <link rel="stylesheet" href="../src/css/main.css">
+    <link rel="stylesheet" href="../src/css/components.css">
+    <link rel="stylesheet" href="../src/css/start.css">
+    <link rel="stylesheet" href="../src/css/header.css">
+    <link rel="stylesheet" href="../src/css/footer.css">
+    <link rel="stylesheet" href="../src/css/contact.css">
+    <link rel="stylesheet" href="../src/css/media_queries/recipe_media_queries_stefan.css">
+    <link rel="stylesheet" href="../src/css/header_hamburger_menu.css">
+
+    <!--JavaScript-->
+    <script src="../src/js/header_hamburger_menu.js" defer></script>
+    <script src="../src/js/contact_formular.js" defer></script>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header__off__screen__menu">
+            <ul>
+                <li><a class="header__hamburger__link" href="../index.html">Start</a></li>
+                <li><a class="header__hamburger__link" href="./recipe_recommended.html">Rezept des Tages</a></li>
+                <li><a class="header__hamburger__link" href="../views/contact.html">Kontakt</a></li>
+                <li><a class="header__hamburger__link" href="../views/impressum.html">Impressum</a></li>
+                <li><a class="header__hamburger__link" href="../views/privacy_policy.html">Datenschutzerklärung</a></li>
+            </ul>
+        </div>
+        <div class="header__container">
+            <a class="header__logo__start__link" href="../index.html">
+                <img class="header__logo" src="../assets/logos/logo_1.png" alt="Kochwelt Logo">
+            </a>
+            <nav  class="header__nav">
+                <a class="header__link" href="../index.html">Start</a>
+                <a class="header__link" href="./recipe_recommended.html">Rezept des Tages</a>
+                <a class="header__link" href="../views/contact.html">Kontakt</a>
+                <a class="header__link" href="../views/impressum.html">Impressum</a>
+            </nav>
+            <div id="hamburger_menu" class="header__hamburger__menu">
+                <span class="header__hamburger__bar"></span>
+                <span class="header__hamburger__bar"></span>
+                <span class="header__hamburger__bar"></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contact Formular-->
+
+    <div class="contact__main__container">
+        <section class="contact__form__section">
+            <h2>Kontaktiere uns</h2>
+            <form onsubmit="sendMail(event)">
+                <label for="yourname">Dein Name:</label>
+                <input id="yourname" type="text" name="name" required>
+
+                <!-- Email -->
+                <label for="email">Deine E-Mail:</label>
+                <input id="email" type="email" name="email"  required>
+
+                <!-- Message -->
+                <label for="message">Deine Nachricht:</label>
+                <textarea id="message" name="message" ></textarea>
+
+                <!-- Submit -->
+                <button id="submitButton" class="contact__container__submit__botton">Abschicken</button>
+ 
+            </form>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer__content">
+            <img class="footer__logo" src="../assets/logos/logo_small.png" alt="#">
+            <div class="footer__social">
+                <a href="https://www.instagram.com"> <img src="../assets/socialmedia/instagram_logo.png" alt="Instagram"></a>
+                <a href="https://www.facebook.com"> <img src="../assets/socialmedia/facebook_logo.png" alt="Facebook"></a>
+            </div>
+        </div>
+    </footer>
+    
+</body>
+</html>

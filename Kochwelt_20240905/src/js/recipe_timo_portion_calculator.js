@@ -69,7 +69,7 @@ function createIngredientsRows() {
         const element = Ingredients[index];
         let amountText =
             element.amount === 0
-                ? "gesch."
+                ? "nach Geschmack"
                 : element.calc_amount.toFixed(2);
         const row =
             "<tr><td>" +

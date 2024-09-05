@@ -1,0 +1,153 @@
+/* recipe_lee.css */
+
+.recipe__container {
+    display: flex;
+    width: 100%;
+}
+
+.recipe__content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    max-width: 1440px;
+    margin: 0 auto; /* 0=oben/unten, auto=links/rechts*/
+    padding: 0px 160px 0px 160px;
+}
+
+.recipe__content ul {
+    padding-left: 32px;
+}
+
+.recipe__content ol {
+    padding-left: 16px;
+}
+
+.recipe__img {
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.recipe__overview-tags {
+    display: flex;
+    gap: 16px;
+    padding-top: 32px;
+    padding-bottom: 32px;
+}
+
+.recipe__overview-tag {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--kochwelt-lightgray);
+    border-radius: 16px;
+    height: 24px;
+    padding: 2px 8px 2px 8px;
+    font-size: 16px;
+}
+
+.recipe__overview-tag img {
+    height: 16px;
+}
+
+.recipe__breakline {
+    height: 1px;
+    width: 100%;
+    background-color: var(--kochwelt-lightgray);
+    margin-bottom: 32px;
+}
+
+.recipe__calculator {
+    display: flex;
+    padding-bottom: 32px;
+    align-items: center;
+}
+
+.recipe__button {
+    height: 40px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.recipe__calculator span {
+    padding-right: 32px;
+}
+
+.recipe__input {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    padding: 0px 10px 0px 10px;
+    border: 2px solid var(--kochwelt-lightgray);
+    width: 90px;
+    height: 37px;
+    font-size: 18px; /* Anpassung der Schriftgröße */
+}
+
+.recipe__table-body {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 32px;
+    font-size: 18px;
+}
+
+.recipe__table-body tr {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    border-radius: 8px;
+}
+
+.recipe__table-data--value,
+.recipe__table-data--unit {
+    display: flex;
+    justify-content: center;
+    width: 50px;
+}
+
+.recipe__table-data--ingredient {
+    padding-left: 20px;
+}
+
+/* Ungerade Zeilen mit einer hellgrauen Hintergrundfarbe */
+tr:nth-child(odd) {
+    background-color: var(--kochwelt-lightgray);
+}
+
+/* Gerade Zeilen ohne Hintergrundfarbe */
+tr:nth-child(even) {
+    background-color: transparent; 
+}
+
+.recipe__creator {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-bottom: 32px;
+}
+
+.recipe__creator img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 15%; /* Foto etwas nach unten verschieben */
+    border: 2px solid var(--kochwelt-lightgray);
+}
+
+#recipe__h2 {
+    padding-bottom: 0px !important;
+}
+
+#recipe__h3 {
+    padding-bottom: 16px !important;
+    padding-top: 8px !important;
+}
+
+#recipe__h4 {
+    padding-top: 0px !important;
+}

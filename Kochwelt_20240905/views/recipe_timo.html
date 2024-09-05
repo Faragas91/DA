@@ -32,8 +32,9 @@
         <link rel="stylesheet" href="../src/css/footer.css" />
         <link rel="stylesheet" href="../src/css/components.css" />
         <link rel="stylesheet" href="../src/css/start.css" />
+        <link rel="stylesheet" href="../src/css/media_queries.css" />
         <link rel="stylesheet" href="../src/css/recipe_timo.css" />
-        <link rel="stylesheet" href="../src/css/header_hamburger_menu.css" />
+        <link rel="stylesheet" href="../src/css/header_hamburger_menu.css">
 
         <link
             rel="stylesheet"
@@ -46,10 +47,8 @@
 
         <!-- Javascript -->
         <script src="../src/js/contact_formular.js" defer></script>
-        <script
-            src="../src/js/recipe_timo_portion_calculator.js"
-            defer
-        ></script>
+        <script src="../src/js/recipe_calculator.js" defer></script>
+        <script src="../src/js/recipe_timo_portion_calculator.js"></script>
         <script src="../src/js/header_hamburger_menu.js" defer></script>
     </head>
 
@@ -58,41 +57,20 @@
         <header>
             <div class="header__off__screen__menu">
                 <ul>
-                    <li>
-                        <a class="header__link" href="../index.html">Start</a>
-                    </li>
-                    <li>
-                        <a class="header__link" href="./recipe_recommended.html"
-                            >Rezept des Tages</a
-                        >
-                    </li>
-                    <li>
-                        <a class="header__link" href="../views/contact.html"
-                            >Kontakt</a
-                        >
-                    </li>
-                    <li>
-                        <a class="header__link" href="../views/impressum.html"
-                            >Impressum</a
-                        >
-                    </li>
-                    <li>
-                        <a
-                            class="header__link"
-                            href="../views/privacy_policy.html"
-                            >Datenschutzerklärung</a
-                        >
-                    </li>
+                    <li><a class="header__hamburger__link" href="../index.html">Start</a></li>
+                    <li><a class="header__hamburger__link" href="./recipe_recommended.html">Rezept des Tages</a></li>
+                    <li><a class="header__hamburger__link" href="../views/contact.html">Kontakt</a></li>
+                    <li><a class="header__hamburger__link" href="../views/impressum.html">Impressum</a></li>
+                    <li><a class="header__hamburger__link" href="../views/privacy_policy.html">Datenschutzerklärung</a></li>
                 </ul>
             </div>
             <div class="header__container">
-                <a class="headerlogo-link" href="../index.html">
+                <a class="header__logo_link" href="../index.html">
                     <img
-                        class="headerlogo header__logo"
+                        class="header__logo"
                         src="../assets/logos/logo_1.png"
                         alt="Kochwelt Logo"
-                    />
-                </a>
+                /></a>
                 <nav class="header__nav">
                     <a class="header__link" href="../index.html">Start</a>
                     <a
@@ -106,6 +84,7 @@
                     <a class="header__link" href="../views/impressum.html"
                         >Impressum</a
                     >
+                    <a class="header__link" href="../views/privacy_policy.html">Datenschutzerklärung</a>
                 </nav>
                 <div id="hamburger_menu" class="header__hamburger__menu">
                     <span class="header__hamburger__bar"></span>
@@ -152,6 +131,7 @@
             </div>
             <div class="recipe_timo_brake_line"></div>
             <div class="recipe_timo_portions_calculator">
+                <label for="portions_calculator"></label>
                 <span>Zutaten für</span>
                 <input
                     class="portions_calculator_input_field"
