@@ -9,8 +9,11 @@ function sendMail(event){
             'Accept': 'application/json'
         }
     }).then(() => {
-        // Hier muss noch die Varibale getauscht werden
+        alert("Ihre Nachricht wurde erfolgreich versendet!");
+        event.target.reset();
     }).catch((error) => {
+        alert("Ihre Nachricht konnte nicht erfolgreich versendet werden!");
         console.log(error);
+        event.target.reset();
     });
 }

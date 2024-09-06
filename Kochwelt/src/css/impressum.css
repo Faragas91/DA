@@ -1,34 +1,57 @@
 body{
-    overflow:auto;
+    overflow: auto;
 }
 
 .header__logo_link {
-    align-self: center;
+    text-decoration: none;  /* Entfernt die Unterstreichung */
+    border: none;           /* Entfernt eventuelle Rahmen */
+    padding: 0;             /* Setzt eventuelle Innenabstände zurück */
+    margin: 0;              /* Setzt eventuelle Außenabstände zurück */
+    background: none;       /* ... */
+    line-height: 0;         /* Setzt die Höhe der Textzeile */
+    display: inline-block;  /* Verhindert zusätzliche Abstände */
+    vertical-align: middle; /* Korrigiert mögliche vertikale Abstände */
 }
 
 .impressum_main_container {
+    display: flex;
     max-width: 1440px;
+    padding: 136px 160px 0px 160px;
+    margin: auto;
+    text-align: center;
 }
-@media (max-width: 1460px) {
+
+.impressum__container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#impressum__container-h2 {
+    padding: 0;
+}
+
+@media  (max-width: 1000px) {
+
     .impressum_main_container {
-        margin-left: 16px;
-        margin-right: 16px;
-        text-align: center;
+        padding: 136px 40px 32px 40px;
     }
 }
-@media (max-width: 440px) {
-    .impressum_main_container {
-        padding-bottom: 128px;
-    }
-}
+
 @media (max-width: 800px) {
+
     .impressum_main_container {
         padding-bottom: 128px;
     }
 }
 
-@media (max-width: 670px) {
+@media (max-width: 471px) {
+
     .impressum_main_container {
-        padding-bottom: 128px;
+        padding: 136px 16px 136px 16px;
     }
 }
+
+
+
+

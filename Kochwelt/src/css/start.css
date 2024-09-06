@@ -6,7 +6,7 @@ section_2 {
 
 .section__recommended {
     display: flex;
-    gap: 64px;
+    gap: 32px;
 }
 
 .section__recommended-content {

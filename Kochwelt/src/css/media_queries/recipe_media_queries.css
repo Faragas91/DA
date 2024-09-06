@@ -39,7 +39,7 @@
     }
 }
 
-@media screen and (max-width: 460px) {
+@media screen and (max-width: 471px) {
 
     /* Stefan hinzugefügt am 01.09.2024 um 17:00 */
     header {
@@ -91,13 +91,17 @@
     }
 }
 
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 364px) {
 
     .recipe__calculator span {
         padding-right: 16px;
     }
 
     .recipe__input {
-        width: 46px;
+        width: 36px;
+    }
+
+    .recipe__button {
+        padding: 8px 18px 8px 18px;
     }
 }
