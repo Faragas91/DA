@@ -1,0 +1,27 @@
+header {
+    z-index: 1;
+    background-color: var(--fotogram-green);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    box-shadow: 0px 0px 20px black;
+    height: 100px;
+}
+
+.header__container {
+    display: flex;
+    justify-content: flex-start;
+    height: 100px;
+    max-width: 1440px;
+    margin-left: 32px;
+    margin-right: 32px;
+}
+
+.header__logo {
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 80px;
+}

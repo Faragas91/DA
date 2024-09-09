@@ -1,0 +1,22 @@
+:root{
+    --fotogram-green: rgb(21, 124, 21);
+    --fotogram-darkgreen: rgb(0, 38, 0);
+    --fotogram-darkgray: rgba(64, 59, 59, 1.0);
+    --fotogram-lightgray: rgba(239, 239, 239, 1.0);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background-image: url('../../picture/one_leave.jpg');
+    background-size: cover; /* Bild wird auf die gesamte Fläche angepasst */
+    background-position: center; /* Bild wird zentriert */
+    background-repeat: no-repeat; /* Bild wird nicht wiederholt */
+    background-attachment: fixed; /* Bild bleibt fixiert, wenn man scrollt */
+    max-width: 1440px;
+    height: 100vh; /* Nimmt die volle Höhe des Viewports */
+}
