@@ -10,6 +10,8 @@ html {
 }
 
 body {
+    display: flex;
+    flex-direction: column;
     padding: 0;
     margin: 0;
     background-image: url('../../picture/one_leave.jpg');
@@ -17,6 +19,5 @@ body {
     background-position: center; /* Bild wird zentriert */
     background-repeat: no-repeat; /* Bild wird nicht wiederholt */
     background-attachment: fixed; /* Bild bleibt fixiert, wenn man scrollt */
-    max-width: 1440px;
     height: 100vh; /* Nimmt die volle Höhe des Viewports */
 }
