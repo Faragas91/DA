@@ -14,9 +14,35 @@
             padding: 16px;
             background-color: black;
         }
+        .single_element:hover {
+            color: white;
+            font-size: 12px;
+            padding: 16px;
+            background-color: rgb(221, 16, 16);
+        }
+
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.375);
+        }
+
+        .d_none {
+            display: none;
+        }
+
     </style>
+            
 </head>
-<body>
+<body onload="renderFilterd(1)">
+    <div onclick="toogleOverlay()" id="overlay" class="overlay">
+        
+
+    </div>
     <h1>Tipps und Tricks</h1>
     <button onclick="renderFilterd(1)">1</button>
     <button onclick="renderFilterd(2)">2</button>

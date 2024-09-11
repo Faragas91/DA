@@ -4,13 +4,12 @@ let overlay = document.getElementById("overlay");
 // Funktion zur Vergrößerung eines Bildes
 function biggerImage(image) {
     image.style.display = "block";
-    image.style.height = "600px";
-    image.style.width = "600px";
+    image.style.transform = "scale(1.05)"
     overlay.style.display = "block"; // Zeige das Overlay
 }
 
 // Funktion zum Wechseln des Bildes
-function nextImage(imageId) {
+function hideImage(imageId) {
     // Verstecke alle Bilder und das Overlay
     for (let i = 0; i < allImages.length; i++) {
         allImages[i].style.display = "none";
@@ -18,8 +17,10 @@ function nextImage(imageId) {
         allImages[i].style.width = "200px";
     }
     overlay.style.display = "none"; // Verstecke das Overlay
+    return 0;
+}
 
-    // Finde das Bild basierend auf der ID und vergrößere es
+function showImage() {
     let imageFound = false;
 
     for (let i = 0; i < allImages.length; i++) {
@@ -35,6 +36,6 @@ function nextImage(imageId) {
         console.log("Bild mit ID '" + imageId + "' nicht gefunden");
     }
 }
+}
 
-// Beispielaufruf für das Bild mit der ID "cat"
-nextImage("cat");
+

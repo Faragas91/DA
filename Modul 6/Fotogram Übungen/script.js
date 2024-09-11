@@ -65,7 +65,7 @@ function render(arrTitles, arrDescriptions) {
 
 
 function getNodeHmlt(i, arrTitles, arrDescriptions) {
-    return `    <div class="single_element">
+    return `    <div onclick="toogleOverlay(${i})" class="single_element">
                     <h2> 
                         ${arrTitles[i]}
                     </h2>
@@ -73,4 +73,10 @@ function getNodeHmlt(i, arrTitles, arrDescriptions) {
                         ${arrDescriptions[i]}
                     </p>
                 </div>`
+}
+
+
+function toogleOverlay(index) {
+    let overlayRef = document.getElementById("overlay");
+    overlayRef.classList.toggle("d_none");
 }
