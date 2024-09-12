@@ -89,22 +89,42 @@
 
         function exercise7() {
             let list7 = document.getElementById('list7');
-            let fruitsList = [];
+            let list7fruitsList = [];
 
             for (let i = 0; i < fruits.length; i++) {
                 if (i % 2 == 0) {
-                    fruitsList.push(fruits[i]);
+                    list7fruitsList.push(fruits[i]);
                 }
                 else {
                     continue
                 }
             }
-            return list7.innerHTML = `<li>${fruitsList}</li>`;
+            return list7.innerHTML += `${list7fruitsList}`;
         }
 
-        function exercise8() {}
+        function exercise8() {
+            let list8 = document.getElementById('list8');
+            let list8fruitsList = [];
 
-        function exercise9() {}
+
+            for (let i = 0; i < fruits.length; i++) {
+                list8fruitsList.push(`${amount[i]} ${fruits[i]}`);
+            }
+            return list8.innerHTML += `${list8fruitsList}`;
+        }
+
+        function exercise9() {
+            let newfruit = document.getElementById('newfruit');
+            let list10 = document.getElementById('list10');
+            let newfruitList = [];
+
+            fruits.push(newfruit.value);
+
+            for (i = 0; i < fruits.length; i++) {
+                newfruitList.push(fruits[i])
+            }
+            return list10.innerHTML += `${newfruitList}`;
+        }
     </script>
 </head>
 

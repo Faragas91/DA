@@ -31,6 +31,8 @@
             exercise6();
             exercise7();
             exercise8();
+            exercise9();
+            exercise10()
         }
 
 
@@ -51,7 +53,7 @@
         }
 
         function exercise3() {
-            let list = document.getElementByid('list3');
+            let list = document.getElementById('list3');
             for (let i = 0; i < 11; i += 2) {
                 list.innerHTML += `<li>${i}</li>`;
             }
@@ -59,7 +61,7 @@
 
         function exercise4() {
             let list = document.getElementById('list4');
-            for (let i = 10; i > -1; i++) {
+            for (let i = 10; i > -1; i--) {
                 list.innerHTML += `<li>${i}</li>`;
             }
         }
@@ -67,27 +69,31 @@
         function exercise5() {
             let list = document.getElementById('list5');
             for (let i = 0; i < fruits.length; i++) {
-                list5.innerHTML = `<li>${fruits[i]}</li>`;
+                list5.innerHTML += `<li>${fruits[i]}</li>`;
             }
         }
 
         function exercise6() {
             let list = document.getElementById('list6');
-            for (let i = fruits.length; i > -1; i--) {
+            for (let i = fruits.length -1; i >= 0; i--) {
                 list.innerHTML += `<li>${fruits[i]}</li>`;
             }
         }
 
         function exercise7() {
             let list = document.getElementById('list7');
+            let fruitsList = [];
+
             for (let i = 0; i < fruits.length; i += 2) {
-                list.innerHTML += `<li>${fruits[i]}</li>`;
+                fruitsList.push(fruits[i]);
             }
+            return list.innerHTML += fruitsList;
+            
         }
 
-        function exercise() {
-            let list = document.getElementById('list');
-            for (let i = 0; i < fruits.length; i += 2) {
+        function exercise8() {
+            let list = document.getElementById('list8');
+            for (let i = 0; i < fruits.length; i++) {
                 list.innerHTML += `<li>${amount[i]} ${fruits[i]}</li>`;
             }
         }
@@ -104,7 +110,7 @@
             }
         }
 
-        function exercise9() {}
+        function exercise10() {}
     </script>
 </head>
 

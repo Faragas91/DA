@@ -62,7 +62,7 @@
         /**
          * Aufgabe 3
          */
-        function showMyAge() {
+        function showMyAge(age) {
             console.log(`Ich bin ${age} Jahre alt.`);
         }
 
@@ -113,12 +113,12 @@
         <br><br> 1.1. Ändere den <b>Funktionsparameter</b> so ab, dass auf der console <b>Hans</b> gegrüßt wird.
         <br> 1.2. Beschreibe genau, was die Funktion <code>greet(name)</code> macht.
     </p>
-    <button onclick="greet(Hans)">Grüße senden</button>
+    <button onclick="greet('Hans')">Grüße senden</button>
 
     <p>
         2) Füge dem nachfolgenden Button die Funktion <code>multiply()</code> hinzu. Übergebe an die Funktion die Parameter <code>7</code> und <code>8</code>. <br> Auf der Console spoll der Text "Das Ergebnis ist 56" ausgegeben werden.
     </p>
-    <button click="multiply(7, 8)">7 * 8</button>
+    <button onclick="multiply(7, 8)">7 * 8</button>
 
 
     <p>
@@ -134,7 +134,7 @@
         <br><br>
 
     </p>
-    <button onclick="eatCookie(1)>Keks essen</button>
+    <button onclick="eatCookie(2)">Keks essen</button>
 
 
     <p>5) Der Satz des Pythagoras ist jedem noch aus der Schuzeit bekannt: <code>a² + b² = c²</code>. In dieser Übung rechnen wir unser c² für verschiedene Werte von a und b aus.<br>
@@ -164,7 +164,7 @@
             <td>2.</td>
             <td>2² + 5²</td>
             <td id="result2"></td>
-            <td><button onclick="pythagoras(2, 5, 'result1')">Berechnen</button></td>
+            <td><button onclick="pythagoras(2, 5, 'result2')">Berechnen</button></td>
         </tr>
 
 
@@ -197,7 +197,7 @@
             <td>5 km/h</td>
             <td>24 Stunden</td>
             <td id="distance1"></td>
-            <td><button onclick="calculateDistance(5, 24, resutl1)">Berechnen</button></td>
+            <td><button onclick="calculateDistance(5, 24, 'distance1')">Berechnen</button></td>
         </tr>
 
         <tr>
@@ -205,7 +205,7 @@
             <td>12 km/h</td>
             <td>24 Stunden</td>
             <td id="distance2"></td>
-            <td><button onclick="calculateDistance(12, 24, result2)">Berechnen</button></td>
+            <td><button onclick="calculateDistance(12, 24, 'distance2')">Berechnen</button></td>
         </tr>
 
         <tr>
@@ -213,7 +213,7 @@
             <td>18 km/h</td>
             <td>24 Stunden</td>
             <td id="distance3"></td>
-            <td><button onclick="calculateDistance(18, 24, result3)">Berechnen</button></td>
+            <td><button onclick="calculateDistance(18, 24, 'distance3')">Berechnen</button></td>
         </tr>
 
         <tr>
@@ -221,7 +221,7 @@
             <td>100 km/h</td>
             <td>24 Stunden</td>
             <td id="distance4"></td>
-            <td><button onclick="calculateDistance(100, 24, result4)">Berechnen</button></td>
+            <td><button onclick="calculateDistance(100, 24, 'distance4')">Berechnen</button></td>
         </tr>
 
 
@@ -230,7 +230,7 @@
             <td>800 km/h</td>
             <td>24 Stunden</td>
             <td id="distance5"></td>
-            <td><button onclick="calculateDistance(800, 24, result5)">Berechnen</button></td>
+            <td><button onclick="calculateDistance(800, 24, 'distance5')">Berechnen</button></td>
         </tr>
 
         <tr>
@@ -238,7 +238,7 @@
             <td>28800 km/h</td>
             <td>24 Stunden</td>
             <td id="distance6"></td>
-            <td><button onclick="calculateDistance(28800, 24, result6)">Berechnen</button></td>
+            <td><button onclick="calculateDistance(28800, 24, 'distance6')">Berechnen</button></td>
         </tr>
     </table>
 </body>

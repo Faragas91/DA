@@ -32,10 +32,15 @@
             background-color: red;
             padding: 20px;
             box-shadow: -4px 9px 10px rgba(0, 0, 0,0.4);
+            font-weight: bolder;
+        }
         
 
         .mb-20 {
             margin-bottom: 20px;
+        }
+        .textkursive {
+            font-style: italic;
         }
     </style>
 
@@ -64,7 +69,7 @@
          * Aufgabe 1 
          */
         function joke3() {
-            document.getElementByid('joke').innerHTML =
+            document.getElementById('joke').innerHTML =
                 `HTML or HTML5?
 Guy 1 - 'How can you tell the difference between HTML and HTML5?'
 
@@ -77,6 +82,11 @@ Guy 2 - 'Did it work?'
 Guy 1 - 'No'
 
 Guy 2 - 'It's HTML5'`;
+        }
+
+        function joke4() {
+            document.getElementById('joke').innerHTML =
+                `Ich habe einen Hund und ein Schwein. Ich fühle mich wie ein Schwein, aber ich bin ein Hund.`;
         }
 
         /**
@@ -97,7 +107,7 @@ Guy 2 - 'It's HTML5'`;
         /**
          * Aufgabe 3 
          */
-        function generatedCircle() {
+        function generatedCircle(name) {
             document.getElementById('generatedHTML').innerHTML = `
             <div class="circle"
                 <b>${name}</b>    
@@ -110,6 +120,7 @@ Guy 2 - 'It's HTML5'`;
          */
         function setName(n) {
             name = n;
+            generatedCircle(name)
         }
 
 
@@ -125,7 +136,7 @@ Guy 2 - 'It's HTML5'`;
 
             if (message.value.length > 0) {
                 chat.innerHTML += `
-                    <div class="mb-20><i>${name.value || 'Unbekannt'}</i>: ${message.value}</div>
+                    <div <i>${name.value}</i>: ${message.value}</div>
                 `;
 
                 message.value = ''; // Inhalt von Textfeld mit id "message" löschen
@@ -149,6 +160,7 @@ Guy 2 - 'It's HTML5'`;
     <button onclick="joke1()">Witz 1</button>
     <button onclick="joke2()">Witz 2</button>
     <button onclick="joke3()">Witz 3</button>
+    <button onclick="joke4()">Witz 4</button>
 
     <div id="joke"></div>
 
@@ -168,7 +180,7 @@ Guy 2 - 'It's HTML5'`;
     <div><button onclick="addFruit('Apfel')">Apfel</button>
         <button onclick="addFruit('Banane')">Banane</button>
         <button onclick="addFruit('Clementine')">Clementine</button>
-        <button onclick=addFruit('Drachenfrucht')">Drachenfrucht</button>
+        <button onclick="addFruit('Drachenfrucht')">Drachenfrucht</button>
     </div>
     <div>
         <button onclick="deleteFruits()">Alles Löschen</button>
@@ -185,10 +197,10 @@ Guy 2 - 'It's HTML5'`;
         <br>3.3. Damit der Name deutlicher zu sehen ist, sollte er <b>Fett</b> geschrieben werden. Verwende dafür das
         &lt;b&gt;-Tag und füge den Namen in die Mitte ein.
     </p>
+    <div id="generatedHTML">
+        <button onclick="generatedCircle(name)">Kreis generieren</button>
 
-    <button onclick="generatedCircle()">Kreis generieren</button>
-
-    <div id="generatedHTML"></div>
+    </div>
 
     <p>4. Variablen helfen uns, unsere Templates noch weiter zu dynamisieren. In dieser Aufgabe wollen wir unseren Kreis
         noch weiter optimieren.
@@ -200,7 +212,7 @@ Guy 2 - 'It's HTML5'`;
 
     <button onclick="setName('Franz')">Franz</button>
     <button onclick="setName('Gundula')">Gundula</button>
-    <button onclick="setName(Henriette)">Gundula</button>
+    <button onclick="setName('Henriette')">Henriette</button>
 
 
     <p>
@@ -219,8 +231,8 @@ Guy 2 - 'It's HTML5'`;
         sein muss.<br> <i>Tipp: mit <code>message.value.length</code> erhälst du die Länge des Textes, der in das
             Textfeld geschrieben wurde.</i>
     </p>
-    <input type="text" id="name" placeholder="Namen eingeben....">
-    <input type="text" id="message" placeholder="Nachricht eingeben..."> <button onclick="sendMessage()">Senden</button>
+    <input class="mb-20 textkursive" type="text" id="name" placeholder="Namen eingeben....">
+    <input class="mb-20 textkursive" type="text" id="message" placeholder="Nachricht eingeben..."> <button onclick="sendMessage()">Senden</button>
     <div id="chat">
 
     </div>
