@@ -63,13 +63,44 @@
 
         }
 
-        function exercise4() {}
+        function exercise4() {
+            let list4 = document.getElementById('list4');
 
-        function exercise5() {}
+            for (let i = 10; i >= 0; i--) {
+                list4.innerHTML += `<li>${i}</li>`;
+            }
+        }
 
-        function exercise6() {}
+        function exercise5() {
+            let list5 = document.getElementById('list5');
 
-        function exercise7() {}
+            for (let i = 0; i < fruits.length; i++) {
+                list5.innerHTML += `<li>${fruits[i]}</li>`;
+            }
+        }
+
+        function exercise6() {
+            let list6 = document.getElementById('list6');
+
+            for (let i = fruits.length-1; i >= 0 ; i--) {
+                list6.innerHTML += `<li>${fruits[i]}</li>`;
+            }
+        }
+
+        function exercise7() {
+            let list7 = document.getElementById('list7');
+            let fruitsList = [];
+
+            for (let i = 0; i < fruits.length; i++) {
+                if (i % 2 == 0) {
+                    fruitsList.push(fruits[i]);
+                }
+                else {
+                    continue
+                }
+            }
+            return list7.innerHTML = `<li>${fruitsList}</li>`;
+        }
 
         function exercise8() {}
 
