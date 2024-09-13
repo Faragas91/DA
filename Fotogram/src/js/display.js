@@ -1,11 +1,16 @@
 let allImages = document.getElementsByClassName("picture__images");
 let overlay = document.getElementById("overlay");
 
+let pigImage= document.getElementById("pigs");
+
+
 // Funktion zur Vergrößerung eines Bildes
 function biggerImage(image) {
-    image.style.display = "block";
-    image.style.transform = "scale(1.05)"
-    overlay.style.display = "block"; // Zeige das Overlay
+    image.style.display = "flex";
+    image.style.transform = "scale(2)"
+    image.style.justifyContent = "center";
+    image.style.alignItems = "center";
+//     overlay.style.display = "block"; // Zeige das Overlay
 }
 
 // Funktion zum Wechseln des Bildes
@@ -24,10 +29,8 @@ function hideImage(imageId) {
 
 function toggleOverlay() {
     let overlayRef = document.getElementById("overlay");
-    overlayRef.classList.toggle("d_none");
+    overlayRef.classList.toggle("d_on");
 }
-
-
 
 
 
