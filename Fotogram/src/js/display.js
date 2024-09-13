@@ -20,22 +20,32 @@ function hideImage(imageId) {
     return 0;
 }
 
-function showImage() {
-    let imageFound = false;
 
-    for (let i = 0; i < allImages.length; i++) {
-        let image = allImages[i];
-        if (image.id === imageId) {
-            biggerImage(image);
-            imageFound = true;
-            break; // Stoppe die Schleife, wenn das Bild gefunden wurde
-        }
-    }
 
-    if (!imageFound) {
-        console.log("Bild mit ID '" + imageId + "' nicht gefunden");
-    }
+function toggleOverlay() {
+    let overlayRef = document.getElementById("overlay");
+    overlayRef.classList.toggle("d_none");
 }
-}
+
+
+
+
+
+// function showImage() {
+//     let imageFound = false;
+
+//     for (let i = 0; i < allImages.length; i++) {
+//         let image = allImages[i];
+//         if (image.id === imageId) {
+//             biggerImage(image);
+//             imageFound = true;
+//             break; // Stoppe die Schleife, wenn das Bild gefunden wurde
+//         }
+//     }
+
+//     if (!imageFound) {
+//         console.log("Bild mit ID '" + imageId + "' nicht gefunden");
+//     }
+// }
 
 
