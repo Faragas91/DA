@@ -1,5 +1,5 @@
 header {
-    z-index: 1;
+    z-index: 10000;
     background-color: var(--fotogram-green);
     position: fixed;
     top: 0;
@@ -14,7 +14,6 @@ header {
 }
 
 .header__container {
-    max-width: 1440px;
     width: 100%;
     padding-left: 32px;
     padding-right: 32px;
