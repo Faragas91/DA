@@ -1,0 +1,35 @@
+@media screen and (max-width:900px) {
+    
+    .image-enlarged {
+        width: 400px;
+        height: 400px;
+    }
+    
+}
+
+@media screen and (max-width:600px) {
+    
+    
+}
+@media screen and (max-width:500px) {
+    .header__container {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .header__logo {
+        width: 300px;
+    }
+    
+}
+
+@media screen and (max-width:380px) {
+    .header__logo {
+        width: 250px;
+    }
+
+    .image-enlarged {
+        width: 200px;
+        height: 200px;
+    }
+}
