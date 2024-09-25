@@ -3,23 +3,27 @@ let overlay = document.getElementById("overlay");
 let currentIndex = 0;
 let makePictureBigger = true;
 
-if (makePictureBigger == true) {
-  for (let i = 0; i < allImages.length; i++) {
-      let image = allImages[i];
-          image.addEventListener('click', (event) => {
-          // Hide all images and overlay
-          hideImage();
-          // Enlarge the clicked image
-          biggerImage(image);
-          // Update current index
-          currentIndex = i;
-          makePictureBigger = false;
-      });
-    }
-  }
+// Goes throw every picture in the Fotogram
+for (let i = 0; i < allImages.length; i++) {
+    let image = allImages[i];
+        image.addEventListener('click', (event) => {
+          
+        // This condition prevent to click more than ones the biggerImage
+        if (makePictureBigger) {
+            // Hide all images and overlay
+            hideImage();
+            // Enlarge the clicked image
+            biggerImage(image);
+            // Update current index
+            currentIndex = i;
+            makePictureBigger = false;
+        }
+    });
+}
 
 
 // Function to bigger the image
+// Adds all neccessary buttons to the image (close, next, previous)
 function biggerImage(image) {
     image.style.display = 'flex';
     image.classList.add("image-enlarged");
@@ -74,12 +78,14 @@ function biggerImage(image) {
     image.parentNode.appendChild(closeButton);
 
     // Listener acts when the close button is clicked
+    // It remove all buttons and the image-enlarger and set it to the main status
     closeButton.addEventListener("click", () => {
       image.classList.remove("image-enlarged");
       showAllImage();
       image.parentNode.removeChild(nextButtonRight);
       image.parentNode.removeChild(nextButtonLeft);
       image.parentNode.removeChild(closeButton);
+      makePictureBigger = true
   });
 }
 
