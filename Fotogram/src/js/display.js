@@ -1,17 +1,21 @@
 let allImages = document.getElementsByClassName("picture__images");
 let overlay = document.getElementById("overlay");
 let currentIndex = 0;
+let makePictureBigger = true;
 
-for (let i = 0; i < allImages.length; i++) {
-    let image = allImages[i];
-    image.addEventListener('click', (event) => {
-        // Hide all images and overlay
-        hideImage();
-        // Enlarge the clicked image
-        biggerImage(image);
-        // Update current index
-        currentIndex = i;
-    });
+if (makePictureBigger == true) {
+  for (let i = 0; i < allImages.length; i++) {
+      let image = allImages[i];
+          image.addEventListener('click', (event) => {
+          // Hide all images and overlay
+          hideImage();
+          // Enlarge the clicked image
+          biggerImage(image);
+          // Update current index
+          currentIndex = i;
+          makePictureBigger = false;
+      });
+    }
   }
 
 
@@ -66,7 +70,7 @@ function biggerImage(image) {
     closeButton.src = "../../material_symbols/close.png";
     closeButton.className = "close__button";
     closeButton.style.zIndex = "100";
-
+    
     image.parentNode.appendChild(closeButton);
 
     // Listener acts when the close button is clicked
