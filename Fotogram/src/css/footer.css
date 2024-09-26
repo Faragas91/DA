@@ -17,11 +17,18 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
+    flex-direction: row;
+}
+
+.footer__logo {
+    height: 90px;
+    object-fit: cover;
+    margin-right: 20px;
+    border-radius: 50%;
 }
 
 p {
     color: white;
-    font-size: 18px;
+    font-size: 32px;
     margin: 0;
 }

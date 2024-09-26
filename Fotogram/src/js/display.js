@@ -3,7 +3,7 @@ let overlay = document.getElementById("overlay");
 let currentIndex = 0;
 let makePictureBigger = true;
 
-// Goes throw every picture in the Fotogram
+// Iterates through all images
 for (let i = 0; i < allImages.length; i++) {
     let image = allImages[i];
         image.addEventListener('click', (event) => {
@@ -14,13 +14,13 @@ for (let i = 0; i < allImages.length; i++) {
             hideImage();
             // Enlarge the clicked image
             biggerImage(image);
-            // Update current index
+            // Set the current index to the new index
             currentIndex = i;
+            // Set the variable to false to prevent to click more than ones 
             makePictureBigger = false;
         }
     });
 }
-
 
 // Function to bigger the image
 // Adds all neccessary buttons to the image (close, next, previous)
@@ -77,14 +77,15 @@ function biggerImage(image) {
     
     image.parentNode.appendChild(closeButton);
 
-    // Listener acts when the close button is clicked
-    // It remove all buttons and the image-enlarger and set it to the main status
+    // The listener acts when the “Close” button is clicked
+    // It removes all buttons, the image enlarger and switches back to the main menu
     closeButton.addEventListener("click", () => {
       image.classList.remove("image-enlarged");
       showAllImage();
       image.parentNode.removeChild(nextButtonRight);
       image.parentNode.removeChild(nextButtonLeft);
       image.parentNode.removeChild(closeButton);
+      // Sets the variable back to true to use the image magnification for another image again
       makePictureBigger = true
   });
 }

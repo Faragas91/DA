@@ -5,6 +5,13 @@
     --fotogram-lightgray: rgba(239, 239, 239, 1.0);
 }
 
+.concert-one-regular {
+    font-family: "Concert One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+
 html {
     scroll-behavior: smooth;
 }
@@ -15,9 +22,9 @@ body {
     padding: 0;
     margin: 0;
     background-image: url('../../picture/one_leave.jpg');
-    background-size: cover; /* Bild wird auf die gesamte Fläche angepasst */
-    background-position: center; /* Bild wird zentriert */
-    background-repeat: no-repeat; /* Bild wird nicht wiederholt */
-    background-attachment: fixed; /* Bild bleibt fixiert, wenn man scrollt */
-    height: 100vh; /* Nimmt die volle Höhe des Viewports */
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+    height: 100vh;
 }
