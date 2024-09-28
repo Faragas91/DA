@@ -21,6 +21,14 @@
         width: 400px;
         height: 400px;
     }
+
+    .next__button-right {
+        left: calc(50vw + 220px); 
+    }
+    
+    .next__button-left {
+        right: calc(50vw + 220px);
+    }
     
 }
 
@@ -48,6 +56,14 @@
         width: 30px;
         height: 30px;
     }
+
+    .next__button-right {
+        left: calc(50vw + 170px); 
+    }
+    
+    .next__button-left {
+        right: calc(50vw + 170px);
+    }
     
 }
 
@@ -60,6 +76,14 @@
     .image-enlarged {
         width: 250px;
         height: 250px;
+    }
+
+    .next__button-right {
+        left: calc(50vw + 145px); 
+    }
+    
+    .next__button-left {
+        right: calc(50vw + 145px);
     }
 }
 
@@ -75,5 +99,13 @@
     .image-enlarged {
         width: 200px;
         height: 200px;
+    }
+
+    .next__button-right {
+        left: calc(50vw + 120px); 
+    }
+    
+    .next__button-left {
+        right: calc(50vw + 120px);
     }
 }

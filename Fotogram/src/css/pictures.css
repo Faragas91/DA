@@ -55,30 +55,27 @@
     transform: none !important;
 }
 
-.next__button-right {
+.next__button-right, .next__button-left {
     position: absolute;
-    top: 50%;
-    right: 10px;
+    top: 50%; 
     transform: translateY(-50%);
-    cursor: pointer;
     width: 40px;
-    height: 40px;    
+    height: 40px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.next__button-right {
+    left: calc(50vw + 320px); 
 }
 
 .next__button-left {
-    position: absolute;
-    top: 50%;
-    left: 10px;
-    transform: translateY(-50%);
-    border: none;
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
+    right: calc(50vw + 320px);
 }
 
 .close__button {
-    cursor: pointer;
-    border: 0;
     width: 40px;
     height: 40px;
+    cursor: pointer;
+    z-index: 100;
 }
