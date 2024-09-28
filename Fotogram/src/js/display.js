@@ -60,6 +60,7 @@ function createNextButtonLeft(image) {
 
     nextButtonLeft.addEventListener("click", () => {
         removeEnlargedElements(image, nextButtonLeft);
+        image.classList.add("pic");
         nextImageLeft();
     });
 }
@@ -75,8 +76,9 @@ function createCloseButton(image) {
 
     closeButton.addEventListener("click", () => {
       image.classList.remove("image-enlarged");
-      showAllImage();
+      image.classList.add("picture__image");
       removeEnlargedElements(image, closeButton);
+      showAllImage();
       makePictureBigger = true;
     });
 }
