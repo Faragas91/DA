@@ -4,6 +4,14 @@ let notes = ['banana', 'rasen mähen'];
 let trashNotesTitles = [];
 let trashNotes = [];
 
+function init() {
+    loadFromLocalStorage();
+    renderNotes();
+    renderTrashNotes();
+
+}
+
+
 function renderNotes() {
     let contentRef = document.getElementById('content');
     contentRef.innerHTML = "";
@@ -11,6 +19,7 @@ function renderNotes() {
     for (let indexNote = 0; indexNote < notes.length; indexNote++) {
         contentRef.innerHTML += getNoteTemplates(indexNote);
     }
+    saveToLocalStorage();
 }
 
 function renderTrashNotes() {
@@ -20,6 +29,7 @@ function renderTrashNotes() {
     for (let indexTrashNote = 0; indexTrashNote < trashNotes.length; indexTrashNote++) {
         trashContentRef.innerHTML += getTrashNoteTemplates(indexTrashNote);
     }
+    saveToLocalStorage();
 }
 
 function getNoteTemplates(indexNote) {
@@ -52,6 +62,7 @@ function pushToTrash(indexNote) {
 function deleteNote(indexTrashNote) {
     trashNotes.splice(indexTrashNote, 1);
     renderTrashNotes();
+    saveToLocalStorage();
 }
 
 function fromTrashToNote(indexTrashNote) {
@@ -61,6 +72,50 @@ function fromTrashToNote(indexTrashNote) {
     trashNotes.splice(indexTrashNote, 1);
     trashNotesTitles.splice(indexTrashNote, 1);
     renderNotes();
-    deleteNote();
+    renderTrashNotes();
+    saveToLocalStorage();
     
 }
+
+function saveToLocalStorage() {
+    localStorage.setItem('notes', JSON.stringify(notes));
+    localStorage.setItem('notesTitles', JSON.stringify(notesTitles));
+    localStorage.setItem('trashNotes', JSON.stringify(trashNotes));
+    localStorage.setItem('trashNotesTitles', JSON.stringify(trashNotesTitles));
+}
+
+function loadFromLocalStorage() {
+    const loadNotes = localStorage.getItem('notes');
+    const loadTitles = localStorage.getItem('notesTitles');
+    const loadTrashNotes = localStorage.getItem('trashNotes');
+    const loadTrashNotesTitles = localStorage.getItem('trashNotesTitles');
+
+    if(loadNotes != null){
+        notes = JSON.parse(loadNotes);
+    }
+    else{
+        notes = [];
+    }
+
+    if(loadTitles != null){
+        notesTitles = JSON.parse(loadTitles);
+    }
+    else{
+        notesTitles = [];
+    }
+
+    if(loadTrashNotes != null){
+        trashNotes = JSON.parse(loadTrashNotes);
+    }
+    else{
+        trashNotes = [];
+    }
+
+    if(loadTrashNotesTitles != null){
+        trashNotesTitles = JSON.parse(loadTrashNotesTitles);
+    }
+    else{
+        trashNotesTitles = [];
+    }
+}
+

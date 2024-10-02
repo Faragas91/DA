@@ -1,5 +1,8 @@
-*{
-    box-sizing: border-box;
-    margin: 0;
-    scroll-behavior: smooth;
+/* Globale settings */
+
+:root{
+    --notizblock-green: rgb(2, 117, 31);
+    /* --fotogram-darkgreen: rgb(0, 38, 0);
+    --fotogram-darkgray: rgba(64, 59, 59, 1.0);
+    --fotogram-lightgray: rgba(239, 239, 239, 1.0); */
 }
