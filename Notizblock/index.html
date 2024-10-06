@@ -7,13 +7,15 @@
 
 
     <!-- JavaScript -->
-    <script src="./script.js" defer></script>
+    <script src="./src/js/script.js" defer></script>
+    <script src="./src/js/template.js" defer></script>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="./styles.css">
-    <link rel="stylesheet" href="./styles/standard.css">
-    <link rel="stylesheet" href="./styles/header.css">
-    <link rel="stylesheet" href="./styles/footer.css">
+    <link rel="stylesheet" href="./src/css/styles.css">
+    <link rel="stylesheet" href="./src/css/standard.css">
+    <link rel="stylesheet" href="./src/css/header.css">
+    <link rel="stylesheet" href="./src/css/footer.css">
+    <link rel="stylesheet" href="./src/css/notes.css">
 </head>
 <body onload="init()">
     <header>
@@ -22,7 +24,7 @@
             <img class="header__logo" src="./assets/img/notizblock.png" alt="Notizblock">
         </div>
     </header>
-    <section>
+    <section class="notes__main-container">
         <input id="note_input" type="text">
         <button onclick="addNote()">Notiz speichern</button>
         <h2>Notes</h2>

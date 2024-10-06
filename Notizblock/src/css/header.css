@@ -19,7 +19,7 @@ header {
     padding-right: 32px;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     flex-direction: row-reverse;
     align-items: center;
 }

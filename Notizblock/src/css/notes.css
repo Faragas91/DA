@@ -1,0 +1,13 @@
+.notes__main-container {
+    display: flex;
+    top: 100px;
+    position: absolute;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 100px;
+    bottom: 0;
+    left: 0;
+}
+
