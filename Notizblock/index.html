@@ -7,8 +7,9 @@
 
 
     <!-- JavaScript -->
-    <script src="./src/js/script.js" defer></script>
     <script src="./src/js/template.js" defer></script>
+    <script src="./src/js/script.js" defer></script>
+
 
     <!-- CSS -->
     <link rel="stylesheet" href="./src/css/styles.css">
@@ -17,14 +18,14 @@
     <link rel="stylesheet" href="./src/css/footer.css">
     <link rel="stylesheet" href="./src/css/notes.css">
 </head>
-<body onload="init()">
+<body>
     <header>
         <div class="header__container">
             <h1 class="header__title">Notizblock</h1>
             <img class="header__logo" src="./assets/img/notizblock.png" alt="Notizblock">
         </div>
     </header>
-    <section class="notes__main-container">
+    <section onload="init()" class="notes__main-container">
         <input id="note_input" type="text">
         <button onclick="addNote()">Notiz speichern</button>
         <h2>Notes</h2>

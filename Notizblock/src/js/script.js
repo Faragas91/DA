@@ -32,13 +32,6 @@ function renderTrashNotes() {
     saveToLocalStorage();
 }
 
-function getNoteTemplates(indexNote) {
-    return `<p>+ title: ${notesTitles[indexNote]} -> ${notes[indexNote]}<button onclick="pushToTrash(${indexNote})">X</button></p>`;
-}
-
-function getTrashNoteTemplates(indexTrashNote) {
-    return `<p>+ title: ${trashNotesTitles[indexTrashNote]} -> ${trashNotes[indexTrashNote]}<button onclick="deleteNote(${indexTrashNote})">X</button><button onclick="fromTrashToNote(${indexTrashNote})">J</button></p>`;
-}
 
 function addNote(){
     let noteInputRef = document.getElementById('note_input');
