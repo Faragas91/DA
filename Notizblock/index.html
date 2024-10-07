@@ -18,25 +18,30 @@
     <link rel="stylesheet" href="./src/css/footer.css">
     <link rel="stylesheet" href="./src/css/notes.css">
 </head>
-<body>
+<body onload="init()">
+    <!--Header -->
     <header>
         <div class="header__container">
             <h1 class="header__title">Notizblock</h1>
             <img class="header__logo" src="./assets/img/notizblock.png" alt="Notizblock">
         </div>
     </header>
-    <section onload="init()" class="notes__main-container">
-        <input id="note_input" type="text">
-        <button onclick="addNote()">Notiz speichern</button>
+
+    <!-- Main Content -->
+    <section class="notes__main-container">
+        <input class="input-field" id="note_title_input" type="text" required>
+        <button onclick="addNoteTitle()">Titel speichern</button>
+        <input class="input-field" id="note_task_input" type="text" required >
+        <button onclick="addNoteTask()">Notiz speichern</button>
         <h2>Notes</h2>
-        <div id="content">
-    
+        <div class="note__container" id="content">
         </div>
+        
         <h2>Trash Notes</h2>
-        <div id="trash_content">
-    
+        <div class="note__container" id="trash_content">    
         </div>
     </section>
+
     <!-- Footer -->
     <footer>
         <div class="footer__container">

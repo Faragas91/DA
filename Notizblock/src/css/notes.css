@@ -1,13 +1,48 @@
 .notes__main-container {
     display: flex;
-    top: 100px;
-    position: absolute;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    flex-grow: 1;
     width: 100%;
-    margin-bottom: 100px;
-    bottom: 0;
-    left: 0;
+    height: 100%;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
+.note__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.note {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    width: 200px;
+    height: 200px;
+    background-color: var(--notizblock-black);
+    margin: 20px;
+    border-radius: 15px;
+}
+
+.note__task-title {
+    font-weight: bold;
+    font-size: 24px;
+    color: #ffffff;
+}
+
+.note__task-description{
+    font-weight: bold;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.icons {
+    width: 20px;
+    height: 20px;
+}

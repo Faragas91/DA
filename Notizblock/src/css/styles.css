@@ -2,7 +2,42 @@
 
 :root{
     --notizblock-green: rgb(2, 117, 31);
-    /* --fotogram-darkgreen: rgb(0, 38, 0);
-    --fotogram-darkgray: rgba(64, 59, 59, 1.0);
-    --fotogram-lightgray: rgba(239, 239, 239, 1.0); */
+    --notizblock-black: rgb(0, 0, 0);
+}
+
+h2 {
+    color: rgb(0, 0, 0);
+    font-size: 96px;
+    margin: 10px;
+}
+
+button{
+    background-color: var(--notizblock-green);
+    color: white;
+    border-radius: 10px;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover{
+    background-color: #198754;
+}
+
+.input-field {
+    width: 50%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.input-field:hover {
+    border: 2px solid #198754;    
 }

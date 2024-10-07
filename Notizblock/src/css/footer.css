@@ -1,16 +1,12 @@
 footer {
-    position: fixed;
-    width: 100%;
-    z-index: 1;
-    min-height: 100px;
-    bottom: 0;
+    height: 100px;
     background-color: var(--notizblock-green);
     box-shadow: 0px 0px 20px black;
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
 }
-
 .footer__container {
     width: 100%;
     padding-left: 32px;
