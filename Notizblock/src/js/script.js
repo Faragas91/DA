@@ -31,19 +31,17 @@ function renderTrashNotes() {
     saveToLocalStorage();  // Speichere die aktuellen Daten in den LocalStorage
 }
 
-function addNoteTitle(){
+function addNote(){
     let noteInputTitleRef = document.getElementById('note_title_input');
     let noteInputTitle = noteInputTitleRef.value;
     notesTitles.push(noteInputTitle);
     noteInputTitleRef.value = "";
-    renderNotes();  // Nach dem Hinzufügen von Notizen rendern und speichern
-}
 
-function addNoteTask(){
     let noteInputTaskRef = document.getElementById('note_task_input');
     let noteInputTask = noteInputTaskRef.value;
     notes.push(noteInputTask);
     noteInputTaskRef.value = "";
+
     renderNotes();  // Nach dem Hinzufügen von Notizen rendern und speichern
 }
 

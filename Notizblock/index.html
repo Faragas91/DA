@@ -29,10 +29,13 @@
 
     <!-- Main Content -->
     <section class="notes__main-container">
-        <input class="input-field" id="note_title_input" type="text" required>
-        <button onclick="addNoteTitle()">Titel speichern</button>
-        <input class="input-field" id="note_task_input" type="text" required >
-        <button onclick="addNoteTask()">Notiz speichern</button>
+        <form class="notes__main-container">
+            <label for="title">Title</label>
+                <input class="input-field" id="note_title_input" name="title" type="text" placeholder="Title of the Task" required>
+            <label for="task">Task</label>
+                <input class="input-field" id="note_task_input" name="task" type="text" placeholder="Description of the Task" required>
+            <button onclick="addNote()">Notiz speichern</button>
+        </form>
         <h2>Notes</h2>
         <div class="note__container" id="content">
         </div>
