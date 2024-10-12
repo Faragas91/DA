@@ -29,13 +29,13 @@
 
     <!-- Main Content -->
     <section class="notes__main-container">
-        <form class="notes__main-container">
-            <label for="title">Title</label>
-                <input class="input-field" id="note_title_input" name="title" type="text" placeholder="Title of the Task" required>
-            <label for="task">Task</label>
-                <input class="input-field" id="note_task_input" name="task" type="text" placeholder="Description of the Task" required>
-            <button onclick="addNote()">Notiz speichern</button>
-        </form>
+        <input class="input-field" id="note_title_input" name="title" type="text" placeholder="Title of the Task" required>
+        <div id="title-error" class="error-message"></div>
+        <input class="input-field" id="note_task_input" name="task" type="text" placeholder="Description of the Task" required>
+        <div id="task-error" class="error-message"></div>
+        <button onclick="addNote()">Notiz speichern</button>
+
+        <div id="success-message" class="success-message"></div>
         <h2>Notes</h2>
         <div class="note__container" id="content">
         </div>
