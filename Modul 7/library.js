@@ -63,3 +63,13 @@ console.log(library.info.location.coordinates.lat);
 // Aufgabe 2 --> die Verfügbarkeit des Buches "1984" überprüfen
 
 console.log(library.sections.fiction[0].book.status);
+
+// Aufgabe 3 --> Erstelle eine Liste der fiktionalen Büchernamen (nutze eine for-Schleife) und logge diese in der Konsole aus
+
+fictionalBooks = [];
+
+for (let i = 0; i < library.sections.fiction.length; i++){
+  fictionalBooks.push(library.sections.fiction[i].book.title)
+}
+
+console.table(fictionalBooks);
