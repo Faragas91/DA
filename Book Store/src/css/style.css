@@ -6,7 +6,7 @@
     --book_store-darkblue: rgb(5, 5, 71);
     --book_store-darkgreen: rgb(0, 38, 0);
     --fotogram-darkgray: rgba(64, 59, 59, 1.0);
-    --fotogram-lightgray: rgba(239, 239, 239, 1.0);
+    --book_store-lightgray: rgb(247,247,247);
 }
 
 html {

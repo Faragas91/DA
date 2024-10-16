@@ -27,10 +27,11 @@ header {
 .header__logo {
     margin-top: auto;
     margin-bottom: auto;
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: auto;
     margin-left: 0;
     margin-right: 20px;
+    border-radius: 10px;
 }
 
 .header__title {
