@@ -42,6 +42,26 @@
     gap: 20px;
 }
 
+.book__like {
+    background-image: url("../../assets/icons/like-empty.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    cursor: pointer;
+    border: none;
+    width: 50px;
+    height: 50px;
+}
+
+.book__liked {
+    background-image: url("../../assets/icons/like-full.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    cursor: pointer;
+    border: none;
+    width: 50px;
+    height: 50px;
+}
+
 .book__details {
     display: flex;
     align-items: flex-start;
