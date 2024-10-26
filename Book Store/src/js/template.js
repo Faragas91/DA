@@ -24,8 +24,8 @@ function bookPriceAndLike(book, index) {
         <div class="book__price-and-like">
             <p id="book-price">€${book.price.toFixed(2)}</p>
             <div class="book__likes">
-                <p id="book-likes">${book.likes}</p>
-                <div class="${book.liked ? 'book__liked' : 'book__like'}" 
+                <p id="book-likes-${index}">${book.likes}</p>
+                <div class="${book.liked ? 'book__like' : 'book__unlike'}" 
                      onclick="swapImages(${index})" 
                      id="like-${index}">
                 </div>

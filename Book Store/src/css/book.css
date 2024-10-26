@@ -42,7 +42,7 @@
     gap: 20px;
 }
 
-.book__like {
+.book__unlike {
     background-image: url("../../assets/icons/like-empty.png");
     background-repeat: no-repeat;
     background-position: center center;
@@ -52,7 +52,7 @@
     height: 50px;
 }
 
-.book__liked {
+.book__like {
     background-image: url("../../assets/icons/like-full.png");
     background-repeat: no-repeat;
     background-position: center center;
@@ -74,7 +74,8 @@
     height: 1px;
     width: 100%;
     background-color: black;
-    margin: 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .book__title {
