@@ -35,13 +35,28 @@ function bookPriceAndLike(book, index) {
 }
 
 function bookComments(book, index) {
+
+    const commentsHTML = book.comments.map(comment => {
+        return `
+                <table>
+                    <tr>
+                        <td class="book__tr-right book__comments-name"><strong>[${comment.name}]</strong>:</td>
+                        <td class="book__comments-text">${comment.comment}</td>
+                    </tr>
+                </table>
+                `;
+    }).join('');
+
     return `
         <h3>Kommentare</h3>
-        <ul>
-            ${book.comments.map(comment => `<li>${comment}</li>`).join('')}
-        </ul>
-        <input type="text" id="commit-${index}" name="commit" placeholder="Neuer Kommentar">
-        `;
+        <div class="book__comments">
+            ${commentsHTML} <!-- Alle Kommentare hier eingefügt -->
+        </div>
+        <div class="book__add-comment">
+            <input type="text" id="commit-text${index}" name="commit" placeholder="New Comment">
+            <button id="commit-button-${index}" onclick="addComment(${index})">Submit</button>
+        </div>
+    `;
 }
 
 
@@ -60,4 +75,3 @@ function templateContainer(book, index) {
     </div>
     `;
 };
-
