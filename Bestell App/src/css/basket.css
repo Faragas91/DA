@@ -23,18 +23,72 @@
 nav {
     margin-right: 0;
     display: flex;
-    background-color: var(--bestellapp-darkgray);
 }
 
-.ham-menu {
-    height: 40px;
-    width: 40px;
+.basket {
+    height: 50px;
+    width: 50px;
     margin-left: auto;
     position: relative;
     cursor: pointer;
+    background-image: url("../../assets/icons/shopping_cart.png");
+    background-size: 40px;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-.ham-menu span {
+
+.basket:hover {
+    background-color: var(--bestallapp-darkorange);
+    border-radius: 50%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .ham-menu span {
     height: 5px;
     width: 100%;
     background-color: var(--bestallapp-darkgray);
@@ -65,4 +119,4 @@ nav {
 .ham-menu.active span:nth-child(3) {
     top: 50%;
     transform: translate(-50%, -50%) rotate(-45deg);
-}
+} */

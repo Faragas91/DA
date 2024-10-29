@@ -5,37 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bestell App</title>
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./assets/Favicon/favicon-16x16.png">
+
     <!--JavaScript-->
     <script src="./database.js" defer></script>
-    <script src="./src/js/script.js" defer></script>
     <script src="./src/js/template.js" defer></script>
-    <script src="./src/js/hamburger_menu.js" defer></script>
+    <script src="./src/js/script.js" defer></script>
+    <script src="./src/js/basket.js" defer></script>
 
     <!--CSS-->
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./src/css/header.css">
-    <link rel="stylesheet" href="./src/css/hamburger_menu.css">
+    <link rel="stylesheet" href="./src/css/basket.css">
+    <link rel="stylesheet" href="./src/css/dish.css">
 
     <!--GoogleFonts-->
 </head>
 <body>
     <header>
         <div class="header__container">
-            <img class="header__logo" src="./assets/Logo/Logo.png" alt="Logo">
+            <img class="header__logo" src="./assets/img/Logo.png" alt="Logo">
             <div id="off-screen-menu" class="off-screen-menu">
                 <h2>Basket</h2>
             </div>
             <nav>
-                <div id="ham-menu" class="ham-menu">
+                <div id="basket" class="basket">
                     <span></span>
                     <span></span>
                     <span></span>
                 </div>
             </nav>
-        </div>
-            
-
+        </div>        
     </header>
+    <section>
+        <div class="dish__image-container"></div>
+        <div class="dish__main-container">
+            <!-- Products will be dynamically loaded here -->
+        </div>
+        <!-- <h2>Vorspeise</h2>
+        <h2>Hauptspeise</h2>
+        <h2>Nachspeise</h2> -->
+    </section>
     
 </body>
 </html>
