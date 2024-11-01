@@ -8,6 +8,22 @@ html{
 
 :root {
     --bestellapp-orange: rgb(255, 128, 0);
-    --bestallapp-darkgray: rgb(41, 41, 41);
     --bestallapp-darkorange: rgb(219, 121, 8);
+    --bestallapp-darkgray: rgb(41, 41, 41);
+    --bestellapp-lightgray: rgb(188,188,188);
+    --bestellapp-white: rgb(245, 245, 245); 
+    --bestellapp-green: rgb(6, 153, 1);
+}
+
+/* margin: top right bottom left; */
+
+.structure__main-container {
+    margin: 0 0 0 0;
+    padding: 10px 10px 10px 10px;
+}
+
+h1 {
+    font-size: 36px;
+    color: var(--bestellapp-darkgray);
+    text-align: center;
 }
