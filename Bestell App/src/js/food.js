@@ -13,4 +13,3 @@ function showOnlyEachCourseOnes(course) {
     }
     return '';
 }
-

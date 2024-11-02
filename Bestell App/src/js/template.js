@@ -1,4 +1,4 @@
-function templateContainer(dish, index) {
+function templateFoodContainer(dish, index) {
 
     const courseHeader = showOnlyEachCourseOnes(dish.course);
     const veganIcon = dish.isVegan ? 'dish__vegan-icon' : '';
@@ -15,3 +15,7 @@ function templateContainer(dish, index) {
     </div>
     `;
 };
+
+
+function templateBasketContainer(dish, index) {
+}
