@@ -50,9 +50,16 @@ nav {
 .basket__ordered-container {
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: auto;
+}
+
+.basket__ordered-food {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 

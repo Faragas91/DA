@@ -15,13 +15,14 @@ function FoodToBasket() {
 
     orderedFood.addEventListener('click', () => {
         // Erstelle den neuen Container
-        basket.classList.toggle('active');
-        offScreenMenu.classList.toggle('active');
+        offScreenMenu.classList.add('active');
         const newDishContainer = `
             <div class="basket__ordered-container">
-                <img src="../../assets/icons/minus_food.png" class="remove-food">
-                <h3 class="dish__title" id="dish-title">bla</h3>
-                <img src="../../assets/icons/plus_food.png" class="add-food">
+                <div class="basket__ordered-food">
+                    <img src="../../assets/icons/minus_food.png" class="remove-food">
+                    <h3 class="dish__title" id="dish-title">bla</h3>
+                    <img src="../../assets/icons/plus_food.png" class="add-food">
+                </div>
             </div>
         `;
 
