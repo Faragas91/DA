@@ -1,5 +1,5 @@
 let myDishes = [
-    // Vorspeisen
+    // Starter
     {
         "name": "Tom Yum Soup",
         "price": 5.99,
@@ -57,7 +57,7 @@ let myDishes = [
         "isVegan": true
     },
 
-    // Hauptspeisen
+    // Main
     {
         "name": "Beef Tacos",
         "price": 10.99,

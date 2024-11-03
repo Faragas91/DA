@@ -1,7 +1,7 @@
 const basket = document.querySelector('.basket');
 const offScreenMenu = document.querySelector('.off-screen-menu');
 
-// dishList = [];
+const orderedFoodList = document.querySelector('.basket__ordered-container');
 
 // Set the varibles active or not acitve
 basket.addEventListener('click', () => {
@@ -9,114 +9,47 @@ basket.addEventListener('click', () => {
     offScreenMenu.classList.toggle('active');
 });
 
-function FoodToBasket() {
-    const orderedFood = document.querySelector('.dish__details-container');
-    const orderedFoodList = document.querySelector('.basket__ordered-container');
 
-    orderedFood.addEventListener('click', () => {
-        // Erstelle den neuen Container
-        offScreenMenu.classList.add('active');
-        const newDishContainer = `
-            <div class="basket__ordered-container">
-                <div class="basket__ordered-food">
-                    <img src="../../assets/icons/minus_food.png" class="remove-food">
-                    <h3 class="dish__title" id="dish-title">bla</h3>
-                    <img src="../../assets/icons/plus_food.png" class="add-food">
-                </div>
-            </div>
-        `;
+// Füge einen Event-Listener zu jedem Gericht hinzu
+document.querySelectorAll('.dish__details-container').forEach(dishElement => {
+    dishElement.addEventListener('click', () => {
+        const dishName = dishElement.getAttribute('data-name');
+        
+        // Finde das Gericht in myDishes anhand des Namens
+        const selectedDish = myDishes.find(dish => dish.name === dishName);
 
-        // Füge den neuen Container zur off-screen-menu hinzu
-        orderedFoodList.innerHTML += newDishContainer; // Hier wird der neue Container hinzugefügt
-        orderedFoodList.classList.add('active'); // Stelle sicher, dass das off-screen-menu sichtbar ist
+        if (selectedDish) {
+            // console.log(`Selected dish: ${selectedDish.name}`);
+            // Hier kannst du weitere Aktionen für das ausgewählte Gericht hinzufügen
+            addDishToBasket(selectedDish);
+            //plusOneAmount(dishAmount);
+        }
     });
+});
+
+
+function orderExists() {
+    const existingDishContainer = document.querySelector('data-name');
+
+    if (existingDishContainer) {
+        dishAmount += 1;
+
+        const amountDisplay = existingDishContainer.querySelector('.dish__price');
+        amountDisplay.textContent = `${dishAmount} x ${dish.price.toFixed(2)}€`;
+    
+        return true;
+    } 
+    return false;
 }
 
-FoodToBasket();
 
+// Plus one amount
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// // Funktion zum Hinzufügen von Gerichten zum Warenkorb
-
-// function addFoodToBasket(index) {
-//     const dish = myDishes[index]; // Angenommen, 'dishes' ist dein Array mit Gerichten
-//     dishList.push(dish);
-//     updateBasket();
-
-// }
-// // Funktion zum Entfernen von Gerichten aus dem Warenkorb
-
-// function removeFoodFromBasket(index) {
-//     const dishIndex = dishList.findIndex(d => d.name === dishes[index].name);
-//     if (dishIndex > -1) {
-//         dishList.splice(dishIndex, 1);
-//     }
-
-//     updateBasket();
-
-// }
-
-
-// // Funktion zum Aktualisieren des Warenkorbs
-
-// function updateBasket() {
-//     basket.innerHTML = ''; // Leere den Warenkorb
-//     dishList.forEach((dish, index) => {
-//         basket.innerHTML += templateBasketContainer(dishList, index);
-//     });
-
-// }
-
-// // Event-Listener für die Plus- und Minus-Buttons
-
-// document.addEventListener('click', (event) => {
-//     if (event.target.classList.contains('add-food')) {
-//         const index = event.target.getAttribute('data-index');
-//         addFoodToBasket(index);
-//     } else if (event.target.classList.contains('remove-food')) {
-//         const index = event.target.getAttribute('data-index');
-//         removeFoodFromBasket(index);
-//     }
-// });
+function plusOneAmount(dishAmount) {
+    // console.log(typeof dishAmount === 'number');
+    const amountPlus = document.getElementById('basket-plus');
+    amountPlus.addEventListener('click', () => {
+        dishAmount += 1;
+    });
+    return dishAmount;
+}
