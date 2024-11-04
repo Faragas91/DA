@@ -5,6 +5,8 @@ let displayCourse = {
     dessert: false
 };
 
+// Comes from template.js
+// Displays the dish types only once (starter, main course, desserts)
 function showOnlyEachCourseOnes(course) {
 
     if (!displayCourse[course]) {
