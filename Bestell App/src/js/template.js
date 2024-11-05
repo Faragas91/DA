@@ -33,6 +33,7 @@ function addDishToBasket(dish, index) {
                     <h3 class="dish__title">${dish.name}</h3>
                     <img class="basket__add-and-remove-food" src="../../assets/icons/plus_food.png" id="basket-plus-${index}" data-dish-name="${dish.name}">
                     <p class="dish__price structure__main-container">${dish.amount} x ${dish.price.toFixed(2)}€</p>
+                    <img class="basket__add-and-remove-food" src="../../assets/icons/delete_dish.png" id="basket-delete-${index}" data-dish-name="${dish.name}">
                 </div>
         `;
 
@@ -44,6 +45,7 @@ function addDishToBasket(dish, index) {
         // the number of dishes is changed using the plus and minus buttons
         document.getElementById(`basket-minus-${index}`).addEventListener('click', () => updateDishAmount(dish, -1));
         document.getElementById(`basket-plus-${index}`).addEventListener('click', () => updateDishAmount(dish, 1));
+        document.getElementById(`basket-delete-${index}`).addEventListener('click', () => deleteDishFromBasket(dish, index));
 
     }
 

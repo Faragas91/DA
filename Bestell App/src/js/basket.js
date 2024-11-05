@@ -67,3 +67,10 @@ function updateDishAmount(dish, change) {
         amountDisplay.textContent = `${dish.amount} x ${dish.price.toFixed(2)}€`; 
     }
 }
+
+function deleteDishFromBasket(dish, index) {
+    const dishContainer = document.querySelector(`.basket__ordered-food[data-name="${dish.name}"]`);
+    if (dishContainer) {
+        dishContainer.remove();
+    }
+}
