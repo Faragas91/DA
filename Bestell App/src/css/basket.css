@@ -18,6 +18,7 @@
     right: 0;
     max-width: 400px;
     padding-left: 20px;
+    padding-right: 20px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -77,4 +78,14 @@ nav {
 
 .basket__add-and-remove-food:hover {
     background-color: var(--bestellapp-lightgray);
+}
+
+.basket__total-sum {
+    display: flex;
+}
+
+.divider {
+    margin: 20px 0;
+    border: 1px solid var(--bestellapp-lightgray);
+    width: 100%;
 }

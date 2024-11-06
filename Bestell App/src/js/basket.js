@@ -60,13 +60,19 @@ function updateDishAmount(dish, change) {
         const dishContainer = document.querySelector(`.basket__ordered-food[data-name="${dish.name}"]`);
         if (dishContainer) {
             dishContainer.remove();
+            calculateTotalSum();
         }
     } else {
         // Updates the quantity of the dish
         const amountDisplay = document.querySelector(`.basket__ordered-food[data-name="${dish.name}"] .dish__price`);
         amountDisplay.textContent = `${dish.amount} x ${dish.price.toFixed(2)}€`;
-        const amountDisplayCaluator = document.querySelector(`.basket__ordered-food[data-name="${dish.name}"] .dish__sum`);
-        amountDisplayCaluator.textContent = dish.amount * dish.price.toFixed(2);
+
+        // Updates the total price of the dish
+        const priceDisplay = document.querySelector(`.basket__ordered-food[data-name="${dish.name}"] .dish__sum`);
+        const totalPrice = dish.amount * dish.price;
+        priceDisplay.textContent = `${totalPrice.toFixed(2)}€`;
+        
+        calculateTotalSum();
     }
 }
 
@@ -74,11 +80,20 @@ function deleteDishFromBasket(dish) {
     const dishContainer = document.querySelector(`.basket__ordered-food[data-name="${dish.name}"]`);
     if (dishContainer) {
         dishContainer.remove();
+        calculateTotalSum();
     }
 }
 
-function calculator(dish) {
-    // Calculate the total price for the selected dish
-    const totalPrice = dish.amout * dish.price;
+function calculateTotalSum() {
+    let totalSum = 0;
 
+    document.querySelectorAll('.dish__sum').forEach(priceElement => {
+        const priceText = priceElement.textContent.replace('€', '').trim();
+        const price = parseFloat(priceText);
+        totalSum += isNaN(price) ? 0 : price;
+    });
+
+    document.getElementById('total-sum').innerHTML = `${totalSum.toFixed(2)}€`;
 }
+
+

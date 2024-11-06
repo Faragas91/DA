@@ -26,6 +26,8 @@ function addDishToBasket(dish, index) {
     if (!orderExists(dish)) { 
         dish.amount = 1;
 
+        let totalPrice = dish.amount * dish.price;
+
         // Create a new container for the selected dish
         const newDishContainer = `
                 <div class="basket__ordered-food" data-name="${dish.name}">
@@ -34,7 +36,7 @@ function addDishToBasket(dish, index) {
                         <img class="basket__add-and-remove-food" src="../../assets/icons/minus_food.png" id="basket-minus-${index}" data-dish-name="${dish.name}">
                         <p class="dish__price structure__main-container">${dish.amount} x ${dish.price.toFixed(2)}€</p>
                         <img class="basket__add-and-remove-food" src="../../assets/icons/plus_food.png" id="basket-plus-${index}" data-dish-name="${dish.name}">
-                        <p class="dish__sum structure__main-container">Summe</p>
+                        <p class="dish__sum structure__main-container" id="basket-totalPrice-${index}">${totalPrice.toFixed(2)}€</p>
                         <img class="basket__add-and-remove-food" src="../../assets/icons/delete_dish.png" id="basket-delete-${index}" data-dish-name="${dish.name}">
                     </div>
                 </div>
@@ -50,8 +52,15 @@ function addDishToBasket(dish, index) {
         document.getElementById(`basket-plus-${index}`).addEventListener('click', () => updateDishAmount(dish, 1));
         document.getElementById(`basket-delete-${index}`).addEventListener('click', () => deleteDishFromBasket(dish));
 
-    }
+        calculateTotalSum();
 
+    } else {
+        updateDishAmount(dish, 0)
+    }
+    
     // The basket will be activate and open it
     offScreenMenu.classList.add('active');
+
+
+
 }
