@@ -64,13 +64,21 @@ function updateDishAmount(dish, change) {
     } else {
         // Updates the quantity of the dish
         const amountDisplay = document.querySelector(`.basket__ordered-food[data-name="${dish.name}"] .dish__price`);
-        amountDisplay.textContent = `${dish.amount} x ${dish.price.toFixed(2)}€`; 
+        amountDisplay.textContent = `${dish.amount} x ${dish.price.toFixed(2)}€`;
+        const amountDisplayCaluator = document.querySelector(`.basket__ordered-food[data-name="${dish.name}"] .dish__sum`);
+        amountDisplayCaluator.textContent = dish.amount * dish.price.toFixed(2);
     }
 }
 
-function deleteDishFromBasket(dish, index) {
+function deleteDishFromBasket(dish) {
     const dishContainer = document.querySelector(`.basket__ordered-food[data-name="${dish.name}"]`);
     if (dishContainer) {
         dishContainer.remove();
     }
+}
+
+function calculator(dish) {
+    // Calculate the total price for the selected dish
+    const totalPrice = dish.amout * dish.price;
+
 }

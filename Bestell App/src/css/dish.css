@@ -54,6 +54,12 @@ section {
     color: var(--bestellapp-orange);
 }
 
+.dish__sum {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--bestellapp-orange);
+}
+
 .dish__vegan-icon {
     background-image: url("../../assets/icons/vegan.png");
     background-size: contain;
