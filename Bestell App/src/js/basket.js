@@ -30,9 +30,9 @@ document.querySelectorAll('.dish__details-container').forEach((dishElement, inde
 // Checks whether the selected dish is already in the shopping cart and if not, the quantity is increased
 function orderExists(dish) {
     // Checks whether the dish with the same name is already in the shopping cart
-    const existingDishContainer = document.querySelector(`.basket__ordered-details[data-name="${dish.name}"]`);
+    const existingDishContainer = document.querySelector(`.basket__ordered-food[data-name="${dish.name}"]`);
 
-    if (dish.amount > 0) {
+    if (existingDishContainer) {
         // When the dish is not already in the shopping cart then the dish.amount will be increased by 1
 
         dish.amount += 1;
@@ -57,13 +57,13 @@ function updateDishAmount(dish, change) {
     if (dish.amount <= 0) {
         dish.amount = 0;
 
-        const dishContainer = document.querySelector(`.basket__ordered-details[data-name="${dish.name}"]`);
+        const dishContainer = document.querySelector(`.basket__ordered-food[data-name="${dish.name}"]`);
         if (dishContainer) {
             dishContainer.remove();
         }
     } else {
         // Updates the quantity of the dish
-        const amountDisplay = document.querySelector(`.basket__ordered-details[data-name="${dish.name}"] .dish__price`);
+        const amountDisplay = document.querySelector(`.basket__ordered-food[data-name="${dish.name}"] .dish__price`);
         amountDisplay.textContent = `${dish.amount} x ${dish.price.toFixed(2)}€`; 
     }
 }

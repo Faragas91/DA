@@ -54,7 +54,4 @@ function addDishToBasket(dish, index) {
 
     // The basket will be activate and open it
     offScreenMenu.classList.add('active');
-
-
-
 }
