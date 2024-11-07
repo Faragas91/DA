@@ -2,16 +2,23 @@
     margin: 0 auto;
 }
 
-html{
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html, body {
     scroll-behavior: smooth;
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 :root {
     --bestellapp-orange: rgb(255, 128, 0);
     --bestallapp-darkorange: rgb(219, 121, 8);
     --bestallapp-darkgray: rgb(41, 41, 41);
-    --bestellapp-lightgray: rgb(188,188,188);
-    --bestellapp-white: rgb(245, 245, 245); 
+    --bestellapp-lightgray: rgb(148, 148, 148);
+    --bestellapp-white: rgb(255, 255, 255); 
     --bestellapp-green: rgb(6, 153, 1);
 }
 
@@ -26,4 +33,8 @@ h1 {
     font-size: 36px;
     color: var(--bestellapp-darkgray);
     text-align: center;
+}
+
+.container-left {
+    flex: 1;
 }

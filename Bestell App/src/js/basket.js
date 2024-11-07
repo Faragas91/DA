@@ -1,14 +1,4 @@
-const basket = document.querySelector('.basket');
-const offScreenMenu = document.querySelector('.off-screen-menu');
-
 const orderedFoodList = document.querySelector('.basket__ordered-container');
-
-// Show the basket menu or closed it
-basket.addEventListener('click', () => {
-    basket.classList.toggle('active');
-    offScreenMenu.classList.toggle('active');
-});
-
 
 // For each dish__details-container a addEventListener will be added 
 document.querySelectorAll('.dish__details-container').forEach((dishElement, index) => {
@@ -25,7 +15,6 @@ document.querySelectorAll('.dish__details-container').forEach((dishElement, inde
         }
     });
 });
-
 
 // Checks whether the selected dish is already in the shopping cart and if not, the quantity is increased
 function orderExists(dish) {
@@ -47,7 +36,6 @@ function orderExists(dish) {
     // Gives false back when the dish is not already in the shopping cart
     return false;  
 }
-
 
 // Update the dish amount
 function updateDishAmount(dish, change) {
@@ -93,7 +81,7 @@ function calculateTotalSum() {
         totalSum += isNaN(price) ? 0 : price;
     });
 
-    document.getElementById('total-sum').innerHTML = `${totalSum.toFixed(2)}€`;
+    document.getElementById('subtotal-sum').innerHTML = `${totalSum.toFixed(2)}€`;
 }
 
 

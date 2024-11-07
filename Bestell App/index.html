@@ -27,26 +27,41 @@
     <header>
         <div class="header__container">
             <img class="header__logo" src="./assets/img/Logo.png" alt="Logo">
-            <div id="off-screen-menu" class="off-screen-menu">
-                <h2>Basket</h2>
-                <div class="divider"></div>
-                <div class="basket__ordered-container" id="ordered">
-                </div>
-                <div class="divider"></div>
-                <p class="basket__total-sum">Gesamt: <span id="total-sum"></span></p>
-            </div>
             <nav>
                 <div id="basket" class="basket"></div>
             </nav>
-        </div>        
+        </div>      
     </header>
-    <section>
-        <div class="dish__image-container"></div>
-        <h1 class="dish__Menu">Choose your Dishes</h1>
-        <div class="dish__main-container">
-            <div class="dish__details-container">
+    <section class="flex-container">
+        <div class="container-left">
+            <div class="dish__image-container">
+                <img class="dish__company-logo" src="./assets/img/company_logo.png">
+            </div>
+            <h1 class="dish__Menu">Choose your Dishes</h1>
+            <div class="dish__main-container">
+                <div class="dish__details-container">
+                    <!-- Gerichte Inhalt -->
+                </div>
+            </div>
+        </div> 
+        <div class="container-right">
+            <div id="screen-menu" class="screen-menu">
+                <h2>Basket</h2>
+                <div class="divider"></div>
+                <div class="basket__ordered-container" id="ordered">
+                    <!-- Warenkorb Inhalt -->
+                </div>
+                <div class="divider"></div>
+                <div class="basket__costs">
+                    <p class="basket__total-subsum">Subtotal: <span id="subtotal-sum">0.00€</span></p>
+                    <p class="basket__delivery-costs">Delivery Costs: 3,99€</p>
+                    <p class="basket__total-sum">Total: <span id="total-sum">0.00€</span></p>
+                </div>
+            </div>
         </div>
     </section>
     
 </body>
 </html>
+
+
