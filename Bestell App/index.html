@@ -20,8 +20,14 @@
     <link rel="stylesheet" href="./src/css/header.css">
     <link rel="stylesheet" href="./src/css/basket.css">
     <link rel="stylesheet" href="./src/css/dish.css">
+    <link rel="stylesheet" href="./src/css/company.css">
 
     <!--GoogleFonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <header>
@@ -37,7 +43,15 @@
             <div class="dish__image-container">
                 <img class="dish__company-logo" src="./assets/img/company_logo.png">
             </div>
-            <h1 class="dish__Menu">Choose your Dishes</h1>
+            <h1 class="company__title sour-gummy">Hunger quencher</h1>
+            <h2 class="company__evaluation">Bewertung (4,5 of 5 Stars)</h2>
+            <div class="company__dishes">
+                <ul>
+                    <li><a href="#starter-header">Starter</a></li>
+                    <li><a href="#main-header">Main</a></li>
+                    <li><a href="#dessert-header">Dessert</a></li>
+                </ul>
+            </div>
             <div class="dish__main-container">
                 <div class="dish__details-container">
                     <!-- Gerichte Inhalt -->
@@ -47,19 +61,22 @@
         <div class="container-right">
             <div id="screen-menu" class="screen-menu">
                 <h2>Basket</h2>
-                <div class="divider"></div>
+                <div class="divider" id="divider"></div>
                 <div class="basket__ordered-container" id="ordered">
                     <!-- Warenkorb Inhalt -->
                 </div>
-                <div class="divider"></div>
+                <div class="divider" id="divider"></div>
                 <div class="basket__costs">
                     <p class="basket__total-subsum">Subtotal: <span id="subtotal-sum">0.00€</span></p>
-                    <p class="basket__delivery-costs">Delivery Costs: 3,99€</p>
+                    <p class="basket__delivery-costs">Delivery: <span id="delivery-costs">3.99€</span></p>
                     <p class="basket__total-sum">Total: <span id="total-sum">0.00€</span></p>
                 </div>
             </div>
         </div>
     </section>
+    <footer>
+
+    </footer>
     
 </body>
 </html>

@@ -16,6 +16,23 @@ document.querySelectorAll('.dish__details-container').forEach((dishElement, inde
     });
 });
 
+// Show the divider only when the total sum is not 0 when the page is loaded up
+document.addEventListener('DOMContentLoaded', function() {
+    const dividers = document.querySelectorAll('.divider');
+    dividers.forEach(divider => {
+        divider.style.display = 'none';
+    });
+});
+
+// Show the basketCosts only when the total sum is not 0 when the page is loaded up
+document.addEventListener('DOMContentLoaded', function() {
+    const basketCosts = document.querySelector('.basket__costs');
+    if (basketCosts) {
+        basketCosts.style.display = 'none';
+    };
+});
+
+
 // Checks whether the selected dish is already in the shopping cart and if not, the quantity is increased
 function orderExists(dish) {
     // Checks whether the dish with the same name is already in the shopping cart
@@ -28,7 +45,7 @@ function orderExists(dish) {
 
         // Updates the quantity of the dish
         const amountDisplay = existingDishContainer.querySelector('.dish__price');
-        amountDisplay.textContent = `${dish.amount} x ${dish.price.toFixed(2)}€`;
+        amountDisplay.textContent = `${dish.amount}x`;
 
         // Gives true back when the dish is already in the shopping cart
         return true;  
@@ -53,7 +70,7 @@ function updateDishAmount(dish, change) {
     } else {
         // Updates the quantity of the dish
         const amountDisplay = document.querySelector(`.basket__ordered-food[data-name="${dish.name}"] .dish__price`);
-        amountDisplay.textContent = `${dish.amount} x ${dish.price.toFixed(2)}€`;
+        amountDisplay.textContent = `${dish.amount}x`;
 
         // Updates the total price of the dish
         const priceDisplay = document.querySelector(`.basket__ordered-food[data-name="${dish.name}"] .dish__sum`);
@@ -80,8 +97,20 @@ function calculateTotalSum() {
         const price = parseFloat(priceText);
         totalSum += isNaN(price) ? 0 : price;
     });
-
+    
     document.getElementById('subtotal-sum').innerHTML = `${totalSum.toFixed(2)}€`;
+    
+    const dividers = document.querySelectorAll('.divider');
+    dividers.forEach(divider => {
+        divider.style.display = totalSum === 0 ? 'none' : 'block';
+    });
+
+    const basketCosts = document.querySelector('.basket__costs');
+       if (basketCosts) {
+            basketCosts.style.display = totalSum === 0 ? 'none' : 'block';
+       }
 }
+
+
 
 

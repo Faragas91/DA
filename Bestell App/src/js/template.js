@@ -31,12 +31,12 @@ function addDishToBasket(dish, index) {
         // Create a new container for the selected dish
         const newDishContainer = `
                 <div class="basket__ordered-food" data-name="${dish.name}">
-                    <h3 class="dish__title">${dish.name}</h3>
+                    <h3 class="dish__title basket__title">${dish.name}</h3>
                     <div class="basket__ordered-details data-name="${dish.name}">
                         <img class="basket__add-and-remove-food" src="../../assets/icons/minus_food.png" id="basket-minus-${index}" data-dish-name="${dish.name}">
-                        <p class="dish__price structure__main-container">${dish.amount} x ${dish.price.toFixed(2)}€</p>
+                        <p class="dish__price basket__price">${dish.amount}x</p>
                         <img class="basket__add-and-remove-food" src="../../assets/icons/plus_food.png" id="basket-plus-${index}" data-dish-name="${dish.name}">
-                        <p class="dish__sum structure__main-container" id="basket-totalPrice-${index}">${totalPrice.toFixed(2)}€</p>
+                        <p class="dish__sum basket__sum" id="basket-totalPrice-${index}">${totalPrice.toFixed(2)}€</p>
                         <img class="basket__add-and-remove-food" src="../../assets/icons/delete_dish.png" id="basket-delete-${index}" data-dish-name="${dish.name}">
                     </div>
                 </div>

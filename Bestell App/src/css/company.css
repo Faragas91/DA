@@ -1,0 +1,50 @@
+.company__title {
+    font-size: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-top: 50px;
+}
+
+.company__evaluation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    color: var(--bestellapp-light-orange)
+}
+
+.company__dishes ul {
+    display: flex;
+    justify-content: center;
+    background-color: var(--bestellapp-pale-gray);
+    list-style-type: none;
+    padding: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 15px;
+    font-size: 24px;
+}
+
+.company__dishes li {
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.company__dishes li {
+    background-color: var(--bestellapp-light-gray);
+}
+
+.company__dishes a {
+        text-decoration: none;
+        color: var(--bestellapp-darkgray);
+}
+
+.company__dishes a:hover {
+    color: var(--bestellapp-orange);
+    text-decoration: var(--bestellapp-orange);
+}

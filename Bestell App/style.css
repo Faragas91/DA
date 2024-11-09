@@ -11,6 +11,7 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
+    font-family: "Kanit", sans-serif;
 }
 
 :root {
@@ -20,6 +21,17 @@ html, body {
     --bestellapp-lightgray: rgb(148, 148, 148);
     --bestellapp-white: rgb(255, 255, 255); 
     --bestellapp-green: rgb(6, 153, 1);
+    --bestellapp-light-orange: rgb(250, 180, 89);
+    --bestellapp-pale-gray: rgb(233, 233, 233);
+}
+
+.sour-gummy {
+    font-family: "Sour Gummy", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+      "wdth" 100;
 }
 
 /* margin: top right bottom left; */

@@ -9,6 +9,7 @@
     padding-left: 20px;
     padding-right: 20px;
     text-align: center;
+    overflow-y: auto;
 }
 
 nav {
@@ -46,36 +47,82 @@ nav {
 .basket__ordered-food {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     flex-direction: column;
+    width: 100%;
+    margin-bottom: 20px;
 }
 
 .basket__ordered-details {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .basket__add-and-remove-food {
     width: 30px;
     height: 30px;
     cursor: pointer;
-    border: 1px solid var(--bestellapp-lightgray);
     border-radius: 50%;
-    margin: 10px;
+    margin: 0;
 }
 
 .basket__add-and-remove-food:hover {
-    background-color: var(--bestellapp-lightgray);
+    border: 1px solid var(--bestellapp-orange);
 }
 
-.basket__total-sum {
+.basket__title {
+    font-size: 20px !important;
+    margin: 0;
     display: flex;
+}
+
+.basket__price {
+    font-size: 16px !important;
+    color: var(--bestellapp-darkgray) !important;
+    margin: 0;
+}
+
+.basket__sum {
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    color: var(--bestellapp-darkgray) !important;
+    margin: 0;
 }
 
 .basket__costs {
     display: flex;
     flex-direction: column;
+}
+
+.basket__total-sum {
+    display: flex;
+    justify-content: space-between;
     margin: 0;
-    justify-content: center;
+}
+
+.basket__total-sum span {
+    margin: 0;
+}
+
+.basket__delivery-costs {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+}
+
+.basket__delivery-costs span {
+    margin: 0;
+}
+
+.basket__total-subsum {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+}
+
+.basket__total-subsum span {
+    margin: 0;
 }
 
 .divider {
