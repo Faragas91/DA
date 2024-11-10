@@ -16,23 +16,6 @@ document.querySelectorAll('.dish__details-container').forEach((dishElement, inde
     });
 });
 
-// Show the divider only when the total sum is not 0 when the page is loaded up
-document.addEventListener('DOMContentLoaded', function() {
-    const dividers = document.querySelectorAll('.divider');
-    dividers.forEach(divider => {
-        divider.style.display = 'none';
-    });
-});
-
-// Show the basketCosts only when the total sum is not 0 when the page is loaded up
-document.addEventListener('DOMContentLoaded', function() {
-    const basketCosts = document.querySelector('.basket__costs');
-    if (basketCosts) {
-        basketCosts.style.display = 'none';
-    };
-});
-
-
 // Checks whether the selected dish is already in the shopping cart and if not, the quantity is increased
 function orderExists(dish) {
     // Checks whether the dish with the same name is already in the shopping cart
@@ -40,7 +23,6 @@ function orderExists(dish) {
 
     if (existingDishContainer) {
         // When the dish is not already in the shopping cart then the dish.amount will be increased by 1
-
         dish.amount += 1;
 
         // Updates the quantity of the dish
@@ -89,27 +71,56 @@ function deleteDishFromBasket(dish) {
     }
 }
 
+function visibilityBasketCosts(totalSum) {
+    // Control the visibility of basket__costs based on the total amount
+    const basketCosts = document.querySelector('.basket__costs');
+    if (basketCosts) {
+        if (totalSum === 0) {
+            basketCosts.innerHTML = "Your shopping cart is empty. Please add some dishes.";
+            basketCosts.style.fontSize = '36px';
+        } else {
+            basketCosts.style.fontSize = '16px';
+            basketCosts.innerHTML = `
+                <p class="basket__total-subsum">Subtotal: <span id="subtotal-sum">${totalSum.toFixed(2)}€</span></p>
+                <p class="basket__delivery-costs">Delivery: <span id="delivery-costs">3.99€</span></p>
+                <p class="basket__total-sum">Total: <span id="total-sum">${(totalSum + 3.99).toFixed(2)}€</span></p>
+                <a href="../src/html/payment.html" class="basket__pay-btn" id="pay-button">Payment</a>
+            `;
+        }
+    }
+}
+
+function visibilityDivider(totalSum) {
+    // Control the visibility of dividers based on the total amount
+    const dividers = document.querySelectorAll('.divider');
+    dividers.forEach(divider => {
+        divider.style.visibility = totalSum === 0 ? 'hidden' : 'visible';
+    });
+}
+
 function calculateTotalSum() {
     let totalSum = 0;
 
+    // Calculate the total sum of all the dishes
     document.querySelectorAll('.dish__sum').forEach(priceElement => {
         const priceText = priceElement.textContent.replace('€', '').trim();
         const price = parseFloat(priceText);
         totalSum += isNaN(price) ? 0 : price;
     });
-    
-    document.getElementById('subtotal-sum').innerHTML = `${totalSum.toFixed(2)}€`;
-    
-    const dividers = document.querySelectorAll('.divider');
-    dividers.forEach(divider => {
-        divider.style.display = totalSum === 0 ? 'none' : 'block';
-    });
+    visibilityDivider(totalSum);
+    visibilityBasketCosts(totalSum);
 
-    const basketCosts = document.querySelector('.basket__costs');
-       if (basketCosts) {
-            basketCosts.style.display = totalSum === 0 ? 'none' : 'block';
-       }
+    // Check if the id subtotal-sum is there 
+    // Without the check the Error message will be displayed --> Uncaught TypeError: Cannot set properties of null (setting 'innerHTML')
+    const subtotalSumElement = document.getElementById('subtotal-sum');
+    if (subtotalSumElement) {
+        subtotalSumElement.innerHTML = `${totalSum.toFixed(2)}€`;
+    }
 }
+
+//  Calls the calculateTotalSum function only once when loading the basket page. This prevents the “innerHTML is null” error from occurring.
+document.addEventListener('DOMContentLoaded', calculateTotalSum);
+
 
 
 

@@ -1,6 +1,6 @@
 // comes from database.js
 // templateContainer function creates a separate container for each dish in database.js
-function templateContainer(dish, index) {
+function templateDishContainer(dish, index) {
     const courseHeader = showOnlyEachCourseOnes(dish.course);
 
     // Show the vegan symbol when in the database.js isVegan is set to true
@@ -19,15 +19,8 @@ function templateContainer(dish, index) {
     `;
 };
 
-// Comes from basket.js
-// adds or remove the order to or from the basket
-function addDishToBasket(dish, index) {
-    // If the dish is not in the shopping cart, it will only be added once. Multiple additions are not possible.
-    if (!orderExists(dish)) { 
-        dish.amount = 1;
-
+function templateBasketContainer(dish, index) {
         let totalPrice = dish.amount * dish.price;
-
         // Create a new container for the selected dish
         const newDishContainer = `
                 <div class="basket__ordered-food" data-name="${dish.name}">
@@ -41,20 +34,7 @@ function addDishToBasket(dish, index) {
                     </div>
                 </div>
         `;
-
         // Adds the new dish to the container 
         // With innerHTML the Listener for every Dish will be overwritten, because of this i choose insertAdjacentHTML
         orderedFoodList.insertAdjacentHTML('beforeend', newDishContainer);
-
-        
-        // the number of dishes is changed using the plus and minus buttons
-        document.getElementById(`basket-minus-${index}`).addEventListener('click', () => updateDishAmount(dish, -1));
-        document.getElementById(`basket-plus-${index}`).addEventListener('click', () => updateDishAmount(dish, 1));
-        document.getElementById(`basket-delete-${index}`).addEventListener('click', () => deleteDishFromBasket(dish));
-
-        calculateTotalSum();
-
-    } else {
-        updateDishAmount(dish, 0)
-    }
 }

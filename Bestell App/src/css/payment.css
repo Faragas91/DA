@@ -1,0 +1,33 @@
+.payment__container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.payment__title {
+    display: flex;
+    text-align: center;
+    font-size: 56px;
+    font-weight: bold;
+}
+
+.payment__back-text {
+    margin-top: 50px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.homepage {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: var(--bestellapp-orange);
+    color: var(--bestellapp-white);
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+}

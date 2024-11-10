@@ -130,3 +130,16 @@ nav {
     border: 1px solid var(--bestellapp-lightgray);
     width: 100%;
 }
+
+.basket__pay-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: var(--bestellapp-orange);
+    color: var(--bestellapp-white);
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+}

@@ -3,7 +3,7 @@ let dishContainer = '';
 
 // Loops through the array `myDishes` and creates an HTML template
 for (let i = 0; i < myDishes.length; i++) {
-    dishContainer += templateContainer(myDishes[i], i);
+    dishContainer += templateDishContainer(myDishes[i], i);
     console.log(dishContainer);
 }
 
