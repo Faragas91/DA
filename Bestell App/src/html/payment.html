@@ -4,17 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment</title>
-</head>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./../../assets/Favicon/favicon-16x16.png">
 
     <!--JavaScript-->
     <!--CSS-->
     <link rel="stylesheet" href="./../../style.css">
     <link rel="stylesheet" href="./../css/payment.css">
+    <link rel="stylesheet" href="./../css/header.css">
+
+</head>
 <body>
+    <!--Header-->
+    <header>
+        <div class="header__container">
+            <a href="./../../index.html" class="header__logo-link" target="_blank">
+                <img class="header__logo" src="./../../assets/img/Logo.png" alt="Logo">
+            </a>
+            <nav class="basket" id="basket">
+            </nav>
+        </div>      
+    </header>
     <div class="payment__container">
-        <p class="payment__title">Thank you for your Delivery.<br> It should arrives you in ca. 30min</p>
-        <p class="payment__back-text">Click the Back-Button to go back to the homepage </p>
-        <a href="../../index.html" class="homepage" id="pay-button">Back</a>
+        <p class="payment__title">Thank you for your delivery.<br> It should arrives you in ca. 30min</p>
+        <p class="payment__back-text">Click the Back-Button or the Logo to go back to the homepage </p>
+        <a href="../../index.html" class="homepage" id="pay-button" target="_blank">Back</a>
     </div>
 
 </body>

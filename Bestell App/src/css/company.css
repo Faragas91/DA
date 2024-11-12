@@ -48,3 +48,11 @@
     color: var(--bestellapp-orange);
     text-decoration: var(--bestellapp-orange);
 }
+
+.impressum__container {
+    margin-top: 120px;
+}
+
+.datenschutz__container {
+    margin-top: 120px;
+}

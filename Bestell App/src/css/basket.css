@@ -18,12 +18,11 @@ nav {
 }
 
 .basket {
+    margin: 0;
     height: 50px;
     width: 50px;
-    margin-left: auto;
-    position: relative;
     cursor: pointer;
-    background-image: url("../../assets/icons/shopping_cart.png");
+    background-image: url("../../assets/icons/menu.png");
     background-size: 40px;
     background-position: center;
     background-repeat: no-repeat;
@@ -142,4 +141,25 @@ nav {
     font-weight: bold;
     border-radius: 5px;
     text-decoration: none;
+}
+
+.basket-empty-message {
+    text-align: center;
+    font-size: 24px;
+    color: var(--bestellapp-darkgray);
+    background-color: var(--bestellapp-lightgray);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.basket-empty-message p {
+    margin: 8px 0;
+}
+
+.hungry-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
 }

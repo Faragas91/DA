@@ -76,7 +76,13 @@ function visibilityBasketCosts(totalSum) {
     const basketCosts = document.querySelector('.basket__costs');
     if (basketCosts) {
         if (totalSum === 0) {
-            basketCosts.innerHTML = "Your shopping cart is empty. Please add some dishes.";
+            basketCosts.innerHTML = `
+                <div class="basket-empty-message">
+                    <img src="./assets/icons/menu_bag.png" alt="Hungry Icon" class="hungry-icon">
+                    <p>Your shopping cart is empty.</p>
+                    <p>Please add some dishes.</p>
+                    <p>We know you're hungry 🤤</p>
+                </div>`;
             basketCosts.style.fontSize = '36px';
         } else {
             basketCosts.style.fontSize = '16px';
@@ -84,7 +90,7 @@ function visibilityBasketCosts(totalSum) {
                 <p class="basket__total-subsum">Subtotal: <span id="subtotal-sum">${totalSum.toFixed(2)}€</span></p>
                 <p class="basket__delivery-costs">Delivery: <span id="delivery-costs">3.99€</span></p>
                 <p class="basket__total-sum">Total: <span id="total-sum">${(totalSum + 3.99).toFixed(2)}€</span></p>
-                <a href="../src/html/payment.html" class="basket__pay-btn" id="pay-button">Payment</a>
+                <a href="./src/html/payment.html" class="basket__pay-btn" id="pay-button">Payment</a>
             `;
         }
     }

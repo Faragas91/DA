@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="./src/css/basket.css">
     <link rel="stylesheet" href="./src/css/dish.css">
     <link rel="stylesheet" href="./src/css/company.css">
+    <link rel="stylesheet" href="./src/css/footer.css">
 
     <!--GoogleFonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,14 +31,17 @@
 
 </head>
 <body>
+    <!--Header-->
     <header>
         <div class="header__container">
-            <img class="header__logo" src="./assets/img/Logo.png" alt="Logo">
-            <nav>
-                <div id="basket" class="basket"></div>
+            <a href="./index.html" class="header__logo-link">
+                <img class="header__logo" src="./assets/img/Logo.png" alt="Logo">
+            </a>
+            <nav class="basket" id="basket">
             </nav>
         </div>      
     </header>
+    <!--Main-Section-->
     <section class="flex-container">
         <div class="container-left">
             <div class="dish__image-container">
@@ -54,7 +58,7 @@
             </div>
             <div class="dish__main-container">
                 <div class="dish__details-container">
-                    <!-- Gerichte Inhalt -->
+                    <!-- Content of the dishes -->
                 </div>
             </div>
         </div> 
@@ -63,7 +67,7 @@
                 <h2>Basket</h2>
                 <div class="divider" id="divider"></div>
                 <div class="basket__ordered-container" id="ordered">
-                    <!-- Warenkorb Inhalt -->
+                    <!-- Contents of the shopping cart -->
                 </div>
                 <div class="divider" id="divider"></div>
                 <div class="basket__costs">
@@ -71,9 +75,18 @@
             </div>
         </div>
     </section>
+    <!--Footer-->
     <footer>
-
+        <div class="footer__container-left">
+            <a class="footer__impressum" href="./src/html/impressum.html" target="_blank">Impressum</a>
+            <a class="footer__datenschutz" href="./src/html/datenschutzerklärung.html" target="_blank">Datenschutz</a>
+        </div>
+        <div class="footer__container-right">
+            <img class="footer__logo" src="./assets/img/Redl_Stefan.JPG" alt="Logo">
+            <p class="footer__text">Stefan Redl</p>
+        </div>
     </footer>
+    
     
 </body>
 </html>
