@@ -1,0 +1,15 @@
+.container-left {
+    flex: 1;
+}
+
+.container-left.active {
+    display: none;
+}
+
+.container-right.active {
+    display: flex;
+}
+
+.container-right {
+    display: none;
+}

@@ -9,3 +9,15 @@ for (let i = 0; i < myDishes.length; i++) {
 
 // Inserts the entire HTML of the dishes into the container
 document.querySelector(".dish__main-container").innerHTML = dishContainer;
+
+// Button appears when the size of the Display is under 700px
+// With the button the basket can be shown and hidden 
+const buttonBasket = document.getElementById("basket-btn");
+const screenBasketRight = document.getElementById("container-right");
+const screenBasketLeft = document.getElementById("container-left");
+
+buttonBasket.addEventListener("click", () => {
+    buttonBasket.classList.toggle('active');
+    screenBasketRight.classList.toggle('active');
+    screenBasketLeft.classList.toggle('active');    
+});

@@ -46,7 +46,3 @@ h1 {
     color: var(--bestellapp-darkgray);
     text-align: center;
 }
-
-.container-left {
-    flex: 1;
-}

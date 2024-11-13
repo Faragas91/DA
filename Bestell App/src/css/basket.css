@@ -1,10 +1,11 @@
 .screen-menu {
     position: sticky;
     top: 0;
+    right: 0;
     background-color: var(--bestellapp-white);
     box-shadow: 0px 0px 20px rgb(0, 0, 0);
     height: 100vh;
-    width: 300px;
+    max-width: 300px;
     padding-top: 32px;
     padding-left: 20px;
     padding-right: 20px;

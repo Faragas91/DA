@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="./src/css/dish.css">
     <link rel="stylesheet" href="./src/css/company.css">
     <link rel="stylesheet" href="./src/css/footer.css">
+    <link rel="stylesheet" href="./src/css/button.css">
+    <link rel="stylesheet" href="./src/css/media-queries.css">
 
     <!--GoogleFonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -43,7 +45,7 @@
     </header>
     <!--Main-Section-->
     <section class="flex-container">
-        <div class="container-left">
+        <div class="container-left" id="container-left">
             <div class="dish__image-container">
                 <img class="dish__company-logo" src="./assets/img/company_logo.png">
             </div>
@@ -62,7 +64,7 @@
                 </div>
             </div>
         </div> 
-        <div class="container-right">
+        <div class="container-right" id="container-right">
             <div id="screen-menu" class="screen-menu">
                 <h2>Basket</h2>
                 <div class="divider" id="divider"></div>
@@ -74,6 +76,9 @@
                 </div>
             </div>
         </div>
+    </section>
+    <section class="button__container">
+        <button class="button__basket" id="basket-btn">Basket</button>
     </section>
     <!--Footer-->
     <footer>
