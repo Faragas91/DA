@@ -13,6 +13,10 @@
     position: relative;
 }
 
+.dish__course-image {
+    display: flex;
+}
+
 .dish__company-logo {
     position: absolute;
     width: 100px;

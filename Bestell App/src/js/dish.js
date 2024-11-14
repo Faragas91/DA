@@ -12,7 +12,10 @@ function showOnlyEachCourseOnes(course) {
     if (!displayCourse[course]) {
         displayCourse[course] = true;
         const courseId = `${course}-header`;
-        return  `<h2 class="dish__course-header" id=${courseId}>${course.charAt(0).toUpperCase() + course.slice(1)}</h2>`;
+        const courseImage = `${course}-image`;
+        return  `<h2 class="dish__course-header" id=${courseId}>${course.charAt(0).toUpperCase() + course.slice(1)}</h2>
+                <img class="dish__course-image" id=${courseImage} alt="Bild von ${courseImage}">      
+                `;
     }
     return '';
 }
