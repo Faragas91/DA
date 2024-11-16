@@ -91,9 +91,9 @@ let myDishes = [
         "isVegan": false
     },
     {
-        "name": "Falafel Plate",
+        "name": "Falafel Wrap",
         "price": 9.99,
-        "description": "Crispy falafels served with hummus, pita, and salad.",
+        "description": "Crispy falafels wrap with hummus, pita, and salad.",
         "amount": 0,
         "course": "main",
         "isVegan": true

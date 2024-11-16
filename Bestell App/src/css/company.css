@@ -6,6 +6,8 @@
     margin-bottom: 10px;
     margin-left: 20px;
     margin-top: 50px;
+    color: var(--bestellapp-darkgray);
+    text-align: center;
 }
 
 .company__evaluation {
@@ -50,9 +52,11 @@
 }
 
 .impressum__container {
-    margin-top: 120px;
+    margin: 120px 20px 0px 20px;
+    min-height: 100vh
 }
 
 .datenschutz__container {
-    margin-top: 120px;
+    margin: 120px 20px 0px 20px;
+    min-height: 100vh
 }

@@ -42,7 +42,8 @@ html, body {
 }
 
 h1 {
-    font-size: 36px;
+    font-size: 28px;
     color: var(--bestellapp-darkgray);
     text-align: center;
+    white-space: normal;
 }

@@ -5,7 +5,7 @@
     background-color: var(--bestellapp-white);
     box-shadow: 0px 0px 20px rgb(0, 0, 0);
     height: 100vh;
-    max-width: 300px;
+    width: 300px;
     padding-top: 32px;
     padding-left: 20px;
     padding-right: 20px;
@@ -13,9 +13,14 @@
     overflow-y: auto;
 }
 
+.basket__main-title {
+    font-size: 48px;
+    font-weight: bold;
+}
+
 nav {
     margin-right: 0;
-    display: flex;
+    display: none;
 }
 
 .basket {
@@ -133,6 +138,7 @@ nav {
 
 .basket__pay-btn {
     margin-top: 20px;
+    margin-bottom: 20px;
     padding: 10px 20px;
     background-color: var(--bestellapp-orange);
     color: var(--bestellapp-white);

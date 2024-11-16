@@ -14,7 +14,7 @@ function showOnlyEachCourseOnes(course) {
         const courseId = `${course}-header`;
         const courseImage = `${course}-image`;
         return  `<h2 class="dish__course-header" id=${courseId}>${course.charAt(0).toUpperCase() + course.slice(1)}</h2>
-                <img class="dish__course-image" id=${courseImage} alt="Bild von ${courseImage}">      
+                <img class="dish__course-image" id=${courseImage} src="../../assets/img/${courseImage}.jpg" alt="${courseImage}">      
                 `;
     }
     return '';
