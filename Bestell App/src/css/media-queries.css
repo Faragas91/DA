@@ -28,6 +28,7 @@
     .container-right.active {
         display: flex;
         flex: 1;
+        margin-top: 100px;
     }
 
     .screen-menu {
