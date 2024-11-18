@@ -36,12 +36,13 @@ footer {
     margin: 0;
 }
 
-.footer__datenschutz, .footer__impressum {
+.footer__privacy-policy, .footer__imprint {
     text-decoration: none;
     color: var(--bestellapp-darkgray);
     font-size: 32px;
+    text-align: center;
 }
 
-.footer__datenschutz:hover, .footer__impressum:hover {
+.footer__privacy-policy:hover, .footer__imprint:hover {
     color: var(--bestellapp-orange);
 }

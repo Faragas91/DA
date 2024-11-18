@@ -29,18 +29,22 @@
     max-width: 100%;
     border: 2px solid var(--bestellapp-lightgray);
     border-radius: 15px;
+    
 }
 
 .dish__details-container:hover {
     border: 2px solid var(--bestellapp-orange);
     background-color: var(--bestellapp-pale-gray);
+    background-image: url("./../../assets/icons/plus_food.png");
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-size: 30px 30px;
     cursor: pointer;
 }
 
 .dish__title-and-vegan {
     display: flex;
     align-items: center;
-    justify-content: space-between;
 }
 
 .dish__title {
@@ -83,8 +87,9 @@
 
 .dish__course-image {
     width: 100%;
-    height: 250px;
-    object-fit: cover;
+    max-height: 600px;
+    object-fit: contain;
     object-position: center;
+    background-color: var(--bestellapp-pale-gray);
 }
 

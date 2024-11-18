@@ -51,12 +51,12 @@
     text-decoration: var(--bestellapp-orange);
 }
 
-.impressum__container {
-    margin: 120px 20px 0px 20px;
-    min-height: 100vh
+.imprint__container {
+    margin: 120px 20px 20px 20px;
+    min-height: 100vh;
 }
 
-.datenschutz__container {
-    margin: 120px 20px 0px 20px;
-    min-height: 100vh
+.privacy-policy__container {
+    margin: 120px 20px 20px 20px;
+    min-height: 100vh;
 }

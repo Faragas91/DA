@@ -14,7 +14,7 @@ function showOnlyEachCourseOnes(course) {
         const courseId = `${course}-header`;
         const courseImage = `${course}-image`;
         return  `<h2 class="dish__course-header" id=${courseId}>${course.charAt(0).toUpperCase() + course.slice(1)}</h2>
-                <img class="dish__course-image" id=${courseImage} src="../../assets/img/${courseImage}.jpg" alt="${courseImage}">      
+                <img class="dish__course-image" id=${courseImage} src="./assets/img/${courseImage}.jpg" alt="${courseImage}">      
                 `;
     }
     return '';
@@ -30,6 +30,7 @@ function addDishToBasket(dish, index) {
         templateBasketContainer(dish, index);
         
         // the number of dishes is changed using the plus and minus buttons
+        // also the delete button is added to the basket
         document.getElementById(`basket-minus-${index}`).addEventListener('click', () => updateDishAmount(dish, -1));
         document.getElementById(`basket-plus-${index}`).addEventListener('click', () => updateDishAmount(dish, 1));
         document.getElementById(`basket-delete-${index}`).addEventListener('click', () => deleteDishFromBasket(dish));

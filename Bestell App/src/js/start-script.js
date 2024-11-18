@@ -16,6 +16,7 @@ const buttonBasket = document.getElementById("basket-btn");
 const screenBasketRight = document.getElementById("container-right");
 const screenBasketLeft = document.getElementById("container-left");
 
+// Event listener for the basket button to show and hide the basket container when clicked
 buttonBasket.addEventListener("click", () => {
     buttonBasket.classList.toggle('active');
     screenBasketRight.classList.toggle('active');

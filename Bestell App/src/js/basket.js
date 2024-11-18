@@ -36,7 +36,7 @@ function orderExists(dish) {
     return false;  
 }
 
-// Update the dish amount
+// Function to update the dish amount
 function updateDishAmount(dish, change) {
     dish.amount += change;
 
@@ -63,6 +63,7 @@ function updateDishAmount(dish, change) {
     }
 }
 
+// Function to delete a dish from the from the basket
 function deleteDishFromBasket(dish) {
     const dishContainer = document.querySelector(`.basket__ordered-food[data-name="${dish.name}"]`);
     if (dishContainer) {
@@ -71,31 +72,21 @@ function deleteDishFromBasket(dish) {
     }
 }
 
+// Function to show the basket status 
+// Is the basket empty a text will be displayed else it shows the choosen dishes
 function visibilityBasketCosts(totalSum) {
     // Control the visibility of basket__costs based on the total amount
     const basketCosts = document.querySelector('.basket__costs');
     if (basketCosts) {
         if (totalSum === 0) {
-            basketCosts.innerHTML = `
-                <div class="basket-empty-message">
-                    <img src="./assets/icons/menu_bag.png" alt="Hungry Icon" class="hungry-icon">
-                    <p>Your shopping cart is empty.</p>
-                    <p>Please add some dishes.</p>
-                    <p>We know you're hungry 🤤</p>
-                </div>`;
-            basketCosts.style.fontSize = '36px';
+            templateBasketCostsEmpty(basketCosts)
         } else {
-            basketCosts.style.fontSize = '16px';
-            basketCosts.innerHTML = `
-                <p class="basket__total-subsum">Subtotal: <span id="subtotal-sum">${totalSum.toFixed(2)}€</span></p>
-                <p class="basket__delivery-costs">Delivery: <span id="delivery-costs">3.99€</span></p>
-                <p class="basket__total-sum">Total: <span id="total-sum">${(totalSum + 3.99).toFixed(2)}€</span></p>
-                <a href="./src/html/payment.html" class="basket__pay-btn" id="pay-button">Payment</a>
-            `;
+            templateBasketCostsShown(basketCosts, totalSum)
         }
     }
 }
 
+// Function to show or hide the dividers in the basket
 function visibilityDivider(totalSum) {
     // Control the visibility of dividers based on the total amount
     const dividers = document.querySelectorAll('.divider');
@@ -104,6 +95,7 @@ function visibilityDivider(totalSum) {
     });
 }
 
+// Function to calculate the total sum of all orderded dishes in the basket
 function calculateTotalSum() {
     let totalSum = 0;
 
@@ -113,6 +105,8 @@ function calculateTotalSum() {
         const price = parseFloat(priceText);
         totalSum += isNaN(price) ? 0 : price;
     });
+
+    // Hide or show the dividers and the basket costs
     visibilityDivider(totalSum);
     visibilityBasketCosts(totalSum);
 
