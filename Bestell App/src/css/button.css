@@ -1,4 +1,6 @@
 .button__container {
+    position: sticky;
+    bottom: 0;
     display: flex;
     justify-content: center;
     width: 100%;
@@ -16,5 +18,10 @@
     transition: background-color 0.3s ease;
     border-radius: 15px;
     font-size: 32px;
+    gap: 10px;
+}
+
+.button__sum {
+    margin: 0;
 }
 

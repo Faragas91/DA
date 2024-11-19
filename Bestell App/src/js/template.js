@@ -1,29 +1,25 @@
-// comes from start-script.js
 // templateContainer function creates a separate container for each dish in database.js
+// Show the vegan symbol when in the database.js isVegan is set to true
 function templateDishContainer(dish, index) {
-    // Function is in the dish.js
     const courseHeader = showOnlyEachCourseOnes(dish.course);
-
-    // Show the vegan symbol when in the database.js isVegan is set to true
     const veganIcon = dish.isVegan ? 'dish__vegan-icon' : '';
-
     return `
     ${courseHeader}
-    <div class="dish__details-container" id="dish-container-${index}" data-name="${dish.name}">
+    <div class="dish__details-container" id="dish-container-${index}">
         <div class="dish__title-and-vegan">
             <h2 class="dish__title structure__main-container" id="dish-title">${dish.name}</h2>
             <div class="${veganIcon} structure__main-container" id="dish-vegan"></div>
         </div>
+        <img class="dish__add-button" data-name="${dish.name}" src="./assets/icons/plus_food.png">
         <h3 class="dish__description structure__main-container" id="dish-description">${dish.description}</h3>
         <p class="dish__price structure__main-container" id="dish-price">${dish.price.toFixed(2)}€</p>
     </div>
     `;
 };
 
-// 
+// Create a new container for the selected dish
 function templateBasketContainer(dish, index) {
         let totalPrice = dish.amount * dish.price;
-        // Create a new container for the selected dish
         const newDishContainer = `
                 <div class="basket__ordered-food" data-name="${dish.name}">
                     <h3 class="dish__title basket__title">${dish.name}</h3>
@@ -36,9 +32,7 @@ function templateBasketContainer(dish, index) {
                     </div>
                 </div>
         `;
-        // Adds the new dish to the container 
-        // With innerHTML the Listener for every Dish will be overwritten, because of this i choose insertAdjacentHTML
-        orderedFoodList.insertAdjacentHTML('beforeend', newDishContainer);
+        orderedFoodList.insertAdjacentHTML('beforeend', newDishContainer); // With innerHTML the Listener for every Dish will be overwritten, because of this i choose insertAdjacentHTML
 }
 
 // Template for the empty basket message
