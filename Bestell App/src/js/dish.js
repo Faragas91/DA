@@ -24,7 +24,7 @@ function showOnlyEachCourseOnes(course) {
 function addDishToBasket(dish, index) {
     if (!orderExists(dish)) { 
         dish.amount = 1;
-        templateBasketContainer(dish, index);
+        generateTemplateBasketContainer(dish, index);
         document.getElementById(`basket-minus-${index}`).addEventListener('click', () => updateDishAmount(dish, -1));
         document.getElementById(`basket-plus-${index}`).addEventListener('click', () => updateDishAmount(dish, 1));
         document.getElementById(`basket-delete-${index}`).addEventListener('click', () => deleteDishFromBasket(dish));

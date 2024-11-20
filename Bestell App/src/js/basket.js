@@ -73,11 +73,7 @@ function visibilityDivider(totalSum) {
 // Function to calculate the total sum of all orderded dishes in the basket
 function calculateTotalSum() {
     let totalSum = 0;
-    document.querySelectorAll('.dish__sum').forEach(priceElement => {
-        const priceText = priceElement.textContent.replace('€', '').trim();
-        const price = parseFloat(priceText);
-        totalSum += isNaN(price) ? 0 : price;
-    });
+    totalSum = calculateTotalSumFromElements(totalSum);
     visibilityDivider(totalSum);
     visibilityBasketCosts(totalSum);
     const subtotalSumElement = document.getElementById('subtotal-sum');
@@ -86,7 +82,17 @@ function calculateTotalSum() {
     }
     basketButtonSum(totalSum);
 }
+// Function to calculate the total sum from each element in the basket
+function calculateTotalSumFromElements(totalSum) {
+    document.querySelectorAll('.dish__sum').forEach(priceElement => {
+        const priceText = priceElement.textContent.replace('€', '').trim();
+        const price = parseFloat(priceText);
+        totalSum += isNaN(price) ? 0 : price;
+    });
+    return totalSum;
+}
 
+// Function to add the total sum next to the basket button
 function basketButtonSum(totalSum) {
     const basketSumElement = document.getElementById('basket-sum');
     if (basketSumElement) {
