@@ -1,5 +1,17 @@
 @media screen and (min-width:701px) {
 
+    html, body {
+        height: 100%;
+    }
+
+    header {
+        display: flex;
+    }
+
+    footer {
+        display: flex;
+    }
+
     .flex-container {
         display: flex;
         margin-top: 100px;
@@ -13,13 +25,6 @@
     .button__container {
         display: none;
     }
-
-    .basket__costs {
-        position: sticky;
-        bottom: 0;
-        background-color: var(--bestellapp-white);
-        z-index: 100;
-    }    
 }
 
 @media screen and (max-width:700px) {

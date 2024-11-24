@@ -12,7 +12,7 @@
     <script src="./database.js" defer></script>
     <script src="./src/js/dish.js" defer></script>
     <script src="./src/js/template.js" defer></script>
-    <script src="./src/js/start-script.js" defer></script>
+    <script src="./src/js/structure.js" defer></script>
     <script src="./src/js/basket.js" defer></script>
 
     <!--CSS-->
@@ -66,7 +66,10 @@
         </div> 
         <div class="container-right" id="container-right">
             <div id="screen-menu" class="screen-menu">
-                <h2 class="basket__main-title">Basket</h2>
+                <div class="basket__main-title-and-arrow-back">
+                    <h2 class="basket__main-title">Basket</h2>
+                    <img class="basket__arrow-back" src="./assets/icons/arrow_back.png" id="back-arrow">
+                </div>
                 <div class="divider" id="divider"></div>
                 <div class="basket__ordered-container" id="ordered">
                     <!-- Contents of the shopping cart -->

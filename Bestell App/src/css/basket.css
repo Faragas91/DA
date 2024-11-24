@@ -6,16 +6,41 @@
     box-shadow: 0px 0px 20px rgb(0, 0, 0);
     width: 300px;
     height: 100vh;
-    padding-top: 32px;
     padding-left: 20px;
     padding-right: 20px;
     text-align: center;
     overflow-y: auto;
 }
 
+.basket__main-title-and-arrow-back {
+    display: flex;
+    align-items: center;
+    flex-flow: row-reverse;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: white;
+}
+
 .basket__main-title {
+    display: flex;
+    justify-content: center;
     font-size: 48px;
     font-weight: bold;
+    text-align: center;
+}
+
+.basket__arrow-back {
+    display: none;
+    position: absolute; 
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    border-radius: 50%;
+    margin: 0;
 }
 
 nav {
@@ -49,8 +74,6 @@ nav {
     height: auto;
     overflow-y: auto;
 }
-
-
 
 .basket__ordered-food {
     display: flex;
@@ -101,6 +124,10 @@ nav {
 .basket__costs {
     display: flex;
     flex-direction: column;
+    position: sticky;
+    bottom: 0;
+    background-color: var(--bestellapp-white);
+    z-index: 100;
 }
 
 .basket__total-sum {

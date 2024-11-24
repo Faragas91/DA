@@ -25,21 +25,72 @@ function generateTemplateBasketContainer(dish, index) {
 }
 
 // Button appears when the size of the Display is under 700px
-// With the button the basket can be shown and hidden 
+// With the button the basket will be shown 
 // Shows the Sum of the Dishes in the basket
 function basketButton() {
     const buttonContainer = document.getElementById("button-container");
     const buttonBasket = document.getElementById("basket-btn");
     const screenBasketRight = document.getElementById("container-right");
     const screenBasketLeft = document.getElementById("container-left");
+    const backArrow = document.getElementById("back-arrow");
 
     buttonBasket.addEventListener("click", () => {
         buttonContainer.classList.toggle('active');
         buttonBasket.classList.toggle('active');
         screenBasketRight.classList.toggle('active');
-        screenBasketLeft.classList.toggle('active');    
+        screenBasketLeft.classList.toggle('active');
+        toggleHeaderAndFooter(buttonBasket, backArrow, true);
     });
-};
+}
+
+// Back arrow is only in the Basket and whenn the size of the Display is under 700px
+// With the button the basket will be closed and goes back to the homepage
+function basketArrow() {
+    const backArrow = document.getElementById("back-arrow");
+    const buttonBasket = document.getElementById("basket-btn");
+    const screenBasketRight = document.getElementById("container-right");
+    const screenBasketLeft = document.getElementById("container-left");
+
+    backArrow.addEventListener("click", () => {
+        screenBasketRight.classList.toggle('active');
+        screenBasketLeft.classList.toggle('active');
+        toggleHeaderAndFooter(buttonBasket, backArrow, false);
+    });
+}
+
+// Function to toggle the header and footer
+function toggleHeaderAndFooter(buttonBasket, backArrow, isBasketActive) {
+    const header = document.querySelector('header');
+    const footer = document.querySelector('footer');
+    const screenMenu = document.querySelector('.screen-menu');
+    const htmlBody = document.documentElement;
+    const buttonContainer = document.querySelector('#button-container');
+
+    if (isBasketActive) {
+        hideHeaderAndFooter(header, footer, screenMenu, htmlBody, backArrow, buttonContainer);
+    } else {
+        showHeaderAndFooter(header, footer, screenMenu, htmlBody, backArrow, buttonContainer);
+    }
+}
+
+function showHeaderAndFooter(header, footer, screenMenu, htmlBody, backArrow, buttonContainer) {
+    header.classList.remove('hidden');
+    footer.classList.remove('hidden');
+    screenMenu.classList.remove('absolute');
+    htmlBody.style.height = '100%';
+    backArrow.style.display = 'none';
+    buttonContainer.classList.remove('hidden');
+}
+
+function hideHeaderAndFooter(header, footer, screenMenu, htmlBody, backArrow, buttonContainer) {
+    header.classList.add('hidden');
+    footer.classList.add('hidden');
+    screenMenu.classList.add('absolute');
+    htmlBody.style.height = '0';
+    backArrow.style.display = 'flex';
+    buttonContainer.classList.add('hidden');
+}
+
 
 // Adds an EventListener to the button on the top right side of each Dish in the database.js
 function buttonAddDishesToBasket() {
@@ -55,10 +106,13 @@ function buttonAddDishesToBasket() {
     });
 }
 
+
 // Executes the Function to start the generated HTML structure
 createHtmlStructureForAllDishes();
 buttonAddDishesToBasket();
 basketButton();
+basketArrow()
+
 
 
 
