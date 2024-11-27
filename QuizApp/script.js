@@ -5,7 +5,7 @@ let questions = [
         "answer_2": "Stefan Raab",
         "answer_3": "Tim Berners-Lee",
         "answer_4": "Michael Crichton",
-        "correct_answer": 3
+        "correct_answer": "Tim Berners-Lee"
     },
     {
         "question": "What is the capital of France?",
@@ -85,5 +85,27 @@ function showCurrentQuestion() {
 
 function answer(selection) {
     if (selection === 'answer_1') {
+        if (questions[currentQuestion]['correct_answer'] === questions[currentQuestion].answer_1) {
+            alert("Correct!");
+            // currentQuestion++;
+            // if (currentQuestion < questions.length) {
+            //     showCurrentQuestion();
+            // }
+        }
+    }
+    else if (selection === 'answer_2') {
+        if (questions[currentQuestion]['correct_answer'] === questions[currentQuestion].answer_2) {
+            alert("Correct!");
+        }
+    }
+    else if (selection === 'answer_3') {
+        if (questions[currentQuestion]['correct_answer'] === questions[currentQuestion].answer_3) {
+            alert("Correct!");
+        }
+    }
+    else if (selection === 'answer_4') {
+        if (questions[currentQuestion]['correct_answer'] === questions[currentQuestion].answer_4) {
+            alert("Correct!");
+        }
     }
 }
