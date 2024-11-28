@@ -1,8 +1,10 @@
 const fs = require('fs');
 const path = require('path');
 
-const file1 = '/mnt/c/bla/test/test.txt';
-const file2 = '/mnt/c/test/test.txt';
+const file1 = '/mnt/c/Users/Stefan/Dropbox/Bannerlord/Game\ Saves/Galandor\ Own\ Faction.sav';
+console.log(file1);
+const file2 = '/mnt/c/Users/Stefan/Documents/Mount and Blade II Bannerlord/Game Saves/Galandor Own Faction.sav'
+console.log(file2);
 
 function compareAndReplace(file1, file2) {
     if (!fs.existsSync(file1) || !fs.existsSync(file2)) {

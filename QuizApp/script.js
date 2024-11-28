@@ -5,7 +5,7 @@ let questions = [
         "answer_2": "Stefan Raab",
         "answer_3": "Tim Berners-Lee",
         "answer_4": "Michael Crichton",
-        "correct_answer": "Tim Berners-Lee"
+        "correct_answer": 3
     },
     {
         "question": "What is the capital of France?",
@@ -67,6 +67,7 @@ let questions = [
 ];
 
 let currentQuestion = 0;
+let currentNumber = 1;
 
 function init() {
     document.getElementById("question-length").innerHTML = questions.length;
@@ -75,37 +76,70 @@ function init() {
 
 
 function showCurrentQuestion() {
-    let question = questions[currentQuestion];
-    document.getElementById("question-text").innerHTML = question.question;
-    document.getElementById("answer-1").innerHTML = question['answer_1'];
-    document.getElementById("answer-2").innerHTML = question['answer_2'];
-    document.getElementById("answer-3").innerHTML = question['answer_3'];
-    document.getElementById("answer-4").innerHTML = question['answer_4'];
+
+    if (currentQuestion >= questions.length) {
+        document.getElementById("question-body").style.display = "none";
+        document.getElementById("endScreen").style.display = "flex";
+    } else {
+        let question = questions[currentQuestion];
+        document.getElementById("question-number").innerHTML = currentQuestion + 1;
+        document.getElementById("question-text").innerHTML = question.question;
+        document.getElementById("answer_1").innerHTML = question['answer_1'];
+        document.getElementById("answer_2").innerHTML = question['answer_2'];
+        document.getElementById("answer_3").innerHTML = question['answer_3'];
+        document.getElementById("answer_4").innerHTML = question['answer_4'];
+    }
+
 }
 
 function answer(selection) {
-    if (selection === 'answer_1') {
-        if (questions[currentQuestion]['correct_answer'] === questions[currentQuestion].answer_1) {
-            alert("Correct!");
-            // currentQuestion++;
-            // if (currentQuestion < questions.length) {
-            //     showCurrentQuestion();
-            // }
+    let question = questions[currentQuestion];
+    let selectionQuestionNumber = selection.slice(-1);
+    let idOfRightAnswer = `answer_${question.correct_answer}`;
+
+    if (selectionQuestionNumber == question['correct_answer']) {
+            document.getElementById(selection).parentNode.classList.add('bg-success'); 
+            // showCurrentNumber()
         }
-    }
-    else if (selection === 'answer_2') {
-        if (questions[currentQuestion]['correct_answer'] === questions[currentQuestion].answer_2) {
-            alert("Correct!");
+        else {
+            document.getElementById(selection).parentNode.classList.add('bg-danger');
+            document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success'); 
         }
-    }
-    else if (selection === 'answer_3') {
-        if (questions[currentQuestion]['correct_answer'] === questions[currentQuestion].answer_3) {
-            alert("Correct!");
-        }
-    }
-    else if (selection === 'answer_4') {
-        if (questions[currentQuestion]['correct_answer'] === questions[currentQuestion].answer_4) {
-            alert("Correct!");
-        }
-    }
+        document.getElementById("next-button").disabled = false;
 }
+
+function nextQuestion() {
+    currentQuestion++;
+    document.getElementById("next-button").disabled = true;
+    // increaseNumberOfQuestions()
+    resetAnswerButtons();
+    showCurrentQuestion();
+}
+
+function resetAnswerButtons() {
+    document.getElementById("answer_1").parentNode.classList.remove('bg-success');
+    document.getElementById("answer_1").parentNode.classList.remove('bg-danger');
+    document.getElementById("answer_2").parentNode.classList.remove('bg-success');
+    document.getElementById("answer_2").parentNode.classList.remove('bg-danger');
+    document.getElementById("answer_3").parentNode.classList.remove('bg-success');
+    document.getElementById("answer_3").parentNode.classList.remove('bg-danger');
+    document.getElementById("answer_4").parentNode.classList.remove('bg-success');
+    document.getElementById("answer_4").parentNode.classList.remove('bg-danger');
+}
+
+// function increaseNumberOfQuestions(){
+//     currentNumber++;
+//     document.getElementById("question-number").innerHTML = currentNumber
+//     if (currentNumber > questions.length) {
+//         alert("Congratulations! You've finished all the questions.")
+//     }
+// }
+
+// function showCurrentNumber() {
+//     currentQuestion++;
+//     currentNumber++;
+//     document.getElementById('question-number').innerHTML = currentNumber;
+//     if (currentQuestion < questions.length) {
+//         showCurrentQuestion();
+//     }
+// }
