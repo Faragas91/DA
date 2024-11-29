@@ -29,3 +29,39 @@ body {
 .bg-success, .bg-danger {
     color: white;
 }
+
+.width-100 {
+    width: 100%;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.scale {
+    transform: scaleX(-1);
+}
+
+.quiz__finished-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.finished-container {
+    display: flex;
+    justify-content: center;
+}
+
+.finished-text {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.button-row {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+}
+

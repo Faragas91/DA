@@ -67,7 +67,7 @@ let questions = [
 ];
 
 let currentQuestion = 0;
-let currentNumber = 1;
+let rightAnswers = 0;
 
 function init() {
     document.getElementById("question-length").innerHTML = questions.length;
@@ -80,7 +80,13 @@ function showCurrentQuestion() {
     if (currentQuestion >= questions.length) {
         document.getElementById("question-body").style.display = "none";
         document.getElementById("endScreen").style.display = "flex";
+        document.getElementById("header-image").src = "./assets/img//trophy.png"
     } else {
+
+        let percent = Math.round((currentQuestion / questions.length ) * 100);
+        document.getElementById("progress-bar").innerHTML = `${percent}%`;
+        document.getElementById("progress-bar").style = `width: ${percent}%`;
+
         let question = questions[currentQuestion];
         document.getElementById("question-number").innerHTML = currentQuestion + 1;
         document.getElementById("question-text").innerHTML = question.question;
@@ -96,10 +102,10 @@ function answer(selection) {
     let question = questions[currentQuestion];
     let selectionQuestionNumber = selection.slice(-1);
     let idOfRightAnswer = `answer_${question.correct_answer}`;
-
+    
     if (selectionQuestionNumber == question['correct_answer']) {
             document.getElementById(selection).parentNode.classList.add('bg-success'); 
-            // showCurrentNumber()
+            showAllRightAnswers();
         }
         else {
             document.getElementById(selection).parentNode.classList.add('bg-danger');
@@ -127,19 +133,8 @@ function resetAnswerButtons() {
     document.getElementById("answer_4").parentNode.classList.remove('bg-danger');
 }
 
-// function increaseNumberOfQuestions(){
-//     currentNumber++;
-//     document.getElementById("question-number").innerHTML = currentNumber
-//     if (currentNumber > questions.length) {
-//         alert("Congratulations! You've finished all the questions.")
-//     }
-// }
-
-// function showCurrentNumber() {
-//     currentQuestion++;
-//     currentNumber++;
-//     document.getElementById('question-number').innerHTML = currentNumber;
-//     if (currentQuestion < questions.length) {
-//         showCurrentQuestion();
-//     }
-// }
+function showAllRightAnswers() {
+    rightAnswers++;
+    document.getElementById("correct-questions").innerHTML = rightAnswers;
+    document.getElementById("all-questions").innerHTML = questions.length
+}
