@@ -1,6 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-
 const file1 = '/mnt/c/Users/Stefan/Dropbox/Bannerlord/Game\ Saves/Galandor\ Own\ Faction.sav';
 console.log(file1);
 const file2 = '/mnt/c/Users/Stefan/Documents/Mount and Blade II Bannerlord/Game Saves/Galandor Own Faction.sav'
