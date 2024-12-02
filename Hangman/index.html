@@ -7,9 +7,10 @@
 </head>
 
     <!--CSS-->
-    <link rel="stylesheet" href="./src/css/style.css">
+    <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./src/css/header.css">
     <link rel="stylesheet" href="./src/css/footer.css">
+    <link rel="stylesheet" href="./src/css/hangman.css">
     
     <!--JavaScript-->
     <script src="./src/js/hangman.js" defer></script>
@@ -24,11 +25,11 @@
                 <h1>Hangman</h1>
             </div>
         </div>
-        
-
     </header>
-    <section>
-
+    <section class="hangman__main-container">
+        <div class="hangman__pictures" id="hangman-picture"></div>
+        <div class="hangman__letterbox" id="box"></div>
+        <div id="name"></div>
     </section>
     <footer>
         <div class="footer__container">
