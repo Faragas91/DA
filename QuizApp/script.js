@@ -68,6 +68,8 @@ let questions = [
 
 let currentQuestion = 0;
 let rightAnswers = 0;
+let AUDIO_RIGHT_ANSWER = new Audio("./assets/sounds/right-answer.mp3");
+let AUDIO_WRONG_ANSWER = new Audio("./assets/sounds/wrong-answer.mp3");
 
 function init() {
     document.getElementById("question-length").innerHTML = questions.length;
@@ -80,12 +82,8 @@ function showCurrentQuestion() {
     if (currentQuestion >= questions.length) {
         document.getElementById("question-body").style.display = "none";
         document.getElementById("endScreen").style.display = "flex";
-        document.getElementById("header-image").src = "./assets/img//trophy.png"
+        document.getElementById("header-image").src = "./assets/img/trophy.png"
     } else {
-
-        let percent = Math.round((currentQuestion / questions.length ) * 100);
-        document.getElementById("progress-bar").innerHTML = `${percent}%`;
-        document.getElementById("progress-bar").style = `width: ${percent}%`;
 
         let question = questions[currentQuestion];
         document.getElementById("question-number").innerHTML = currentQuestion + 1;
@@ -105,9 +103,11 @@ function answer(selection) {
     
     if (selectionQuestionNumber == question['correct_answer']) {
             document.getElementById(selection).parentNode.classList.add('bg-success'); 
+            AUDIO_RIGHT_ANSWER.play();
             showAllRightAnswers();
         }
         else {
+            AUDIO_WRONG_ANSWER.play();
             document.getElementById(selection).parentNode.classList.add('bg-danger');
             document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success'); 
         }
@@ -117,9 +117,13 @@ function answer(selection) {
 function nextQuestion() {
     currentQuestion++;
     document.getElementById("next-button").disabled = true;
-    // increaseNumberOfQuestions()
+    let percent = currentQuestion / questions.length;
+    percent = Math.round(percent * 100);
+    document.getElementById("progress-bar").innerHTML = `${percent}%`;
+    document.getElementById("progress-bar").style = `width: ${percent}%`;
     resetAnswerButtons();
     showCurrentQuestion();
+
 }
 
 function resetAnswerButtons() {
@@ -137,4 +141,14 @@ function showAllRightAnswers() {
     rightAnswers++;
     document.getElementById("correct-questions").innerHTML = rightAnswers;
     document.getElementById("all-questions").innerHTML = questions.length
+}
+
+function restartGame() {
+    document.getElementById("header-image").src = "./assets/img/quiz-card.png"
+    document.getElementById("question-body").style = "";
+    document.getElementById("endScreen").style.display = "none";
+    document.getElementById("progress-bar").style = `width: 0%`;
+    currentQuestion = 0;
+    rightAnswers = 0;
+    init();
 }
