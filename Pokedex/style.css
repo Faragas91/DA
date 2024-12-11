@@ -1,3 +1,13 @@
 body, html {
-    margin: 0;
+    margin: 0 auto;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+:root{
+    --pokemon-green: rgb(0, 255, 0);
+    --pokemon-blue: rgb(0, 0, 255);
+    --pokemon-red: rgb(255, 0, 0);
 }
