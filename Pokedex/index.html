@@ -14,21 +14,22 @@
     
     <!--CSS-->
     <link href="./style.css" rel="stylesheet">
+    <link href="./src/css/media-query.css" rel="stylesheet">
     <link href="./src/css/header.css" rel="stylesheet">
     <link href="./src/css/pokecards.css" rel="stylesheet">
 
 
     <!--JavaScript-->
-    <script src="./src/js/init.js"></script>
-    <script src="./src/js/database.js"></script>
-    <script src="./src/js/template.js"></script>
+    <script src="./src/js/database.js" defer></script>
+    <script src="./src/js/init.js" defer></script>
+    <script src="./src/js/template.js" defer></script>
 
     <!--Google Fonts-->
 
 
 </head>
 <body onload="init()">
-    <header>
+    <header class="pd-20">
         <h1>Pokedex</h1>
         <nav class="navbar navbar-light">
             <form class="form-inline">
@@ -37,14 +38,9 @@
             </form>
         </nav>
     </header>
-    <div class="container">
-        <div class="card">
-            <div class="card-body">
-                <p class="card-text">#1 Bulbasaur</p>
-            </div>
-            <img src="./assets/img/Bulbasaur.png" class="card-img-top bg-green" alt="Bisa">
-            <img src="./assets/img/Bulbasaur.png" class="card-img-top bg-black" alt="Bisa">
-        </div>
+    <div class="container" id="content">
+
+    </div> 
     </div>
 </body>
 </html>

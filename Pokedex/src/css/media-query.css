@@ -1,0 +1,11 @@
+@media screen and (max-width: 998px) {
+    .col-md-3 {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .col-md-3 {
+        width: 100% !important;
+    }
+}

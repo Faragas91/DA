@@ -12,3 +12,16 @@ body, html {
     --pokemon-red: rgb(255, 0, 0);
 }
 
+.display-flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pd-20 {
+    padding: 20px;
+}
+
+.wd-100 {
+    width: 100%;
+}

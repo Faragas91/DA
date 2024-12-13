@@ -1,10 +1,28 @@
 .card {
-    width: 300px !important;
-    height: 500px;
-    align-items: center;
+    width: 100%; 
+    max-width: 300px;
+    margin: auto;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+    cursor: pointer;
 }
 
 .card-img-top {
-    width: 150px;
-    padding: 20px;
+    width: 200px;
+    margin: 0 auto;
 }
+
+.card-img-bottom {
+    width: 60px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.card-text {
+    text-align: center;
+    color: white;
+}
+

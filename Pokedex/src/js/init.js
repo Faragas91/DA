@@ -1,2 +1,4 @@
-function init() {
+async function init() {
+    fetchPokemonData();
+    getTemplateCards();
 }
