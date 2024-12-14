@@ -6,11 +6,11 @@ body, html {
     box-sizing: border-box;
 }
 
-:root{
-    --pokemon-green: rgb(0, 255, 0);
-    --pokemon-blue: rgb(0, 0, 255);
-    --pokemon-red: rgb(255, 0, 0);
-}
+.kanit-medium-italic {
+    font-family: "Kanit", serif;
+    font-weight: 500;
+    font-style: italic;
+  }
 
 .display-flex-center {
     display: flex;
@@ -24,4 +24,8 @@ body, html {
 
 .wd-100 {
     width: 100%;
+}
+
+.direction-row-reverse {
+    flex-direction: row-reverse;
 }

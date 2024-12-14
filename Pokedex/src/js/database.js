@@ -1,29 +1,36 @@
 async function fetchPokemonData() {
-    let response = await fetch('https://pokeapi.co/api/v2/pokemon/');
-    if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-    let responseJson = await response.json();
-    console.log(responseJson);
-    return responseJson;
-}
-
-async function getTemplateCards(responseJson) {
+    let pokemonlength = 21; 
     const content = document.getElementById('content');
-    content.innerHTML = 
-        `
-        <div class="row">
-            <div class="col-md-3 col-sm-6 mb-4">
-                <div class="card">
-                    <div class="card-body bg-black wd-100 display-flex-center">
-                        <p class="card-text">${responseJson.results[0]}</p>
-                        <p class="card-text">${responseJson.results[0].name}</p>
-                    </div>
-                    <img src="${responseJson.results[0].url.sprites.other.official-artwork.front_default}" class="card-img-top pd-20" alt="Bisa">
-                    <div class="bg-black wd-100 display-flex-center">
-                        <img src="${responseJson.results[0].url.types[0].type.name}" class="card-img-bottom pd-20" alt="Grass Type">
-                    </div>
+
+    for (let index = 1; index < pokemonlength; index++) {
+        let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${index}`);
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        let responseJson = await response.json();
+        console.log(responseJson);
+
+        
+        const cardId = `card-${responseJson.id}`;
+        const textTypeId = `textType-${responseJson.id}`;
+        content.innerHTML += 
+            `
+            <div class="card" id="${cardId}">
+                <div class="card-body">
+                    <p class="card-text text-id">#${responseJson.id}</p>
+                    <p class="card-text kanit-medium-italic">${responseJson.name}</p>
+                </div>
+                <div class="display-flex-center direction-row-reverse">
+                    <img src="${responseJson.sprites.other["official-artwork"].front_default}" class="card-img-top" alt="Bisa">
+                    <p class="card-text text-type" id="${textTypeId}">${responseJson.types[0].type.name}</p>
                 </div>
             </div>
-        </div>`
+        `
+
+        const card = document.getElementById(cardId);
+        const textType = document.getElementById(textTypeId);
+        const typeName = responseJson.types[0].type.name;
+        card.classList.add(typeName);
+        textType.classList.add(typeName);
     }
+}
