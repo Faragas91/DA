@@ -17,6 +17,7 @@
     <link href="./src/css/media-query.css" rel="stylesheet">
     <link href="./src/css/header.css" rel="stylesheet">
     <link href="./src/css/pokecards.css" rel="stylesheet">
+    <link href="./src/css/pokecardscolor.css" rel="stylesheet">
 
 
     <!--JavaScript-->
@@ -32,16 +33,20 @@
 </head>
 <body onload="init()">
     <header class="pd-20">
-        <h1>Pokedex</h1>
+        <div class="display-flex-center">        
+            <img class="pokeball-img" src="./assets/img/pokeball.png">
+            <h1>Pokedex</h1>
+        </div>
         <nav class="navbar navbar-light">
             <form class="form-inline">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
         </nav>
     </header>
     <div class="container display-flex-center" id="content">
     </div> 
+    <div class="display-flex-center">
+        <button onclick="loadMorePokemonData()" type="button" class="btn btn-primary" id="button-load">Load More Pokémon</button>
     </div>
 </body>
 </html>
