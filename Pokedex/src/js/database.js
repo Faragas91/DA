@@ -16,7 +16,7 @@ async function fetchPokemonData(startIndex, endIndex) {
         const textTypeId2 = `textType2-${responseJson.id}`;
         content.innerHTML += 
             `
-            <div class="card" id="${cardId}">
+            <div onclick="biggerImage('${cardId}' , 'responseJson')"class="card" id="${cardId}">
                 <div class="card-body">
                     <p class="card-text text-id">#${responseJson.id}</p>
                     <p class="card-text kanit-medium-italic">${responseJson.name.charAt(0).toUpperCase() + responseJson.name.slice(1).toLowerCase()}</p>
@@ -75,6 +75,54 @@ function filterPokemon(filter) {
 }
 
 
+function biggerImage(cardId, responseJson) {
+    const content = document.getElementById('content');
+    const clickedCard = document.getElementById(cardId);
+    const cardElements = document.querySelectorAll('[id^="card-"]');
+    for (let i = 0; i < cardElements.length; i++) {
+        if (clickedCard != cardElements[i]) {
+            cardElements[i].style.display = 'none';
+        }
+    }
+    
+    if (clickedCard) {
+        content.style.height ='100vh';
+        clickedCard.style.transform = 'scale(1.5)';
+        clickedCard.style.margin = '0 auto';
+        clickedCard.style.zIndex = 10;
+        overlay.style.display = 'block';
 
+        if (!clickedCard.querySelector('.card-footer')) {
+            const extraInfoDiv = document.createElement('div');
+            extraInfoDiv.classList.add('card-footer');
 
+            extraInfoDiv.innerHTML = `
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Active</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Disabled</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Disabled</a>
+                    </li>
+                </ul>
+                <div class="card-body">
+                    <h5 class="card-title">Special title treatment</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                </div>
+                <div display-flex-center>
+                    <button class="btn btn-primary>left</button>
+                    <button class="btn btn-primary>right</button>
+                </div>
 
+                `;
+
+                clickedCard.appendChild(extraInfoDiv);
+        }
+    }
+}
