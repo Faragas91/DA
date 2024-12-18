@@ -74,23 +74,37 @@ function filterPokemon(filter) {
     }
 }
 
-
+let isActive = false;
+let currentCardId = null;
 function biggerImage(cardId, responseJson) {
-    const content = document.getElementById('content');
+
     const clickedCard = document.getElementById(cardId);
     const cardElements = document.querySelectorAll('[id^="card-"]');
-    for (let i = 0; i < cardElements.length; i++) {
-        if (clickedCard != cardElements[i]) {
-            cardElements[i].style.display = 'none';
+    const buttonLoad = document.getElementById('button-load');
+
+    if (isActive && currentCardId & currentCardId !== cardId) {
+        closeCard(currentCardId);
+    }
+
+    if (!isActive || currentCardId !== cardId) {
+        currentCardId = cardId
+        for (let i = 0; i < cardElements.length; i++) {
+            if (clickedCard != cardElements[i]) {
+                cardElements[i].style.display = 'none';
+            }
         }
     }
     
     if (clickedCard) {
-        content.style.height ='100vh';
-        clickedCard.style.transform = 'scale(1.5)';
-        clickedCard.style.margin = '0 auto';
+        buttonLoad.style.display = 'none'
+        clickedCard.style.maxHeight = '800px';
+        clickedCard.style.maxWidth = '400px';
+        clickedCard.style.marginTop = '100px';
         clickedCard.style.zIndex = 10;
+        clickedCard.classList.add('no-hover');
+        const overlay = document.getElementById('overlay');
         overlay.style.display = 'block';
+        isActive = true;
 
         if (!clickedCard.querySelector('.card-footer')) {
             const extraInfoDiv = document.createElement('div');
@@ -115,9 +129,9 @@ function biggerImage(cardId, responseJson) {
                     <h5 class="card-title">Special title treatment</h5>
                     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                 </div>
-                <div display-flex-center>
-                    <button class="btn btn-primary>left</button>
-                    <button class="btn btn-primary>right</button>
+                <div class="next-buttons">
+                    <button onclick="leftImage()" class="next__left-picture"></button>
+                    <button onclick="rightImage()" class="next__right-picture"></button>
                 </div>
 
                 `;
@@ -125,4 +139,41 @@ function biggerImage(cardId, responseJson) {
                 clickedCard.appendChild(extraInfoDiv);
         }
     }
+}
+
+function closeCard(cardId) {
+    const clickedCard = document.getElementById(cardId);
+    const cardElements = document.querySelectorAll('[id^="card-"]');
+    const overlay = document.getElementById('overlay');
+    const buttonLoad = document.getElementById('button-load');
+
+    for (let i = 0; i < cardElements.length; i++) {
+        cardElements[i].style.display = 'flex';
+    }
+
+    if (clickedCard && isActive) {
+        
+        buttonLoad.style.display = 'none'
+        clickedCard.style.height = 'auto';
+        clickedCard.style.maxWidth = '300px';
+        clickedCard.style.marginTop = 'auto';
+        clickedCard.style.zIndex = 1;
+        overlay.style.display = 'none';
+        isActive = false;
+        currentCardId = null;
+
+        // Extra-Info entfernen
+        const extraInfoDiv = clickedCard.querySelector('.card-footer');
+        if (extraInfoDiv) {
+            extraInfoDiv.remove();
+        }
+    }
+}
+
+function leftImage() {
+
+}
+
+function rightImage() {
+
 }

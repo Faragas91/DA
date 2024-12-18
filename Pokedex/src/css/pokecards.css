@@ -16,6 +16,12 @@
     cursor: pointer;
 }
 
+.card.no-hover:hover {
+    transform: scale(1);
+    transition: transform 0.3s ease;
+    cursor: default;
+}
+
 .card-img-top {
     width: 200px;
 }
@@ -25,6 +31,7 @@
     color: rgb(0, 0, 0);
 }
 
+
 .text-id {
     text-align: left !important;
     color: #ffffff !important;
@@ -32,7 +39,7 @@
 
 .text-type {
     color: #ffffff !important;
-    width: 80px;
+    width: 60px;
     height: 30px;
     border: 1px solid rgb(255, 255, 255);
     border-radius: 15px;
@@ -46,4 +53,50 @@
     width: 100%;
     background-color: rgba(0, 0, 0, 0.600);
     display: none;
+}
+
+.load-Pokemon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.next-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.next__left-picture {
+    width: 50px;
+    height: 50px;
+    background-image: url('../../assets/icons/left-button.png');
+    background-size: cover;
+    background-position: center;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 0;
+}
+
+.next__left-picture:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.next__right-picture {
+    width: 50px;
+    height: 50px;
+    background-image: url('../../assets/icons/right-button.png');
+    background-size: cover;
+    background-position: center;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 0;
+}
+
+.next__right-picture:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
 }
