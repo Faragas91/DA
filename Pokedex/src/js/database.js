@@ -46,8 +46,9 @@ async function fetchPokemonData(startIndex, endIndex) {
             textType2.classList.add(`${typeName2}-bg-type`);
 
         }
-    }
 
+        console.log(responseJson)
+    }
 }
 
 function loadMorePokemonData() {
@@ -77,31 +78,30 @@ function filterPokemon(filter) {
 let isActive = false;
 let currentCardId = null;
 function biggerImage(cardId, responseJson) {
+    if (currentCardId === cardId || isActive) return;
 
     const clickedCard = document.getElementById(cardId);
     const cardElements = document.querySelectorAll('[id^="card-"]');
     const buttonLoad = document.getElementById('button-load');
 
-    if (isActive && currentCardId & currentCardId !== cardId) {
+    if (isActive && currentCardId && currentCardId !== cardId) {
         closeCard(currentCardId);
     }
 
     if (!isActive || currentCardId !== cardId) {
         currentCardId = cardId
-        for (let i = 0; i < cardElements.length; i++) {
-            if (clickedCard != cardElements[i]) {
-                cardElements[i].style.display = 'none';
-            }
-        }
-    }
-    
-    if (clickedCard) {
-        buttonLoad.style.display = 'none'
+
+        cardElements.forEach(card => {
+            card.style.display = card.id === cardId ? 'block' : 'none';
+        });
+        
         clickedCard.style.maxHeight = '800px';
         clickedCard.style.maxWidth = '400px';
         clickedCard.style.marginTop = '100px';
         clickedCard.style.zIndex = 10;
         clickedCard.classList.add('no-hover');
+        
+        buttonLoad.style.display = 'none'
         const overlay = document.getElementById('overlay');
         overlay.style.display = 'block';
         isActive = true;
@@ -111,18 +111,15 @@ function biggerImage(cardId, responseJson) {
             extraInfoDiv.classList.add('card-footer');
 
             extraInfoDiv.innerHTML = `
-                <ul class="nav nav-tabs card-header-tabs">
+                <ul class="nav nav-tabs card-header-tabs display-flex-center">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Active</a>
+                        <a class="nav-link">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link">Stats</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Disabled</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Disabled</a>
+                        <a class="nav-link">Disabled</a>
                     </li>
                 </ul>
                 <div class="card-body">
@@ -130,14 +127,15 @@ function biggerImage(cardId, responseJson) {
                     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                 </div>
                 <div class="next-buttons">
-                    <button onclick="leftImage()" class="next__left-picture"></button>
-                    <button onclick="rightImage()" class="next__right-picture"></button>
+                    <button onclick="navigateCard('left')" class="next__left-picture"></button>
+                    <button onclick="navigateCard('right')" class="next__right-picture"></button>
                 </div>
 
                 `;
 
                 clickedCard.appendChild(extraInfoDiv);
         }
+        isActive = true;
     }
 }
 
@@ -149,20 +147,19 @@ function closeCard(cardId) {
 
     for (let i = 0; i < cardElements.length; i++) {
         cardElements[i].style.display = 'flex';
+        cardElements[i].style.height = 'auto';
+        cardElements[i].style.maxWidth = '300px';
+        cardElements[i].style.marginTop = 'auto';
+        cardElements[i].style.zIndex = 1;
+        clickedCard.classList.remove('no-hover');
     }
 
     if (clickedCard && isActive) {
-        
-        buttonLoad.style.display = 'none'
-        clickedCard.style.height = 'auto';
-        clickedCard.style.maxWidth = '300px';
-        clickedCard.style.marginTop = 'auto';
-        clickedCard.style.zIndex = 1;
+        buttonLoad.style.display = 'flex';
         overlay.style.display = 'none';
         isActive = false;
         currentCardId = null;
 
-        // Extra-Info entfernen
         const extraInfoDiv = clickedCard.querySelector('.card-footer');
         if (extraInfoDiv) {
             extraInfoDiv.remove();
@@ -170,10 +167,24 @@ function closeCard(cardId) {
     }
 }
 
-function leftImage() {
+function navigateCard(direction) {
+    if (!currentCardId) return;
 
+    const cardElements = Array.from(document.querySelectorAll('[id^="card-"]'));
+    const currentIndex = cardElements.findIndex(card => card.id === currentCardId);
+
+    let newIndex;
+    if (direction === 'left') {
+        newIndex = currentIndex > 0 ? currentIndex - 1 : cardElements.length - 1;
+    } else if (direction === 'right') {
+        newIndex = currentIndex < cardElements.length - 1 ? currentIndex + 1 : 0; 
+    }
+
+    const newCard = cardElements[newIndex];
+    if (newCard) {
+        closeCard(currentCardId);
+        biggerImage(newCard.id);         
+    }
 }
 
-function rightImage() {
 
-}
