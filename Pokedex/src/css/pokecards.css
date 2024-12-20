@@ -55,12 +55,6 @@
     display: none;
 }
 
-.load-Pokemon{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .next-buttons {
     display: flex;
     justify-content: space-between;

@@ -1,20 +1,20 @@
 let currentIndex = 1;
 let pokemonBatchSize = 20;
+let pokemonDetails =[];
 
 async function fetchPokemonData(startIndex, endIndex) {
     const content = document.getElementById('content');
+    let pokemonDataBatch = [];
 
     for (let index = startIndex; index <= endIndex; index++) {
-        let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${index}`);
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
+        let responseJson = await fetchSinglePokemonData(index);
+        pokemonDataBatch.push(responseJson);
 
-        let responseJson = await response.json();
         const cardId = `card-${responseJson.id}`;
         const textTypeId1 = `textType1-${responseJson.id}`;
-        const textTypeId2 = `textType2-${responseJson.id}`;
-        content.innerHTML += 
+        const textTypeId2 = `textTypeId2-${responseJson.id}`;
+
+        content.innerHTML +=
             `
             <div onclick="biggerImage('${cardId}' , 'responseJson')"class="card" id="${cardId}">
                 <div class="card-body">
@@ -33,7 +33,8 @@ async function fetchPokemonData(startIndex, endIndex) {
                     </div>
                 </div>
             </div>
-        `
+        `;
+
         const card = document.getElementById(cardId);
         const textType1 = document.getElementById(textTypeId1);
         const typeName1 = responseJson.types[0].type.name;
@@ -46,10 +47,20 @@ async function fetchPokemonData(startIndex, endIndex) {
             textType2.classList.add(`${typeName2}-bg-type`);
 
         }
-
-        console.log(responseJson)
     }
+    console.log(pokemonDataBatch);
+    return pokemonDataBatch;
 }
+
+async function fetchSinglePokemonData(pokemonId) {
+    let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`);
+    if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    let responseJson = await response.json();
+    return responseJson;
+}
+    
 
 function loadMorePokemonData() {
     fetchPokemonData(currentIndex, currentIndex + pokemonBatchSize - 1);
@@ -111,20 +122,12 @@ function biggerImage(cardId, responseJson) {
             extraInfoDiv.classList.add('card-footer');
 
             extraInfoDiv.innerHTML = `
-                <ul class="nav nav-tabs card-header-tabs display-flex-center">
-                    <li class="nav-item">
-                        <a class="nav-link">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link">Stats</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link">Disabled</a>
-                    </li>
-                </ul>
-                <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <div class="btn-group display-flex-center" role="group" aria-label="Second group">
+                    <button onclick="cardDetails('${responseJson}')" type="button" class="btn btn-secondary hover-underline-animation">About</button>
+                    <button onclick="cardDetails('${responseJson}')" type="button" class="btn btn-secondary hover-underline-animation">Stats</button>
+                    <button onclick="cardDetails('${responseJson}')" type="button" class="btn btn-secondary hover-underline-animation">Attack</button>
+                </div>
+                <div class="card-body id="card-details">
                 </div>
                 <div class="next-buttons">
                     <button onclick="navigateCard('left')" class="next__left-picture"></button>
@@ -187,4 +190,8 @@ function navigateCard(direction) {
     }
 }
 
+async function cardDetails(pokemonId) {
+    let pokemon = await fetchSinglePokemonData(pokemonId);
+    console.log(pokemon);
+}
 
