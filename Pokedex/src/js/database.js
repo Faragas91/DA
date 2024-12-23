@@ -1,10 +1,10 @@
 let currentIndex = 1;
 let pokemonBatchSize = 20;
-let pokemonDetails =[];
+let pokemonDataBatch = [];
 
 async function fetchPokemonData(startIndex, endIndex) {
     const content = document.getElementById('content');
-    let pokemonDataBatch = [];
+
 
     for (let index = startIndex; index <= endIndex; index++) {
         let responseJson = await fetchSinglePokemonData(index);
@@ -30,6 +30,19 @@ async function fetchPokemonData(startIndex, endIndex) {
                             ? `<p class="card-text text-type" id="${textTypeId2}">${responseJson.types[1].type.name.charAt(0).toUpperCase() + responseJson.types[1].type.name.slice(1).toLowerCase()}</p>`
                             : ''
                         }
+                    </div>
+                </div>
+                <div class="card-footer none">
+                    <div class="btn-group display-flex-center" role="group" aria-label="Second group">
+                        <button onclick="showCardDetails('about', ${responseJson.id})" type="button" class="btn btn-secondary hover-underline-animation">About</button>
+                        <button onclick="showCardDetails('status', ${responseJson.id})" type="button" class="btn btn-secondary hover-underline-animation">Stats</button>
+                        <button onclick="showCardDetails('attack', ${responseJson.id})" type="button" class="btn btn-secondary hover-underline-animation">Attack</button>
+                    </div>
+                    <div class="card-details">
+                    </div>
+                    <div class="next-buttons">
+                        <button onclick="navigateCard('left')" class="next__left-picture"></button>
+                        <button onclick="navigateCard('right')" class="next__right-picture"></button>
                     </div>
                 </div>
             </div>
@@ -88,12 +101,13 @@ function filterPokemon(filter) {
 
 let isActive = false;
 let currentCardId = null;
-function biggerImage(cardId, responseJson) {
+function biggerImage(cardId) {
     if (currentCardId === cardId || isActive) return;
 
     const clickedCard = document.getElementById(cardId);
+    const cardFooter = clickedCard.querySelector('.card-footer');
     const cardElements = document.querySelectorAll('[id^="card-"]');
-    const buttonLoad = document.getElementById('button-load');
+    const buttonLoad = document.getElementById('button-load'); 
 
     if (isActive && currentCardId && currentCardId !== cardId) {
         closeCard(currentCardId);
@@ -105,74 +119,58 @@ function biggerImage(cardId, responseJson) {
         cardElements.forEach(card => {
             card.style.display = card.id === cardId ? 'block' : 'none';
         });
-        
+
         clickedCard.style.maxHeight = '800px';
         clickedCard.style.maxWidth = '400px';
-        clickedCard.style.marginTop = '100px';
+        // clickedCard.style.marginTop = '100px';
         clickedCard.style.zIndex = 10;
         clickedCard.classList.add('no-hover');
-        
+       
         buttonLoad.style.display = 'none'
         const overlay = document.getElementById('overlay');
         overlay.style.display = 'block';
         isActive = true;
 
-        if (!clickedCard.querySelector('.card-footer')) {
-            const extraInfoDiv = document.createElement('div');
-            extraInfoDiv.classList.add('card-footer');
-
-            extraInfoDiv.innerHTML = `
-                <div class="btn-group display-flex-center" role="group" aria-label="Second group">
-                    <button onclick="cardDetails('${responseJson}')" type="button" class="btn btn-secondary hover-underline-animation">About</button>
-                    <button onclick="cardDetails('${responseJson}')" type="button" class="btn btn-secondary hover-underline-animation">Stats</button>
-                    <button onclick="cardDetails('${responseJson}')" type="button" class="btn btn-secondary hover-underline-animation">Attack</button>
-                </div>
-                <div class="card-body id="card-details">
-                </div>
-                <div class="next-buttons">
-                    <button onclick="navigateCard('left')" class="next__left-picture"></button>
-                    <button onclick="navigateCard('right')" class="next__right-picture"></button>
-                </div>
-
-                `;
-
-                clickedCard.appendChild(extraInfoDiv);
+        if (cardFooter) {
+            cardFooter.classList.remove('none');
         }
-        isActive = true;
     }
 }
 
 function closeCard(cardId) {
     const clickedCard = document.getElementById(cardId);
+    const cardFooter = clickedCard.querySelector('.card-footer');
     const cardElements = document.querySelectorAll('[id^="card-"]');
     const overlay = document.getElementById('overlay');
     const buttonLoad = document.getElementById('button-load');
-
+ 
     for (let i = 0; i < cardElements.length; i++) {
         cardElements[i].style.display = 'flex';
         cardElements[i].style.height = 'auto';
         cardElements[i].style.maxWidth = '300px';
-        cardElements[i].style.marginTop = 'auto';
+        //cardElements[i].style.marginTop = 'auto';
         cardElements[i].style.zIndex = 1;
         clickedCard.classList.remove('no-hover');
-    }
+    }   
 
     if (clickedCard && isActive) {
         buttonLoad.style.display = 'flex';
         overlay.style.display = 'none';
+
+
+        if (cardFooter) {
+            cardFooter.classList.add('none');
+        }
+
         isActive = false;
         currentCardId = null;
 
-        const extraInfoDiv = clickedCard.querySelector('.card-footer');
-        if (extraInfoDiv) {
-            extraInfoDiv.remove();
-        }
     }
 }
 
 function navigateCard(direction) {
     if (!currentCardId) return;
-
+    
     const cardElements = Array.from(document.querySelectorAll('[id^="card-"]'));
     const currentIndex = cardElements.findIndex(card => card.id === currentCardId);
 
@@ -190,8 +188,34 @@ function navigateCard(direction) {
     }
 }
 
-async function cardDetails(pokemonId) {
-    let pokemon = await fetchSinglePokemonData(pokemonId);
-    console.log(pokemon);
+function showCardDetails(detail, cardId) {
+    const correctedCardId = cardId - 1;
+    console.log(pokemonDataBatch);
+    
+    const cardDetails = document.querySelector('.card-details');
+    cardDetails.innerHTML = '';
+
+    if (!cardDetails) {
+        console.error("Element with id 'card-details' not found");
+        return;
+    }
+
+    if (detail === 'about') {
+        cardDetails.innerHTML = `
+            <p>Name: ${pokemonDataBatch[correctedCardId].name}</p>
+            <p>Weight: ${pokemonDataBatch[correctedCardId].weight}</p>
+            <p>Height: ${pokemonDataBatch[correctedCardId].height}</p>
+            
+        `;
+    } else if (detail ==='status') {
+        cardDetails.innerHTML = `
+            <p>Name: ${card.id}</p>
+        `;
+    } else if (detail === 'attack') { 
+        cardDetails.innerHTML = `
+              <p>Name: ${responseJson.height}</p>
+        `;
+    }
+
 }
 

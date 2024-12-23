@@ -40,3 +40,7 @@ body, html {
 button {
     cursor: pointer;
 }
+
+.none {
+    display: none;
+}
