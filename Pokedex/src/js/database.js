@@ -5,7 +5,6 @@ let pokemonDataBatch = [];
 async function fetchPokemonData(startIndex, endIndex) {
     const content = document.getElementById('content');
 
-
     for (let index = startIndex; index <= endIndex; index++) {
         let responseJson = await fetchSinglePokemonData(index);
         pokemonDataBatch.push(responseJson);
@@ -16,7 +15,7 @@ async function fetchPokemonData(startIndex, endIndex) {
 
         content.innerHTML +=
             `
-            <div onclick="biggerImage('${cardId}' , 'responseJson')"class="card" id="${cardId}">
+            <div onclick="biggerImage('${cardId}', 'responseJson')"class="card" id="${cardId}">
                 <div class="card-body">
                     <p class="card-text text-id">#${responseJson.id}</p>
                     <p class="card-text kanit-medium-italic">${responseJson.name.charAt(0).toUpperCase() + responseJson.name.slice(1).toLowerCase()}</p>
@@ -34,11 +33,11 @@ async function fetchPokemonData(startIndex, endIndex) {
                 </div>
                 <div class="card-footer none">
                     <div class="btn-group display-flex-center" role="group" aria-label="Second group">
-                        <button onclick="showCardDetails('about', ${responseJson.id})" type="button" class="btn btn-secondary hover-underline-animation">About</button>
-                        <button onclick="showCardDetails('status', ${responseJson.id})" type="button" class="btn btn-secondary hover-underline-animation">Stats</button>
-                        <button onclick="showCardDetails('attack', ${responseJson.id})" type="button" class="btn btn-secondary hover-underline-animation">Attack</button>
+                        <button onclick="selectSection('about')" type="button" class="btn btn-secondary hover-underline-animation">About</button>
+                        <button onclick="selectSection('status')" type="button" class="btn btn-secondary hover-underline-animation">Stats</button>
+                        <button onclick="selectSection('strong/weakness')" type="button" class="btn btn-secondary hover-underline-animation">Strong/Weakness</button>
                     </div>
-                    <div class="card-details">
+                    <div class="card-details" id="details-${cardId}">
                     </div>
                     <div class="next-buttons">
                         <button onclick="navigateCard('left')" class="next__left-picture"></button>
@@ -73,7 +72,49 @@ async function fetchSinglePokemonData(pokemonId) {
     let responseJson = await response.json();
     return responseJson;
 }
-    
+
+async function fetchAllTypeDetails() {
+    try {
+        // Schritt 1: Hole die Liste der Typen
+        const response = await fetch('https://pokeapi.co/api/v2/type');
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const typeList = await response.json();
+        const typeDetails = [];
+
+        // Schritt 2: Hole die Details für jeden Typ
+        for (const type of typeList.results) {
+            const typeResponse = await fetch(type.url);
+            if (!typeResponse.ok) {
+                throw new Error(`Failed to fetch details for ${type.name}`);
+            }
+
+            const typeData = await typeResponse.json();
+
+            // Extrahiere die relevanten Informationen
+            const details = {
+                name: type.name,
+                strengths: typeData.damage_relations.double_damage_to.map(t => t.name),
+                weaknesses: typeData.damage_relations.double_damage_from.map(t => t.name),
+                immunities: typeData.damage_relations.no_damage_from.map(t => t.name),
+            };
+
+            typeDetails.push(details);
+        }
+
+        // Rückgabe der gesammelten Daten
+        return typeDetails;
+    } catch (error) {
+        console.error(`Error fetching type details: ${error}`);
+    }
+}
+
+// Beispielaufruf
+fetchAllTypeDetails().then(typeDetails => {
+    console.log(typeDetails);
+});
 
 function loadMorePokemonData() {
     fetchPokemonData(currentIndex, currentIndex + pokemonBatchSize - 1);
@@ -170,7 +211,7 @@ function closeCard(cardId) {
 
 function navigateCard(direction) {
     if (!currentCardId) return;
-    
+
     const cardElements = Array.from(document.querySelectorAll('[id^="card-"]'));
     const currentIndex = cardElements.findIndex(card => card.id === currentCardId);
 
@@ -178,44 +219,64 @@ function navigateCard(direction) {
     if (direction === 'left') {
         newIndex = currentIndex > 0 ? currentIndex - 1 : cardElements.length - 1;
     } else if (direction === 'right') {
-        newIndex = currentIndex < cardElements.length - 1 ? currentIndex + 1 : 0; 
+        newIndex = currentIndex < cardElements.length - 1 ? currentIndex + 1 : 0;
     }
 
     const newCard = cardElements[newIndex];
     if (newCard) {
         closeCard(currentCardId);
-        biggerImage(newCard.id);         
+        biggerImage(newCard.id);
+        selectSection('about');
     }
 }
 
-function showCardDetails(detail, cardId) {
-    const correctedCardId = cardId - 1;
-    console.log(pokemonDataBatch);
-    
-    const cardDetails = document.querySelector('.card-details');
-    cardDetails.innerHTML = '';
 
-    if (!cardDetails) {
-        console.error("Element with id 'card-details' not found");
+function selectSection(detail) {
+    if (!currentCardId) {
+        console.error("No active card selected.");
         return;
     }
 
-    if (detail === 'about') {
-        cardDetails.innerHTML = `
-            <p>Name: ${pokemonDataBatch[correctedCardId].name}</p>
-            <p>Weight: ${pokemonDataBatch[correctedCardId].weight}</p>
-            <p>Height: ${pokemonDataBatch[correctedCardId].height}</p>
-            
-        `;
-    } else if (detail ==='status') {
-        cardDetails.innerHTML = `
-            <p>Name: ${card.id}</p>
-        `;
-    } else if (detail === 'attack') { 
-        cardDetails.innerHTML = `
-              <p>Name: ${responseJson.height}</p>
-        `;
+    const cardDetails = document.querySelector(`#details-${currentCardId}`);
+
+    if (!cardDetails) {
+        console.error(`Card details element not found for card ID: ${currentCardId}`);
+        return;
     }
 
+    cardDetails.innerHTML = '';
+
+    // Bestimme den Index der aktuellen Karte basierend auf ihrer ID
+    const cardIndex = pokemonDataBatch.findIndex(pokemon => `card-${pokemon.id}` === currentCardId);
+
+    if (cardIndex === -1) {
+        console.error(`No Pokémon data found for card ID: ${currentCardId}`);
+        return;
+    }
+
+    const currentPokemon = pokemonDataBatch[cardIndex];
+
+    // Füge Inhalte basierend auf dem ausgewählten Detailtyp hinzu
+    if (detail === 'about') {
+        cardDetails.innerHTML = `
+            <p>Name: ${currentPokemon.name.charAt(0).toUpperCase() + currentPokemon.name.slice(1).toLowerCase()}</p>
+            <p>Weight: ${currentPokemon.weight}</p>
+            <p>Height: ${currentPokemon.height}</p>
+            <p>Abilities: ${currentPokemon.abilities[0].ability.name}</p>
+            <p>Abilities (hidden): ${currentPokemon.abilities[1].ability.name}</p>
+        `;
+    } else if (detail === 'status') {
+        cardDetails.innerHTML = `
+            <p>HP: ${currentPokemon.stats[0].base_stat}</p>
+            <p>Attack: ${currentPokemon.stats[1].base_stat}</p>
+            <p>Defense: ${currentPokemon.stats[2].base_stat}</p>
+            <p>Special-attack: ${currentPokemon.stats[3].base_stat}</p>
+            <p>Special-defense: ${currentPokemon.stats[4].base_stat}</p>
+            <p>Speed: ${currentPokemon.stats[5].base_stat}</p>
+        `;
+    } else if (detail === 'strong/weakness') {
+
+    }   
 }
+
 
