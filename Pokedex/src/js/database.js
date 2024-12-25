@@ -2,6 +2,7 @@ let currentIndex = 1;
 let pokemonBatchSize = 20;
 let pokemonDataBatch = [];
 let typeDetails = [];
+let typeData;
 
 async function fetchPokemonData(startIndex, endIndex) {
     try {
@@ -111,7 +112,9 @@ async function fetchAllTypeDetails() {
                 immunities: typeData.damage_relations.no_damage_from.map(t => t.name),
             };
 
-            typeDetails.push(details);
+            if (!typeDetails.some(t => t.name === details.name)) {
+                typeDetails.push(details);
+            }
         }
 
         // Rückgabe der gesammelten Daten
@@ -269,13 +272,24 @@ function selectSection(detail) {
 
     // Füge Inhalte basierend auf dem ausgewählten Detailtyp hinzu
     if (detail === 'about') {
-        cardDetails.innerHTML = `
+    
+        if (currentPokemon.abilities.length < 2) {
+            cardDetails.innerHTML = `
+            <p>Name: ${currentPokemon.name.charAt(0).toUpperCase() + currentPokemon.name.slice(1).toLowerCase()}</p>
+            <p>Weight: ${currentPokemon.weight}</p>
+            <p>Height: ${currentPokemon.height}</p>
+            <p>Abilities: ${currentPokemon.abilities[0].ability.name}</p>
+            <p>Abilities (hidden): No hidden ability</p>
+            `;
+        } else {
+            cardDetails.innerHTML = `
             <p>Name: ${currentPokemon.name.charAt(0).toUpperCase() + currentPokemon.name.slice(1).toLowerCase()}</p>
             <p>Weight: ${currentPokemon.weight}</p>
             <p>Height: ${currentPokemon.height}</p>
             <p>Abilities: ${currentPokemon.abilities[0].ability.name}</p>
             <p>Abilities (hidden): ${currentPokemon.abilities[1].ability.name}</p>
         `;
+        }
     } else if (detail === 'status') {
         cardDetails.innerHTML = `
             <p>HP: ${currentPokemon.stats[0].base_stat}</p>
@@ -286,16 +300,19 @@ function selectSection(detail) {
             <p>Speed: ${currentPokemon.stats[5].base_stat}</p>
         `;
     } else if (detail === 'strong/weak') {
-        for (let i = 0; i < typeDetails.length; i++) {
-            if (typeDetails[i].name === currentPokemon.types[0].type.name) {
-                cardDetails.innerHTML = `
-                    <p>Strengths:</p>
-                    <ul>${typeDetails[i].strengths.map(type => `<li>${type}</li>`).join('')}</ul>
-                    <p>Weaknesses:</p>
-                    <ul>${typeDetails[i].weaknesses.map(type => `<li>${type}</li>`).join('')}</ul>
-                    <p>Immunities:</p>
-                    <ul>${typeDetails[i].immunities.map(type => `<li>${type}</li>`).join('')}</ul>
-                `;
+        for (let j = 0; j < currentPokemon.types.length; j++) {
+            for (let i = 0; i < typeDetails.length; i++) {
+                if (typeDetails[i].name === currentPokemon.types[j].type.name) {
+                    cardDetails.innerHTML += `
+                        <p>Type: ${currentPokemon.types[j].type.name.charAt(0).toUpperCase() + currentPokemon.types[j].type.name.slice(1).toLowerCase()}</p>
+                        <p>Strengths:</p>
+                        <ul>${typeDetails[i].strengths.map(type => `<li>${type}</li>`).join('')}</ul>
+                        <p>Weaknesses:</p>
+                        <ul>${typeDetails[i].weaknesses.map(type => `<li>${type}</li>`).join('')}</ul>
+                        <p>Immunities:</p>
+                        <ul>${typeDetails[i].immunities.map(type => `<li>${type}</li>`).join('')}</ul>
+                    `;
+                }
             }
         }
     }   
