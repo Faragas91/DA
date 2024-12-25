@@ -1,76 +1,87 @@
 let currentIndex = 1;
 let pokemonBatchSize = 20;
 let pokemonDataBatch = [];
+let typeDetails = [];
 
 async function fetchPokemonData(startIndex, endIndex) {
-    const content = document.getElementById('content');
+    try {
+        const content = document.getElementById('content');
 
-    for (let index = startIndex; index <= endIndex; index++) {
-        let responseJson = await fetchSinglePokemonData(index);
-        pokemonDataBatch.push(responseJson);
+        for (let index = startIndex; index <= endIndex; index++) {
+            let responseJson = await fetchSinglePokemonData(index);
+            pokemonDataBatch.push(responseJson);
 
-        const cardId = `card-${responseJson.id}`;
-        const textTypeId1 = `textType1-${responseJson.id}`;
-        const textTypeId2 = `textTypeId2-${responseJson.id}`;
+            const cardId = `card-${responseJson.id}`;
+            const textTypeId1 = `textType1-${responseJson.id}`;
+            const textTypeId2 = `textTypeId2-${responseJson.id}`;
 
-        content.innerHTML +=
-            `
-            <div onclick="biggerImage('${cardId}', 'responseJson')"class="card" id="${cardId}">
-                <div class="card-body">
-                    <p class="card-text text-id">#${responseJson.id}</p>
-                    <p class="card-text kanit-medium-italic">${responseJson.name.charAt(0).toUpperCase() + responseJson.name.slice(1).toLowerCase()}</p>
-                </div>
-                <div class="display-flex-center direction-row-reverse">
-                    <img src="${responseJson.sprites.other["official-artwork"].front_default}" class="card-img-top" alt="Bisa">
-                    <div class="display-flex-center direction-column">
-                        <p class="card-text text-type" id="${textTypeId1}">${responseJson.types[0].type.name.charAt(0).toUpperCase() + responseJson.types[0].type.name.slice(1).toLowerCase()}</p>
-                        ${
-                            responseJson.types[1] 
-                            ? `<p class="card-text text-type" id="${textTypeId2}">${responseJson.types[1].type.name.charAt(0).toUpperCase() + responseJson.types[1].type.name.slice(1).toLowerCase()}</p>`
-                            : ''
-                        }
+            content.innerHTML +=
+                `
+                <div onclick="biggerImage('${cardId}', 'responseJson')"class="card" id="${cardId}">
+                    <div class="card-body">
+                        <p class="card-text text-id">#${responseJson.id}</p>
+                        <p class="card-text kanit-medium-italic">${responseJson.name.charAt(0).toUpperCase() + responseJson.name.slice(1).toLowerCase()}</p>
+                    </div>
+                    <div class="display-flex-center direction-row-reverse">
+                        <img src="${responseJson.sprites.other["official-artwork"].front_default}" class="card-img-top" alt="Bisa">
+                        <div class="display-flex-center direction-column">
+                            <p class="card-text text-type" id="${textTypeId1}">${responseJson.types[0].type.name.charAt(0).toUpperCase() + responseJson.types[0].type.name.slice(1).toLowerCase()}</p>
+                            ${
+                                responseJson.types[1] 
+                                ? `<p class="card-text text-type" id="${textTypeId2}">${responseJson.types[1].type.name.charAt(0).toUpperCase() + responseJson.types[1].type.name.slice(1).toLowerCase()}</p>`
+                                : ''
+                            }
+                        </div>
+                    </div>
+                    <div class="card-footer none">
+                        <div class="btn-group display-flex-center" role="group" aria-label="Second group">
+                            <button onclick="selectSection('about')" type="button" class="btn btn-secondary hover-underline-animation">About</button>
+                            <button onclick="selectSection('status')" type="button" class="btn btn-secondary hover-underline-animation">Status</button>
+                            <button onclick="selectSection('strong/weak')" type="button" class="btn btn-secondary hover-underline-animation">Strong/Weak</button>
+                        </div>
+                        <div class="card-details" id="details-${cardId}">
+                        </div>
+                        <div class="next-buttons">
+                            <button onclick="navigateCard('left')" class="next__left-picture"></button>
+                            <button onclick="navigateCard('right')" class="next__right-picture"></button>
+                        </div>
                     </div>
                 </div>
-                <div class="card-footer none">
-                    <div class="btn-group display-flex-center" role="group" aria-label="Second group">
-                        <button onclick="selectSection('about')" type="button" class="btn btn-secondary hover-underline-animation">About</button>
-                        <button onclick="selectSection('status')" type="button" class="btn btn-secondary hover-underline-animation">Stats</button>
-                        <button onclick="selectSection('strong/weakness')" type="button" class="btn btn-secondary hover-underline-animation">Strong/Weakness</button>
-                    </div>
-                    <div class="card-details" id="details-${cardId}">
-                    </div>
-                    <div class="next-buttons">
-                        <button onclick="navigateCard('left')" class="next__left-picture"></button>
-                        <button onclick="navigateCard('right')" class="next__right-picture"></button>
-                    </div>
-                </div>
-            </div>
-        `;
+            `;
 
-        const card = document.getElementById(cardId);
-        const textType1 = document.getElementById(textTypeId1);
-        const typeName1 = responseJson.types[0].type.name;
-        card.classList.add(typeName1);
-        textType1.classList.add(`${typeName1}-bg-type`);
-        
-        if (responseJson.types[1]) {
-            const textType2 = document.getElementById(textTypeId2);
-            const typeName2 = responseJson.types[1].type.name;
-            textType2.classList.add(`${typeName2}-bg-type`);
+            const card = document.getElementById(cardId);
+            const textType1 = document.getElementById(textTypeId1);
+            const typeName1 = responseJson.types[0].type.name;
+            card.classList.add(typeName1);
+            textType1.classList.add(`${typeName1}-bg-type`);
+            
+            if (responseJson.types[1]) {
+                const textType2 = document.getElementById(textTypeId2);
+                const typeName2 = responseJson.types[1].type.name;
+                textType2.classList.add(`${typeName2}-bg-type`);
 
+            }
         }
+        console.log(pokemonDataBatch);
+        return pokemonDataBatch;
+
+    } catch (error) {
+        console.error(`Error fetching all Pokemon: ${error}`);
     }
-    console.log(pokemonDataBatch);
-    return pokemonDataBatch;
 }
 
 async function fetchSinglePokemonData(pokemonId) {
-    let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`);
-    if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
+    try {
+        let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`);
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        let responseJson = await response.json();
+        return responseJson;
+
+    } catch (error) {
+        console.error(`Error fetching single Pokemon: ${error}`);
     }
-    let responseJson = await response.json();
-    return responseJson;
 }
 
 async function fetchAllTypeDetails() {
@@ -82,7 +93,6 @@ async function fetchAllTypeDetails() {
         }
 
         const typeList = await response.json();
-        const typeDetails = [];
 
         // Schritt 2: Hole die Details für jeden Typ
         for (const type of typeList.results) {
@@ -106,6 +116,7 @@ async function fetchAllTypeDetails() {
 
         // Rückgabe der gesammelten Daten
         return typeDetails;
+
     } catch (error) {
         console.error(`Error fetching type details: ${error}`);
     }
@@ -274,8 +285,19 @@ function selectSection(detail) {
             <p>Special-defense: ${currentPokemon.stats[4].base_stat}</p>
             <p>Speed: ${currentPokemon.stats[5].base_stat}</p>
         `;
-    } else if (detail === 'strong/weakness') {
-
+    } else if (detail === 'strong/weak') {
+        for (let i = 0; i < typeDetails.length; i++) {
+            if (typeDetails[i].name === currentPokemon.types[0].type.name) {
+                cardDetails.innerHTML = `
+                    <p>Strengths:</p>
+                    <ul>${typeDetails[i].strengths.map(type => `<li>${type}</li>`).join('')}</ul>
+                    <p>Weaknesses:</p>
+                    <ul>${typeDetails[i].weaknesses.map(type => `<li>${type}</li>`).join('')}</ul>
+                    <p>Immunities:</p>
+                    <ul>${typeDetails[i].immunities.map(type => `<li>${type}</li>`).join('')}</ul>
+                `;
+            }
+        }
     }   
 }
 

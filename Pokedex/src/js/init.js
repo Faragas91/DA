@@ -1,5 +1,5 @@
 async function init() {
     loadMorePokemonData();
     fetchPokemonData();
-    fetchPokemonTypesData();
+    fetchAllTypeDetails();
 }
