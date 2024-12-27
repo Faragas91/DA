@@ -23,7 +23,7 @@ async function fetchPokemonData(startIndex, endIndex) {
                         <p class="card-text text-id">#${responseJson.id}</p>
                         <p class="card-text kanit-medium-italic">${responseJson.name.charAt(0).toUpperCase() + responseJson.name.slice(1).toLowerCase()}</p>
                     </div>
-                    <div class="display-flex-center direction-row-reverse">
+                    <div class="display-flex-center direction-row-reverse space-evenly">
                         <img src="${responseJson.sprites.other["official-artwork"].front_default}" class="card-img-top" alt="Bisa">
                         <div class="display-flex-center direction-column">
                             <p class="card-text text-type" id="${textTypeId1}">${responseJson.types[0].type.name.charAt(0).toUpperCase() + responseJson.types[0].type.name.slice(1).toLowerCase()}</p>
@@ -163,6 +163,7 @@ function biggerImage(cardId) {
     const cardFooter = clickedCard.querySelector('.card-footer');
     const cardElements = document.querySelectorAll('[id^="card-"]');
     const buttonLoad = document.getElementById('button-load'); 
+    const header = document.getElementById('header');
 
     if (isActive && currentCardId && currentCardId !== cardId) {
         closeCard(currentCardId);
@@ -175,14 +176,15 @@ function biggerImage(cardId) {
             card.style.display = card.id === cardId ? 'block' : 'none';
         });
 
-        clickedCard.style.maxHeight = '800px';
-        clickedCard.style.maxWidth = '400px';
+        clickedCard.style.maxHeight = '600px';
+        clickedCard.style.maxWidth = '350px';
         // clickedCard.style.marginTop = '100px';
         clickedCard.style.zIndex = 10;
         clickedCard.classList.add('no-hover');
        
         buttonLoad.style.display = 'none'
         const overlay = document.getElementById('overlay');
+        header.style.display = 'none';
         overlay.style.display = 'block';
         isActive = true;
 
@@ -198,6 +200,7 @@ function closeCard(cardId) {
     const cardElements = document.querySelectorAll('[id^="card-"]');
     const overlay = document.getElementById('overlay');
     const buttonLoad = document.getElementById('button-load');
+    const header = document.getElementById('header');
  
     for (let i = 0; i < cardElements.length; i++) {
         cardElements[i].style.display = 'flex';
@@ -211,6 +214,7 @@ function closeCard(cardId) {
     if (clickedCard && isActive) {
         buttonLoad.style.display = 'flex';
         overlay.style.display = 'none';
+        header.style.display = 'flex';
 
 
         if (cardFooter) {
@@ -228,7 +232,7 @@ function navigateCard(direction) {
 
     const cardElements = Array.from(document.querySelectorAll('[id^="card-"]'));
     const currentIndex = cardElements.findIndex(card => card.id === currentCardId);
-
+    
     let newIndex;
     if (direction === 'left') {
         newIndex = currentIndex > 0 ? currentIndex - 1 : cardElements.length - 1;
@@ -240,9 +244,34 @@ function navigateCard(direction) {
     if (newCard) {
         closeCard(currentCardId);
         biggerImage(newCard.id);
-        selectSection('about');
+        selectSection('status');
+        updateProgressBars(pokemonDataBatch[newIndex]);
     }
 }
+
+function updateProgressBars(currentPokemon) {
+    const stats = currentPokemon.stats; 
+    const maxStat = 255;
+    const statsMap = [
+        { id: 'hp', value: stats[0].base_stat },
+        { id: 'attack', value: stats[1].base_stat },
+        { id: 'defense', value: stats[2].base_stat },
+        { id: 'special-attack', value: stats[3].base_stat },
+        { id: 'special-defense', value: stats[4].base_stat },
+        { id: 'speed', value: stats[5].base_stat },
+    ];
+
+    statsMap.forEach(stat => {
+        const progressBar = document.getElementById(`${stat.id}-bar`);
+        const valueSpan = document.getElementById(`${stat.id}-value`);
+
+        const percentage = Math.round((stat.value / maxStat) * 100);
+        if (progressBar && valueSpan) {
+            progressBar.style.width = `${percentage}%`;
+            valueSpan.textContent = stat.value;
+        }
+    });
+};
 
 
 function selectSection(detail) {
@@ -275,30 +304,67 @@ function selectSection(detail) {
     
         if (currentPokemon.abilities.length < 2) {
             cardDetails.innerHTML = `
-            <p>Name: ${currentPokemon.name.charAt(0).toUpperCase() + currentPokemon.name.slice(1).toLowerCase()}</p>
-            <p>Weight: ${currentPokemon.weight}</p>
-            <p>Height: ${currentPokemon.height}</p>
-            <p>Abilities: ${currentPokemon.abilities[0].ability.name}</p>
-            <p>Abilities (hidden): No hidden ability</p>
+            <ul class="list-group list-group-flush pd-top-bottom-10">
+                <li class="list-group-item">Name: ${currentPokemon.name.charAt(0).toUpperCase() + currentPokemon.name.slice(1).toLowerCase()}</li>
+                <li class="list-group-item">Weight: ${currentPokemon.weight}kg</li>
+                <li class="list-group-item">Height: ${currentPokemon.height}m</li>
+                <li class="list-group-item">Abilities: ${currentPokemon.abilities[0].ability.name}</li>
+                <li class="list-group-item">Abilities (hidden): -----</li>
+            </ul>
             `;
         } else {
             cardDetails.innerHTML = `
-            <p>Name: ${currentPokemon.name.charAt(0).toUpperCase() + currentPokemon.name.slice(1).toLowerCase()}</p>
-            <p>Weight: ${currentPokemon.weight}</p>
-            <p>Height: ${currentPokemon.height}</p>
-            <p>Abilities: ${currentPokemon.abilities[0].ability.name}</p>
-            <p>Abilities (hidden): ${currentPokemon.abilities[1].ability.name}</p>
-        `;
+            <ul class="list-group list-group-flush pd-top-bottom-10">
+                <li class="list-group-item">Name: ${currentPokemon.name.charAt(0).toUpperCase() + currentPokemon.name.slice(1).toLowerCase()}</li>
+                <li class="list-group-item">Weight: ${currentPokemon.weight}kg</li>
+                <li class="list-group-item">Height: ${currentPokemon.height}m</li>
+                <li class="list-group-item">Abilities: ${currentPokemon.abilities[0].ability.name}</li>
+                <li class="list-group-item">Abilities (hidden): ${currentPokemon.abilities[1].ability.name}</li>
+            </ul>
+            `;
         }
     } else if (detail === 'status') {
         cardDetails.innerHTML = `
-            <p>HP: ${currentPokemon.stats[0].base_stat}</p>
-            <p>Attack: ${currentPokemon.stats[1].base_stat}</p>
-            <p>Defense: ${currentPokemon.stats[2].base_stat}</p>
-            <p>Special-attack: ${currentPokemon.stats[3].base_stat}</p>
-            <p>Special-defense: ${currentPokemon.stats[4].base_stat}</p>
-            <p>Speed: ${currentPokemon.stats[5].base_stat}</p>
+            <div id="stats-container">
+                HP:
+                <div class="progress">
+                    <div id="hp-bar" class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                        <span id="hp-value"></span>
+                    </div>
+                </div>
+                Attack:
+                <div class="progress">
+                    <div id="attack-bar" class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                        <span id="attack-value"></span>
+                    </div>
+                </div>
+                Defense:
+                <div class="progress">
+                    <div id="defense-bar" class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                        <span id="defense-value"></span>
+                    </div>
+                </div>
+                Special-attack:
+                <div class="progress">
+                    <div id="special-attack-bar" class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                        <span id="special-attack-value"></span>
+                    </div>
+                </div>
+                Special-defense:
+                <div class="progress">
+                    <div id="special-defense-bar" class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                        <span id="special-defense-value"></span>
+                    </div>
+                </div>
+                Speed:
+                <div class="progress">
+                    <div id="speed-bar" class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                        <span id="speed-value"></span>
+                    </div>
+                </div>
+            </div>
         `;
+        updateProgressBars(currentPokemon);
     } else if (detail === 'strong/weak') {
         for (let j = 0; j < currentPokemon.types.length; j++) {
             for (let i = 0; i < typeDetails.length; i++) {
@@ -317,5 +383,4 @@ function selectSection(detail) {
         }
     }   
 }
-
 

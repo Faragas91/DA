@@ -21,6 +21,11 @@ body, html {
     align-items: center;
 }
 
+.pd-top-bottom-10 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
 .pd-20 {
     padding: 20px;
 }
@@ -35,6 +40,10 @@ body, html {
 
 .direction-column {
     flex-direction: column;
+}
+
+.space-evenly {
+    justify-content: space-evenly;
 }
 
 button {
