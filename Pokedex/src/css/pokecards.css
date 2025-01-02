@@ -62,8 +62,8 @@
 }
 
 .next__left-picture {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     background-image: url('../../assets/icons/left-button.png');
     background-size: cover;
     background-position: center;
@@ -79,8 +79,8 @@
 }
 
 .next__right-picture {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     background-image: url('../../assets/icons/right-button.png');
     background-size: cover;
     background-position: center;

@@ -40,7 +40,7 @@ async function fetchPokemonData(startIndex, endIndex) {
                             <button onclick="selectSection('status')" type="button" class="btn btn-secondary hover-underline-animation">Status</button>
                             <button onclick="selectSection('strong/weak')" type="button" class="btn btn-secondary hover-underline-animation">Strong/Weak</button>
                         </div>
-                        <div class="card-details" id="details-${cardId}">
+                        <div class="card-details display-flex-center direction-column" id="details-${cardId}">
                         </div>
                         <div class="next-buttons">
                             <button onclick="navigateCard('left')" class="next__left-picture"></button>
@@ -176,9 +176,10 @@ function biggerImage(cardId) {
             card.style.display = card.id === cardId ? 'block' : 'none';
         });
 
-        clickedCard.style.maxHeight = '600px';
+        clickedCard.style.maxHeight = '900px';
         clickedCard.style.maxWidth = '350px';
-        // clickedCard.style.marginTop = '100px';
+        clickedCard.style.marginTop = '50px';
+        clickedCard.style.marginBottom = '50px';
         clickedCard.style.zIndex = 10;
         clickedCard.classList.add('no-hover');
        
@@ -192,6 +193,7 @@ function biggerImage(cardId) {
             cardFooter.classList.remove('none');
         }
     }
+    selectSection('about');
 }
 
 function closeCard(cardId) {
@@ -206,7 +208,8 @@ function closeCard(cardId) {
         cardElements[i].style.display = 'flex';
         cardElements[i].style.height = 'auto';
         cardElements[i].style.maxWidth = '300px';
-        //cardElements[i].style.marginTop = 'auto';
+        cardElements[i].style.marginTop = 'auto';
+        cardElements[i].style.marginBottom = '10px';
         cardElements[i].style.zIndex = 1;
         clickedCard.classList.remove('no-hover');
     }   
@@ -244,13 +247,12 @@ function navigateCard(direction) {
     if (newCard) {
         closeCard(currentCardId);
         biggerImage(newCard.id);
-        selectSection('status');
         updateProgressBars(pokemonDataBatch[newIndex]);
     }
 }
 
-function updateProgressBars(currentPokemon) {
-    const stats = currentPokemon.stats; 
+function updateProgressBars(currentPokemon, cardIndex) {
+    let stats = currentPokemon.stats; 
     const maxStat = 255;
     const statsMap = [
         { id: 'hp', value: stats[0].base_stat },
@@ -262,8 +264,8 @@ function updateProgressBars(currentPokemon) {
     ];
 
     statsMap.forEach(stat => {
-        const progressBar = document.getElementById(`${stat.id}-bar`);
-        const valueSpan = document.getElementById(`${stat.id}-value`);
+        const progressBar = document.getElementById(`${stat.id}-bar-${cardIndex}`);
+        const valueSpan = document.getElementById(`${stat.id}-value-${cardIndex}`);
 
         const percentage = Math.round((stat.value / maxStat) * 100);
         if (progressBar && valueSpan) {
@@ -288,8 +290,6 @@ function selectSection(detail) {
     }
 
     cardDetails.innerHTML = '';
-
-    // Bestimme den Index der aktuellen Karte basierend auf ihrer ID
     const cardIndex = pokemonDataBatch.findIndex(pokemon => `card-${pokemon.id}` === currentCardId);
 
     if (cardIndex === -1) {
@@ -304,83 +304,119 @@ function selectSection(detail) {
     
         if (currentPokemon.abilities.length < 2) {
             cardDetails.innerHTML = `
-            <ul class="list-group list-group-flush pd-top-bottom-10">
-                <li class="list-group-item">Name: ${currentPokemon.name.charAt(0).toUpperCase() + currentPokemon.name.slice(1).toLowerCase()}</li>
-                <li class="list-group-item">Weight: ${currentPokemon.weight}kg</li>
-                <li class="list-group-item">Height: ${currentPokemon.height}m</li>
-                <li class="list-group-item">Abilities: ${currentPokemon.abilities[0].ability.name}</li>
-                <li class="list-group-item">Abilities (hidden): -----</li>
+            <ul class="list-group list-group-flush pd-top-bottom-10 wd-100">
+                <li class="list-group-item sour-gummy"><p class="ft-size-24 text-underline">Name:</p> ${currentPokemon.name.charAt(0).toUpperCase() + currentPokemon.name.slice(1).toLowerCase()}</li>
+                <li class="list-group-item sour-gummy"><p class="ft-size-24 text-underline">Weight:</p> ${currentPokemon.weight}kg</li>
+                <li class="list-group-item sour-gummy"><p class="ft-size-24 text-underline">Height:</p> ${currentPokemon.height}m</li>
+                <li class="list-group-item sour-gummy"><p class="ft-size-24 text-underline">Abilities:</p> ${currentPokemon.abilities[0].ability.name}</li>
+                <li class="list-group-item sour-gummy"><p class="ft-size-24 text-underline">Abilities (hidden):</p> -----</li>
             </ul>
             `;
         } else {
             cardDetails.innerHTML = `
-            <ul class="list-group list-group-flush pd-top-bottom-10">
-                <li class="list-group-item">Name: ${currentPokemon.name.charAt(0).toUpperCase() + currentPokemon.name.slice(1).toLowerCase()}</li>
-                <li class="list-group-item">Weight: ${currentPokemon.weight}kg</li>
-                <li class="list-group-item">Height: ${currentPokemon.height}m</li>
-                <li class="list-group-item">Abilities: ${currentPokemon.abilities[0].ability.name}</li>
-                <li class="list-group-item">Abilities (hidden): ${currentPokemon.abilities[1].ability.name}</li>
+            <ul class="list-group list-group-flush pd-top-bottom-10 wd-100">
+                <li class="list-group-item sour-gummy"><p class="ft-size-24 text-underline">Name:</p> ${currentPokemon.name.charAt(0).toUpperCase() + currentPokemon.name.slice(1).toLowerCase()}</li>
+                <li class="list-group-item sour-gummy"><p class="ft-size-24 text-underline">Weight:</p> ${currentPokemon.weight}kg</li>
+                <li class="list-group-item sour-gummy"><p class="ft-size-24 text-underline">Height:</p> ${currentPokemon.height}m</li>
+                <li class="list-group-item sour-gummy"><p class="ft-size-24 text-underline">Abilities:</p> ${currentPokemon.abilities[0].ability.name}</li>
+                <li class="list-group-item sour-gummy"><p class="ft-size-24 text-underline">Abilities (hidden):</p> ${currentPokemon.abilities[1].ability.name}</li>
             </ul>
             `;
         }
     } else if (detail === 'status') {
         cardDetails.innerHTML = `
-            <div id="stats-container">
-                HP:
+            <div class="mg-top-bottom-10 wd-100" id="stats-container">
+                <p class="sour-gummy ft-size-24 text-underline">HP:</p>	
                 <div class="progress">
-                    <div id="hp-bar" class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100">
-                        <span id="hp-value"></span>
+                    <div id="hp-bar-${cardIndex}" class="progress-bar ft-size-15" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                        <span id="hp-value-${cardIndex}"></span>
                     </div>
                 </div>
-                Attack:
+                <p class="sour-gummy ft-size-24 text-underline">Attack:</p>
                 <div class="progress">
-                    <div id="attack-bar" class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100">
-                        <span id="attack-value"></span>
+                    <div id="attack-bar-${cardIndex}" class="progress-bar ft-size-15" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                        <span id="attack-value-${cardIndex}"></span>
                     </div>
                 </div>
-                Defense:
+                <p class="sour-gummy ft-size-24 text-underline">Defense:</p>
                 <div class="progress">
-                    <div id="defense-bar" class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100">
-                        <span id="defense-value"></span>
+                    <div id="defense-bar-${cardIndex}" class="progress-bar ft-size-15" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                        <span id="defense-value-${cardIndex}"></span>
                     </div>
                 </div>
-                Special-attack:
+                <p class="sour-gummy ft-size-24 text-underline">Special-attack:</p>
                 <div class="progress">
-                    <div id="special-attack-bar" class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100">
-                        <span id="special-attack-value"></span>
+                    <div id="special-attack-bar-${cardIndex}" class="progress-bar ft-size-15" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                        <span id="special-attack-value-${cardIndex}"></span>
                     </div>
                 </div>
-                Special-defense:
+                <p class="sour-gummy ft-size-24 text-underline">Special-defense:</p>
                 <div class="progress">
-                    <div id="special-defense-bar" class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100">
-                        <span id="special-defense-value"></span>
+                    <div id="special-defense-bar-${cardIndex}" class="progress-bar ft-size-15" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                        <span id="special-defense-value-${cardIndex}"></span>
                     </div>
                 </div>
-                Speed:
+                <p class="sour-gummy ft-size-24 text-underline">Speed:</p>
                 <div class="progress">
-                    <div id="speed-bar" class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100">
-                        <span id="speed-value"></span>
+                    <div id="speed-bar-${cardIndex}" class="progress-bar ft-size-15" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                        <span id="speed-value-${cardIndex}"></span>
                     </div>
                 </div>
             </div>
         `;
-        updateProgressBars(currentPokemon);
+        updateProgressBars(currentPokemon, cardIndex);
     } else if (detail === 'strong/weak') {
         for (let j = 0; j < currentPokemon.types.length; j++) {
             for (let i = 0; i < typeDetails.length; i++) {
                 if (typeDetails[i].name === currentPokemon.types[j].type.name) {
+                    // Dynamische Generierung für Stärken
+                    let strengthsHTML = '';
+                    if (typeDetails[i].strengths.length > 0) {
+                        // Generiere HTML nur, wenn Immunitäten vorhanden sind
+                        strengthsHTML = `
+                            <p class="sour-gummy ft-size-20 text-underline">Strengths:</p>
+                            <ul class="wrap-center">
+                                ${typeDetails[i].strengths.map(type => `<li class="card-text text-type ${type}-bg-type">${type}</li>`).join('')}
+                            </ul>
+                        `;
+                    }
+    
+                    // Dynamische Generierung für Schwächen
+                    let weaknessesHTML = '';
+                    if (typeDetails[i].weaknesses.length > 0) {
+                        // Generiere HTML nur, wenn Immunitäten vorhanden sind
+                        weaknessesHTML = `
+                            <p class="sour-gummy ft-size-20 text-underline">Weakness:</p>
+                            <ul class="wrap-center">
+                                ${typeDetails[i].weaknesses.map(type => `<li class="card-text text-type ${type}-bg-type">${type}</li>`).join('')}
+                            </ul>
+                        `;
+                    }
+    
+                    // Immunitäten ebenfalls dynamisch generieren
+                    let immunitiesHTML = '';
+                    if (typeDetails[i].immunities.length > 0) {
+                        // Generiere HTML nur, wenn Immunitäten vorhanden sind
+                        immunitiesHTML = `
+                            <p class="sour-gummy ft-size-20 text-underline">Immunities:</p>
+                            <ul class="wrap-center">
+                                ${typeDetails[i].immunities.map(type => `<li class="card-text text-type ${type}-bg-type">${type}</li>`).join('')}
+                            </ul>
+                        `;
+                    }
+                    
+                    // Füge den Immunities-Block nur hinzu, wenn immunitiesHTML nicht leer ist
                     cardDetails.innerHTML += `
-                        <p>Type: ${currentPokemon.types[j].type.name.charAt(0).toUpperCase() + currentPokemon.types[j].type.name.slice(1).toLowerCase()}</p>
-                        <p>Strengths:</p>
-                        <ul>${typeDetails[i].strengths.map(type => `<li>${type}</li>`).join('')}</ul>
-                        <p>Weaknesses:</p>
-                        <ul>${typeDetails[i].weaknesses.map(type => `<li>${type}</li>`).join('')}</ul>
-                        <p>Immunities:</p>
-                        <ul>${typeDetails[i].immunities.map(type => `<li>${type}</li>`).join('')}</ul>
+                        <p class="type-headliner card-text text-type ${currentPokemon.types[j].type.name}-bg-type" > ${currentPokemon.types[j].type.name.charAt(0).toUpperCase() + currentPokemon.types[j].type.name.slice(1).toLowerCase()}</p>
+                        ${strengthsHTML}
+                        ${weaknessesHTML}
+                        ${immunitiesHTML}
+                        <div class="divider"></div>
                     `;
                 }
             }
         }
-    }   
+    }
+    
 }
 

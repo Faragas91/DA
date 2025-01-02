@@ -4,6 +4,19 @@ body, html {
     height: 100vh;
 }
 
+ul {
+    display: flex;
+    gap: 5px;
+    list-style-type: none;
+    padding: 0;
+    margin: 5px;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
 *{
     box-sizing: border-box;
 }
@@ -13,12 +26,48 @@ body, html {
     font-weight: 500;
     font-style: italic;
     font-size: 32px;
-  }
+}
+
+.sour-gummy {
+    font-family: "Sour Gummy", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    font-size: 16px;
+}
+
+.ft-size-24 {
+    font-size: 24px;
+}
+
+.ft-size-20 {
+    font-size: 20px;
+}
+
+.ft-size-15 {
+    font-size: 15px;
+}
+
+.text-underline {
+    text-decoration: underline;
+}
 
 .display-flex-center {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.wrap-center {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.mg-top-bottom-10 {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .pd-top-bottom-10 {
