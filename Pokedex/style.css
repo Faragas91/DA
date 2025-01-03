@@ -70,6 +70,10 @@ p {
     margin-bottom: 10px;
 }
 
+.mg-bottom-24 {
+    margin-bottom: 24px;
+}
+
 .pd-top-bottom-10 {
     padding-top: 10px;
     padding-bottom: 10px;
@@ -81,6 +85,10 @@ p {
 
 .wd-100 {
     width: 100%;
+}
+
+.gap-10 {
+    gap: 10px;
 }
 
 .direction-row-reverse {

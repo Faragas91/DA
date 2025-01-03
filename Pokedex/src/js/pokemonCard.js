@@ -1,162 +1,11 @@
-let currentIndex = 1;
-let pokemonBatchSize = 20;
+
+
 let pokemonDataBatch = [];
 let typeDetails = [];
-let typeData;
-
-async function fetchPokemonData(startIndex, endIndex) {
-    try {
-        const content = document.getElementById('content');
-
-        for (let index = startIndex; index <= endIndex; index++) {
-            let responseJson = await fetchSinglePokemonData(index);
-            pokemonDataBatch.push(responseJson);
-
-            const cardId = `card-${responseJson.id}`;
-            const textTypeId1 = `textType1-${responseJson.id}`;
-            const textTypeId2 = `textTypeId2-${responseJson.id}`;
-
-            content.innerHTML +=
-                `
-                <div onclick="biggerImage('${cardId}', 'responseJson')"class="card" id="${cardId}">
-                    <div class="card-body">
-                        <p class="card-text text-id">#${responseJson.id}</p>
-                        <p class="card-text kanit-medium-italic">${responseJson.name.charAt(0).toUpperCase() + responseJson.name.slice(1).toLowerCase()}</p>
-                    </div>
-                    <div class="display-flex-center direction-row-reverse space-evenly">
-                        <img src="${responseJson.sprites.other["official-artwork"].front_default}" class="card-img-top" alt="Bisa">
-                        <div class="display-flex-center direction-column">
-                            <p class="card-text text-type" id="${textTypeId1}">${responseJson.types[0].type.name.charAt(0).toUpperCase() + responseJson.types[0].type.name.slice(1).toLowerCase()}</p>
-                            ${
-                                responseJson.types[1] 
-                                ? `<p class="card-text text-type" id="${textTypeId2}">${responseJson.types[1].type.name.charAt(0).toUpperCase() + responseJson.types[1].type.name.slice(1).toLowerCase()}</p>`
-                                : ''
-                            }
-                        </div>
-                    </div>
-                    <div class="card-footer none">
-                        <div class="btn-group display-flex-center" role="group" aria-label="Second group">
-                            <button onclick="selectSection('about')" type="button" class="btn btn-secondary hover-underline-animation">About</button>
-                            <button onclick="selectSection('status')" type="button" class="btn btn-secondary hover-underline-animation">Status</button>
-                            <button onclick="selectSection('strong/weak')" type="button" class="btn btn-secondary hover-underline-animation">Strong/Weak</button>
-                        </div>
-                        <div class="card-details display-flex-center direction-column" id="details-${cardId}">
-                        </div>
-                        <div class="next-buttons">
-                            <button onclick="navigateCard('left')" class="next__left-picture"></button>
-                            <button onclick="navigateCard('right')" class="next__right-picture"></button>
-                        </div>
-                    </div>
-                </div>
-            `;
-
-            const card = document.getElementById(cardId);
-            const textType1 = document.getElementById(textTypeId1);
-            const typeName1 = responseJson.types[0].type.name;
-            card.classList.add(typeName1);
-            textType1.classList.add(`${typeName1}-bg-type`);
-            
-            if (responseJson.types[1]) {
-                const textType2 = document.getElementById(textTypeId2);
-                const typeName2 = responseJson.types[1].type.name;
-                textType2.classList.add(`${typeName2}-bg-type`);
-
-            }
-        }
-        console.log(pokemonDataBatch);
-        return pokemonDataBatch;
-
-    } catch (error) {
-        console.error(`Error fetching all Pokemon: ${error}`);
-    }
-}
-
-async function fetchSinglePokemonData(pokemonId) {
-    try {
-        let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`);
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        let responseJson = await response.json();
-        return responseJson;
-
-    } catch (error) {
-        console.error(`Error fetching single Pokemon: ${error}`);
-    }
-}
-
-async function fetchAllTypeDetails() {
-    try {
-        // Schritt 1: Hole die Liste der Typen
-        const response = await fetch('https://pokeapi.co/api/v2/type');
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-
-        const typeList = await response.json();
-
-        // Schritt 2: Hole die Details für jeden Typ
-        for (const type of typeList.results) {
-            const typeResponse = await fetch(type.url);
-            if (!typeResponse.ok) {
-                throw new Error(`Failed to fetch details for ${type.name}`);
-            }
-
-            const typeData = await typeResponse.json();
-
-            // Extrahiere die relevanten Informationen
-            const details = {
-                name: type.name,
-                strengths: typeData.damage_relations.double_damage_to.map(t => t.name),
-                weaknesses: typeData.damage_relations.double_damage_from.map(t => t.name),
-                immunities: typeData.damage_relations.no_damage_from.map(t => t.name),
-            };
-
-            if (!typeDetails.some(t => t.name === details.name)) {
-                typeDetails.push(details);
-            }
-        }
-
-        // Rückgabe der gesammelten Daten
-        return typeDetails;
-
-    } catch (error) {
-        console.error(`Error fetching type details: ${error}`);
-    }
-}
-
-// Beispielaufruf
-fetchAllTypeDetails().then(typeDetails => {
-    console.log(typeDetails);
-});
-
-function loadMorePokemonData() {
-    fetchPokemonData(currentIndex, currentIndex + pokemonBatchSize - 1);
-    currentIndex += pokemonBatchSize; 
-}
-
-function filterPokemon(filter) {
-    filter = filter.toLowerCase(); 
-    const content = document.getElementById('content');
-    const pokemonElements = content.children;
-
-    if (filter.length > 2) {
-        for (let i = 0; i < pokemonElements.length; i++) {
-            const pokemon = pokemonElements[i];
-            const name = pokemon.innerText.toLowerCase();
-            pokemon.style.display = name.includes(filter) ? 'block' : 'none';
-        }
-    } else {
-        for (let j = 0; j < pokemonElements.length; j++) {
-            const pokemon = pokemonElements[j];
-            pokemon.style.display = 'block';
-        }
-    }
-}
-
 let isActive = false;
 let currentCardId = null;
-function biggerImage(cardId) {
+
+function makeImagesBigger(cardId) {
     if (currentCardId === cardId || isActive) return;
 
     const clickedCard = document.getElementById(cardId);
@@ -165,35 +14,55 @@ function biggerImage(cardId) {
     const buttonLoad = document.getElementById('button-load'); 
     const header = document.getElementById('header');
 
-    if (isActive && currentCardId && currentCardId !== cardId) {
-        closeCard(currentCardId);
-    }
+    checkToCloseBiggerImage(cardId);
+    checkIfCardIsActive(clickedCard, clickedCard, cardId, cardFooter, cardElements, buttonLoad, header);
+    selectSection('about');
+}
 
+function checkIfCardIsActive(clickedCard, clickedCard, cardId, cardFooter, cardElements, buttonLoad, header) {
     if (!isActive || currentCardId !== cardId) {
         currentCardId = cardId
 
-        cardElements.forEach(card => {
-            card.style.display = card.id === cardId ? 'block' : 'none';
-        });
-
-        clickedCard.style.maxHeight = '900px';
-        clickedCard.style.maxWidth = '350px';
-        clickedCard.style.marginTop = '50px';
-        clickedCard.style.marginBottom = '50px';
-        clickedCard.style.zIndex = 10;
-        clickedCard.classList.add('no-hover');
-       
-        buttonLoad.style.display = 'none'
-        const overlay = document.getElementById('overlay');
-        header.style.display = 'none';
-        overlay.style.display = 'block';
-        isActive = true;
-
-        if (cardFooter) {
-            cardFooter.classList.remove('none');
-        }
+        changeDisplayForCardElements(cardElements, cardId)
+        styleImageBigger(clickedCard);
+        showOverlay(buttonLoad, header);
+        addCardFooter(cardFooter)
     }
-    selectSection('about');
+}
+
+function styleImageBigger(clickedCard) {
+    clickedCard.style.maxHeight = '900px';
+    clickedCard.style.maxWidth = '350px';
+    clickedCard.style.marginTop = '80px';
+    clickedCard.style.marginBottom = '80px';
+    clickedCard.style.zIndex = 10;
+    clickedCard.classList.add('no-hover');
+}
+
+function checkToCloseBiggerImage(cardId) {
+    if (isActive && currentCardId && currentCardId !== cardId) {
+        closeCard(currentCardId);
+    }
+}
+
+function changeDisplayForCardElements(cardElements, cardId) {
+    cardElements.forEach(card => {
+        card.style.display = card.id === cardId ? 'block' : 'none';
+    });
+}
+
+function showOverlay(buttonLoad, header) {
+    buttonLoad.style.display = 'none'
+    const overlay = document.getElementById('overlay');
+    header.style.display = 'none';
+    overlay.style.display = 'block';
+    isActive = true;
+}
+
+function addCardFooter(cardFooter) {
+    if (cardFooter) {
+        cardFooter.classList.remove('none');
+    }
 }
 
 function closeCard(cardId) {
@@ -246,7 +115,7 @@ function navigateCard(direction) {
     const newCard = cardElements[newIndex];
     if (newCard) {
         closeCard(currentCardId);
-        biggerImage(newCard.id);
+        makeImagesBigger(newCard.id);
         updateProgressBars(pokemonDataBatch[newIndex]);
     }
 }
