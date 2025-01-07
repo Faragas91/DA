@@ -1,3 +1,5 @@
+let currentIndex = 1;
+
 function init() {
     showLoadingScreen();
     setTimeout(hideLoadingScreen, 2000);
@@ -5,8 +7,6 @@ function init() {
     fetchPokemonData();
     fetchAllTypeDetails();
 }
-
-let currentIndex = 1;
 
 function loadMorePokemonData() {
     let pokemonBatchSize = 20;

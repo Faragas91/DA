@@ -15,3 +15,11 @@ header {
     height: 60px;
     margin-right: 10px;
 }
+
+.title {
+    display: flex;
+}
+
+.search-field {
+    margin-left: 20px;
+}

@@ -22,6 +22,13 @@
     cursor: default;
 }
 
+.clicked-card {
+    min-height: 800px;
+    max-width: 350px;
+    margin-top: 80px;
+    z-index: 10;
+}
+
 .card-img-top {
     width: 150px;
 }
@@ -30,7 +37,6 @@
     text-align: center;
     color: rgb(0, 0, 0);
 }
-
 
 .text-id {
     text-align: left !important;
@@ -55,42 +61,42 @@
     display: none;
 }
 
+.card-footer {
+    position: relative;
+}
+
 .next-buttons {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    position: absolute; 
+    bottom: 5px;
+    width: 100%;
+    height: 40px;
+}
+
+.next__left-picture, .next__right-picture {
+    position: absolute; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    background-position: center;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 0;
 }
 
 .next__left-picture {
-    width: 40px;
-    height: 40px;
+    left: 10px; 
     background-image: url('../../assets/icons/left-button.png');
-    background-size: cover;
-    background-position: center;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    padding: 0;
-}
-
-.next__left-picture:hover {
-    background-color: rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s ease;
 }
 
 .next__right-picture {
-    width: 40px;
-    height: 40px;
+    right: 10px; 
     background-image: url('../../assets/icons/right-button.png');
-    background-size: cover;
-    background-position: center;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    padding: 0;
 }
 
-.next__right-picture:hover {
+.next__left-picture:hover, .next__right-picture:hover {
     background-color: rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s ease;
 }

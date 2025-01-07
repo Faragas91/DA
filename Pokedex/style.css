@@ -110,3 +110,7 @@ button {
 .none {
     display: none;
 }
+
+.position-absolute {
+    position: absolute;
+}

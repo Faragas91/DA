@@ -1,3 +1,5 @@
+/* WIDTH */
+
 @media screen and (max-width: 998px) {
     .col-md-3 {
         width: 50%;
@@ -9,3 +11,11 @@
         width: 100% !important;
     }
 }
+
+@media screen and (max-width: 480px) {
+    .title {
+        display: none !important;
+    }
+}
+
+/* HEIGHT */
