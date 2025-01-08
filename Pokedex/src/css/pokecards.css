@@ -25,7 +25,7 @@
 .clicked-card {
     min-height: 800px !important;
     max-width: 350px !important;
-    margin-top: 80px !important;
+    margin-top: 80px;
     z-index: 10 !important;
 }
 
