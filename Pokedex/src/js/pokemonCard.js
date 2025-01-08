@@ -25,7 +25,7 @@ function checkIfCardIsActive(clickedCard, cardId, cardFooter, cardElements, butt
     if (!isActive || currentCardId !== cardId) {
         currentCardId = cardId
 
-        changeDisplayForCardElements(cardElements, cardId)
+        changeDisplayForCardElements(cardElements, cardId, clickedCard)
         styleImageBigger(clickedCard, nextButton);
         showOverlay(buttonLoad, header);
         addCardFooter(cardFooter)
@@ -44,10 +44,11 @@ function checkToCloseBiggerImage(cardId) {
     }
 }
 
-function changeDisplayForCardElements(cardElements, cardId) {
+function changeDisplayForCardElements(cardElements, cardId, clickedCard) {
     cardElements.forEach(card => {
         card.style.display = card.id === cardId ? 'block' : 'none';
     });
+    clickedCard.classList.add('clicked-card');
 }
 
 function showOverlay(buttonLoad, header) {
@@ -90,15 +91,13 @@ function closeCard(cardId) {
 }
 
 function styleImageToNormal(cardElements, clickedCard, nextButton) {
+    clickedCard.classList.remove('no-hover');
     cardElements.style.display = 'flex';
     cardElements.style.minHeight = 'auto';
     cardElements.style.maxWidth = '300px';
     cardElements.style.marginTop = 'auto';
     cardElements.style.marginBottom = '10px';
     cardElements.style.zIndex = 1;
-    
-    clickedCard.classList.remove('clicked-card');
-    clickedCard.classList.remove('no-hover');
     removeNextButtons(nextButton)
 }
 
@@ -108,6 +107,7 @@ function changeLayoutToNormal(clickedCard, buttonLoad, overlay, header, cardFoot
         overlay.style.display = 'none';
         header.style.display = 'flex';
         removeFooter(cardFooter);
+        clickedCard.classList.remove('clicked-card');
         isActive = false;
         currentCardId = null;
     }
