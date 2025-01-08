@@ -1,46 +1,46 @@
-let pokemonDataBatch = [];
+let pokemonCardsData = [];
 let typeDetails = [];
-let isActive = false;
-let currentCardId = null;
+let isPokemonCardActive = false;
+let activeCardId = null;
 
 //////////////////////////////////////////
 // Section for to make the Image bigger //
 //////////////////////////////////////////
 function makeImagesBigger(cardId) {
-    if (currentCardId === cardId || isActive) return;
+    if (activeCardId === cardId || isPokemonCardActive) return;
 
     const clickedCard = document.getElementById(cardId);
     const cardFooter = clickedCard.querySelector('.card-footer');
     const cardElements = document.querySelectorAll('[id^="card-"]');
-    const buttonLoad = document.getElementById('button-load'); 
-    const header = document.getElementById('header');
-    const nextButton = clickedCard.querySelector('.next-buttons');
+    const loadMorePokemons = document.getElementById('button-load'); 
+    const pageHeader = document.getElementById('header');
+    const navigationButton = clickedCard.querySelector('.next-buttons');
 
     checkToCloseBiggerImage(cardId);
-    checkIfCardIsActive(clickedCard, cardId, cardFooter, cardElements, buttonLoad, header, nextButton);
+    checkIfCardIsActive(clickedCard, cardId, cardFooter, cardElements, loadMorePokemons, pageHeader, navigationButton);
     generateCardDetails('about');
 }
 
-function checkIfCardIsActive(clickedCard, cardId, cardFooter, cardElements, buttonLoad, header, nextButton) {
-    if (!isActive || currentCardId !== cardId) {
-        currentCardId = cardId
+function checkIfCardIsActive(clickedCard, cardId, cardFooter, cardElements, loadMorePokemons, pageHeader, navigationButton) {
+    if (!isPokemonCardActive || activeCardId !== cardId) {
+        activeCardId = cardId
 
         changeDisplayForCardElements(cardElements, cardId, clickedCard)
-        styleImageBigger(clickedCard, nextButton);
-        showOverlay(buttonLoad, header);
+        styleImageBigger(clickedCard, navigationButton);
+        showOverlay(loadMorePokemons, pageHeader);
         addCardFooter(cardFooter)
     }
 }
 
-function styleImageBigger(clickedCard, nextButton) {
+function styleImageBigger(clickedCard, navigationButton) {
     clickedCard.classList.add('clicked-card');
     clickedCard.classList.add('no-hover');
-    addNextButtons(nextButton)
+    addNextButtons(navigationButton)
 }
 
 function checkToCloseBiggerImage(cardId) {
-    if (isActive && currentCardId && currentCardId !== cardId) {
-        closeCard(currentCardId);
+    if (isPokemonCardActive && activeCardId && activeCardId !== cardId) {
+        closeCard(activeCardId);
     }
 }
 
@@ -51,12 +51,12 @@ function changeDisplayForCardElements(cardElements, cardId, clickedCard) {
     clickedCard.classList.add('clicked-card');
 }
 
-function showOverlay(buttonLoad, header) {
-    buttonLoad.style.display = 'none'
+function showOverlay(loadMorePokemons, pageHeader) {
+    loadMorePokemons.style.display = 'none'
     const overlay = document.getElementById('overlay');
-    header.style.display = 'none';
+    pageHeader.style.display = 'none';
     overlay.style.display = 'block';
-    isActive = true;
+    isPokemonCardActive = true;
 }
 
 function addCardFooter(cardFooter) {
@@ -65,9 +65,9 @@ function addCardFooter(cardFooter) {
     }
 }
 
-function addNextButtons(nextButton) {
-    if (nextButton) {
-        nextButton.classList.remove('none');
+function addNextButtons(navigationButton) {
+    if (navigationButton) {
+        navigationButton.classList.remove('none');
     }
 }
 
@@ -80,17 +80,17 @@ function closeCard(cardId) {
     const cardFooter = clickedCard.querySelector('.card-footer');
     const cardElements = document.querySelectorAll('[id^="card-"]');
     const overlay = document.getElementById('overlay');
-    const buttonLoad = document.getElementById('button-load');
-    const header = document.getElementById('header');
-    const nextButton = clickedCard.querySelector('.next-buttons');
+    const loadMorePokemons = document.getElementById('button-load');
+    const pageHeader = document.getElementById('header');
+    const navigationButton = clickedCard.querySelector('.next-buttons');
     
     for (let i = 0; i < cardElements.length; i++) {
-        styleImageToNormal(cardElements[i], clickedCard, nextButton)
+        styleImageToNormal(cardElements[i], clickedCard, navigationButton)
     }   
-    changeLayoutToNormal(clickedCard, buttonLoad, overlay, header, cardFooter)
+    changeLayoutToNormal(clickedCard, loadMorePokemons, overlay, pageHeader, cardFooter)
 }
 
-function styleImageToNormal(cardElements, clickedCard, nextButton) {
+function styleImageToNormal(cardElements, clickedCard, navigationButton) {
     clickedCard.classList.remove('no-hover');
     cardElements.style.display = 'flex';
     cardElements.style.minHeight = 'auto';
@@ -98,18 +98,20 @@ function styleImageToNormal(cardElements, clickedCard, nextButton) {
     cardElements.style.marginTop = 'auto';
     cardElements.style.marginBottom = '10px';
     cardElements.style.zIndex = 1;
-    removeNextButtons(nextButton)
+    removeNextButtons(navigationButton)
 }
 
-function changeLayoutToNormal(clickedCard, buttonLoad, overlay, header, cardFooter) {
-    if (clickedCard && isActive) {
-        buttonLoad.style.display = 'flex';
+function changeLayoutToNormal(clickedCard, loadMorePokemons, overlay, pageHeader, cardFooter) {
+    if (clickedCard && isPokemonCardActive) {
+        loadMorePokemons.style.display = 'flex';
         overlay.style.display = 'none';
-        header.style.display = 'flex';
+        pageHeader.style.display = 'flex';
+
         removeFooter(cardFooter);
         clickedCard.classList.remove('clicked-card');
-        isActive = false;
-        currentCardId = null;
+        
+        isPokemonCardActive = false;
+        activeCardId = null;
     }
 }
 
@@ -119,9 +121,9 @@ function removeFooter(cardFooter) {
     }
 }
 
-function removeNextButtons(nextButton) {
-    if (nextButton) {
-        nextButton.classList.add('none');
+function removeNextButtons(navigationButton) {
+    if (navigationButton) {
+        navigationButton.classList.add('none');
     }
 }
 
@@ -129,20 +131,20 @@ function removeNextButtons(nextButton) {
 // Section for to navigate between cards //
 ///////////////////////////////////////////
 function navigateCard(direction) {
-    if (!currentCardId) return;
+    if (!activeCardId) return;
 
     const cardElements = Array.from(document.querySelectorAll('[id^="card-"]'));
-    const currentIndex = cardElements.findIndex(card => card.id === currentCardId);
+    const pokemonCardIndex = cardElements.findIndex(card => card.id === activeCardId);
 
-    let newIndex = chooseDirection(direction, currentIndex, cardElements)
+    let newIndex = chooseDirection(direction, pokemonCardIndex, cardElements)
     setNewCard(cardElements, newIndex)
 }
 
-function chooseDirection(direction, currentIndex, cardElements) {
+function chooseDirection(direction, pokemonCardIndex, cardElements) {
     if (direction === 'left') {
-        leftOrRight = currentIndex > 0 ? currentIndex - 1 : cardElements.length - 1;
+        leftOrRight = pokemonCardIndex > 0 ? pokemonCardIndex - 1 : cardElements.length - 1;
     } else if (direction === 'right') {
-        leftOrRight = currentIndex < cardElements.length - 1 ? currentIndex + 1 : 0;
+        leftOrRight = pokemonCardIndex < cardElements.length - 1 ? pokemonCardIndex + 1 : 0;
     }
     return leftOrRight;
 }
@@ -150,9 +152,9 @@ function chooseDirection(direction, currentIndex, cardElements) {
 function setNewCard(cardElements, newIndex) {
     const newCard = cardElements[newIndex];
     if (newCard) {
-        closeCard(currentCardId);
+        closeCard(activeCardId);
         makeImagesBigger(newCard.id);
-        updateProgressBars(pokemonDataBatch[newIndex]);
+        updateProgressBars(pokemonCardsData[newIndex]);
     }
 }
 
@@ -161,10 +163,10 @@ function setNewCard(cardElements, newIndex) {
 ////////////////////////////////////////////////////////
 
 function generateCardDetails(detail) {
-    const cardDetails = document.querySelector(`#details-${currentCardId}`);
+    const cardDetails = document.querySelector(`#details-${activeCardId}`);
     cardDetails.innerHTML = '';
-    const cardIndex = pokemonDataBatch.findIndex(pokemon => `card-${pokemon.id}` === currentCardId);
-    const currentPokemon = pokemonDataBatch[cardIndex];
+    const cardIndex = pokemonCardsData.findIndex(pokemon => `card-${pokemon.id}` === activeCardId);
+    const currentPokemon = pokemonCardsData[cardIndex];
     selectSection(detail, currentPokemon, cardDetails, cardIndex)
 }
 

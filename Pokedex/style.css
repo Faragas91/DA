@@ -107,6 +107,10 @@ button {
     cursor: pointer;
 }
 
+.btn {
+    margin-bottom: 20px;
+}
+
 .none {
     display: none;
 }

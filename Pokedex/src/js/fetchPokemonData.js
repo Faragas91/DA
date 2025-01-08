@@ -1,10 +1,10 @@
 async function fetchPokemonData(startIndex, endIndex) {
     for (let index = startIndex; index <= endIndex; index++) {
         let responseJson = await fetchSinglePokemonData(index);
-        pokemonDataBatch.push(responseJson);
+        pokemonCardsData.push(responseJson);
         generatePokemonCards(responseJson);
     }
-    return pokemonDataBatch;
+    return pokemonCardsData;
 }
 
 async function fetchSinglePokemonData(pokemonId) {

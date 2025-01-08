@@ -50,7 +50,6 @@ function templateForCardFooter(cardId) {
     `;
 }
 
-
 ////////////////////////////////////
 // Template for the About section //
 ////////////////////////////////////
@@ -77,7 +76,6 @@ function templateForAbout(currentPokemon, cardDetails, hiddenAbility) {
 function capitalize(text) {
     return text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
 }
-
 
 /////////////////////////////////////
 // Template for the Status section //
@@ -145,7 +143,7 @@ function generateTypeHTML(cardDetails, currentPokemon, strengthsHTML, weaknesses
         ${weaknessesHTML}
         ${immunitiesHTML}
         <div class="divider"></div>
-`;
+    `;
 }
 
 

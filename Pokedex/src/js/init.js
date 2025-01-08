@@ -1,4 +1,4 @@
-let currentIndex = 1;
+let pokemonIndex = 1;
 
 function init() {
     showLoadingScreen();
@@ -12,8 +12,8 @@ function loadMorePokemonData() {
     let pokemonBatchSize = 20;
     showLoadingScreen();
     setTimeout(hideLoadingScreen, 2000);
-    fetchPokemonData(currentIndex, currentIndex + pokemonBatchSize - 1);
-    currentIndex += pokemonBatchSize; 
+    fetchPokemonData(pokemonIndex, pokemonIndex + pokemonBatchSize - 1);
+    pokemonIndex += pokemonBatchSize; 
 }
 
 function showLoadingScreen() {
@@ -34,16 +34,24 @@ function searchPokemon(filter) {
     const pokemonElements = content.children;
 
     if (filter.length > 2) {
-        for (let i = 0; i < pokemonElements.length; i++) {
-            const pokemon = pokemonElements[i];
-            const name = pokemon.innerText.toLowerCase();
-            pokemon.style.display = name.includes(filter) ? 'block' : 'none';
-        }
+        moreThenThreeLetters(filter, pokemonElements);
     } else {
-        for (let j = 1; j < pokemonElements.length; j++) {
-            const pokemon = pokemonElements[j];
-            pokemon.style.display = 'block';
-        }
+        showHiddenImagesAgain(pokemonElements);
+    }
+}
+
+function moreThenThreeLetters(filter, pokemonElements) {
+    for (let i = 0; i < pokemonElements.length; i++) {
+        const pokemon = pokemonElements[i];
+        const name = pokemon.innerText.toLowerCase();
+        pokemon.style.display = name.includes(filter) ? 'block' : 'none';
+    }
+}
+
+function showHiddenImagesAgain(pokemonElements) {
+    for (let j = 1; j < pokemonElements.length; j++) {
+        const pokemon = pokemonElements[j];
+        pokemon.style.display = 'block';
     }
 }
 
