@@ -1,0 +1,26 @@
+section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 32px;
+}
+
+div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    >img {
+        width: 96px;
+        height: 96px;
+    }
+}
+
+h2 {
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+    margin: 16px;
+}

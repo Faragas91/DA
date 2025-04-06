@@ -4,7 +4,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 
 
 @Component({
-    selector: 'app-landingPage',
+    selector: 'app-landing-page',
     standalone: true,
     imports: [CommonModule, NavbarComponent],
     template: `
@@ -17,6 +17,6 @@ import { NavbarComponent } from './navbar/navbar.component';
             <h2 class="font__raleway" > Welcome to our ramen shop! </h2>
         </section>
     `,
-    styleUrls:['./landingPage.component.scss'],
+    styleUrls:['./landing-page.component.scss'],
 })
 export class LandingPageComponent {}
